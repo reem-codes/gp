@@ -1,0 +1,150 @@
+\documentclass{article}
+\usepackage{setspace}
+\usepackage{arabtex}
+\usepackage{utf8} 
+\usepackage{hyperref} 
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{enumitem}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcounter{magicrownumbers}
+\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
+
+\lstset{frame=tb,
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
+\setcounter{tocdepth}{3}
+\hypersetup{
+	colorlinks,
+	citecolor=[rgb]{0,0.5,0.5},
+	filecolor=[rgb]{0,0.5,0.5},
+	linkcolor=[rgb]{0,0.5,0.5},
+	urlcolor=[rgb]{0,0.5,0.5}
+}
+
+\date{}
+\title{
+	Online Home Automation Control System \\
+	\large 2019-2020 Graduation Project I }
+
+\author{
+	\setcode{utf8}
+	\RL{ريم علي الغامدي} 
+	\\\texttt{437004875}
+	\\[3ex]
+	\RL{ساره خالد آل حسين} 
+	\\\texttt{436006939}
+	\\[3ex]
+	\RL{ضحى نضال الزعبي} 
+	\\\texttt{436200063}
+	\\[3ex]
+	\RL{عبير أحمد عزت} 
+	\\\texttt{436200058}
+	\\[3ex]
+	\RL{منى سعود الخثلان} 
+	\\\texttt{437004005}
+	\\[3ex]
+	\RL{نوف عبد الله الدعجاني} 
+	\\\texttt{437004100}
+}
+\begin{document}
+	
+	
+	\pagenumbering{gobble}
+	\maketitle
+	\newpage
+
+	\addcontentsline{toc}{section}{Acknowledgement}
+	
+	\pagenumbering{arabic}
+	\addcontentsline{toc}{section}{Table of Contents}\tableofcontents
+	\newpage	
+	\doublespacing
+	\newpage
+	
+	\addcontentsline{toc}{section}{List of Tables}
+	\addcontentsline{toc}{section}{List of Figures}
+	\addcontentsline{toc}{section}{List of Symbols\& Abbreviations}
+
+	\addcontentsline{toc}{section}{Abstract \& Keywords}
+
+	\section{Introduction}
+		\subsection{Problem statement \& Significance}
+		\subsection{Proposed Solution}
+		\subsection{Aims \& Objectives}
+		\subsection{Project Domain \& Limitation}
+		\newpage	
+	\section{Background Information \& Related Work}
+		\subsection{Background Information}
+		\subsection{Related Work}
+		\subsection{Proposed \& Similar System Comparison}
+		\newpage	
+	\section{Requirement Determination \& Analysis}
+		\subsection{System Analysis}
+		\subsection{Gathering Information}
+		\subsection{Requirement Specification}
+			\subsubsection{Functional Requirements}
+			\subsubsection{Non-Functional Requirements}
+		\subsection{Requirement Analysis}
+		\newpage	
+	\section{System Design}
+		\subsection{System Architecture}
+		\subsection{User Interface Design}
+		\newpage	
+	\section{Implementation}
+		\subsection{Implementation}
+		\subsection{Implementation Requirements}
+			\subsubsection{Software Requirements}
+			\subsubsection{Hardware Requirements}
+		\subsection{Implementation Detailed}
+		\subsection{I/O Screens}
+		\newpage	
+	\section{Testing}
+		\subsection{Testing}
+		\subsection{Test Plan}
+			\subsubsection{Unit Test}
+			\subsubsection{Functional Test}
+			\subsubsection{Acceptance Test}
+		\subsection{Test Items}
+			\subsubsection{Features to Be Tested}
+			\subsubsection{Schedule of Test Actions}
+			\subsubsection{Test Tasks}
+		\subsection{Test Case}
+		\subsection{Test Result}
+		\newpage	
+	\section{Conclusion}
+		\subsection{Conclusion}
+		\subsection{Evaluation}
+		\subsection{Future Work}
+	\newpage
+
+	\addcontentsline{toc}{section}{References}
+	\bibliographystyle{ieeetr}
+	\bibliography{References}
+
+	\addcontentsline{toc}{section}{Appendices}
+
+\end{document}
