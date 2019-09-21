@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[a4paper, 12pt, oneside]{book}
 \usepackage{setspace}
 \usepackage{arabtex}
 \usepackage{utf8} 
@@ -9,12 +9,38 @@
 \usepackage{geometry}
 \usepackage{lipsum}
 \usepackage{listings}
-\usepackage{color}
+\usepackage{xcolor}
 \usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xparse}
 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\definecolor{section}{HTML}{ff7468}
+\definecolor{sub}{HTML}{547a87}
+\definecolor{ssub}{HTML}{97d0c0}
+\definecolor{bold}{HTML}{ffca2e}
+
+
+\definecolor{lightgray}{HTML}{eeeeee}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{green}{rgb}{0,0.6,0}
+
+
+\titleformat{\chapter}
+{\color{section}\normalfont\Large\bfseries}
+{\color{section}\thechapter}{1em}{}
+
+\titleformat{\section}
+{\color{sub}\normalfont\bfseries}
+{\color{sub}\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\color{ssub}\normalfont\bfseries}
+{\color{ssub}\thesubsection}{1em}{}
+
+
+\newcommand\boldcolor[1]{\textcolor{bold}{\textbf{#1}}}
 
 \newcounter{magicrownumbers}
 \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
@@ -77,74 +103,122 @@
 	\maketitle
 	\newpage
 
-	\addcontentsline{toc}{section}{Acknowledgement}
+	\addcontentsline{toc}{chapter}{Acknowledgement}
 	
 	\pagenumbering{arabic}
-	\addcontentsline{toc}{section}{Table of Contents}\tableofcontents
+	\addcontentsline{toc}{chapter}{Table of Contents}\tableofcontents
 	\newpage	
 	\doublespacing
 	\newpage
 	
-	\addcontentsline{toc}{section}{List of Tables}
-	\addcontentsline{toc}{section}{List of Figures}
-	\addcontentsline{toc}{section}{List of Symbols\& Abbreviations}
+	\addcontentsline{toc}{chapter}{List of Tables}
+	\listoftables
+	\newpage
+	
+	\addcontentsline{toc}{chapter}{List of Figures}
+	\listoffigures
+	\newpage
+	
+	\addcontentsline{toc}{chapter}{List of Symbols \& Abbreviations}
 
-	\addcontentsline{toc}{section}{Abstract \& Keywords}
 
-	\section{Introduction}
-		\subsection{Problem statement \& Significance}
-		\subsection{Proposed Solution}
-		\subsection{Aims \& Objectives}
-		\subsection{Project Domain \& Limitation}
+	\addcontentsline{toc}{chapter}{\nameref{sec:intro}}
+
+
+	\chapter*{Abstract}
+		\label{sec:intro}
+	\paragraph{} The aim for this project is to control lights, air conditioners, television or any other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time.
+	
+	
+
+	\chapter{Introduction}
+		\section{Problem statement \& Significance}
+		With the recent very rapid progress in technology and automation, there has become a need for remote control of almost all possible aspects of living, like using apps to control a cleaning robot or adjust the heating in the house or switch the house lights on or off. For the latter, there have been many applications that can do that, however they all work locally and there hasn’t been one yet that uses the internet so it can be used remotely from outside the house to control the lights. A service like this is crucial for many people, like moms who are outside the house and want to switch the lights on at a certain time to wake their children up, or for a traveling family to turn on air conditioner before arrriving after summer vacation.
+		\section{Proposed Solution}
+		Because an important service like this is still not available, the proposed solution is as follows: we will create an app that should enable the user, by clicking on the appropriate buttons, to control a physical apparatus in the building where the lights are and have the lights turn on or off accordingly. We will do that by
+		\section{Project Domain \& Limitation}
+The domain in which our project operates in is home automation or domotics, and because our application will work through the Internet, it also operates in the domain of Internet of Things. 
+The main limitation that we will face will be the time; given the period we have to work on the project, we may just be able to create an application that will control only lights, rather than other home appliances such as air conditioners, heaters and so on. 
+			\subsection{Domain}
+			\subsection{Limitation}
+		\section{Gantt Chart}
 		\newpage	
-	\section{Background Information \& Related Work}
-		\subsection{Background Information}
-		\subsection{Related Work}
-		\subsection{Proposed \& Similar System Comparison}
+		\chapter{Background Information \& Related Work}
+			\section{Background Information}
+			\subsection{IoT}
+			\subsection{Hardware}
+				\begin{itemize}
+				\item \boldcolor{Raspberry Pi:} a small general purpose computer. All hardware components will be connected to it. An active connection to the internet is needed for it to fetch data from the server. %insert figure here% 
+				\item \boldcolor{Ubuntu Web Server:} hosts the web application. Digital Ocean severs were chosen for this project.
+				
+				\item \boldcolor{LED:} since the hardware components controlled depends heavily on the user needs, this project main aim will be controlling a small LED. LED stands for light-emitting diode. Basically a small light source. %insert figure here% %
+				\item \boldcolor{Linear Solenoid:} once the LED works, linear solenoid will be installed for demonstrating the idea. It is a small component that generates a linear motion. It will be used to press in anything, such as lights, TV remote, and coffee machine. %insert figure here%
+				\end{itemize}
+				
+			\subsection{Programming Languages \& Frameworks}
+				\begin{itemize}
+					
+					\item \boldcolor{Python:} raspberry pi can be controlled by either c++ or python. Python was chosen because a REST API can be made using it fast.
+		 				\begin{itemize}
+		 					\item \boldcolor{GPIO:} a library for controlling any hardware component connected to the GPIO pins.
+		 					\item \boldcolor{Flask:} a lightweight framework to build web applications.
+						\end{itemize}
+					\item \boldcolor{Java:} mobile application are made in a native way with either swift or java.
+						\begin{itemize}
+							\item \boldcolor{Android:} a framework for making android apps.
+							\item \boldcolor{Retrofit:} type-safe HTTP client for Android and Java. It will be used to send and receive commands and status from the web server.
+							
+						\end{itemize}
+					\item \boldcolor{PostgreSQL:} an open-source RDBMS. It will be installed on the server.
+				\end{itemize}
+			
+			\subsection{SDLC Model}
+		\section{Related Work}
+		\section{Proposed \& Similar System Comparison}
 		\newpage	
-	\section{Requirement Determination \& Analysis}
-		\subsection{System Analysis}
-		\subsection{Gathering Information}
-		\subsection{Requirement Specification}
-			\subsubsection{Functional Requirements}
-			\subsubsection{Non-Functional Requirements}
-		\subsection{Requirement Analysis}
+	\chapter{Requirement Determination \& Analysis}
+		\section{System Analysis}
+		\section{Gathering Information}
+		\section{Requirement Specification}
+			\subsection{Functional Requirements}
+			\subsection{Non-Functional Requirements}
+		\section{Requirement Analysis}
 		\newpage	
-	\section{System Design}
-		\subsection{System Architecture}
-		\subsection{User Interface Design}
+	\chapter{System Design}
+		\section{System Architecture}
+		\section{User Interface Design}
 		\newpage	
-	\section{Implementation}
-		\subsection{Implementation}
-		\subsection{Implementation Requirements}
-			\subsubsection{Software Requirements}
-			\subsubsection{Hardware Requirements}
-		\subsection{Implementation Detailed}
-		\subsection{I/O Screens}
+	\chapter{Implementation}
+		\section{Implementation}
+		\section{Implementation Requirements}
+			\subsection{Software Requirements}
+			\subsection{Hardware Requirements}
+		\section{Implementation Detailed}
+		\section{I/O Screens}
 		\newpage	
-	\section{Testing}
-		\subsection{Testing}
-		\subsection{Test Plan}
-			\subsubsection{Unit Test}
-			\subsubsection{Functional Test}
-			\subsubsection{Acceptance Test}
-		\subsection{Test Items}
-			\subsubsection{Features to Be Tested}
-			\subsubsection{Schedule of Test Actions}
-			\subsubsection{Test Tasks}
-		\subsection{Test Case}
-		\subsection{Test Result}
+	\chapter{Testing}
+		\section{Testing}
+		\section{Test Plan}
+			\subsection{Unit Test}
+			\subsection{Functional Test}
+			\subsection{Acceptance Test}
+		\section{Test Items}
+			\subsection{Features to Be Tested}
+			\subsection{Schedule of Test Actions}
+			\subsection{Test Tasks}
+		\section{Test Case}
+		\section{Test Result}
 		\newpage	
-	\section{Conclusion}
-		\subsection{Conclusion}
-		\subsection{Evaluation}
-		\subsection{Future Work}
+	\chapter{Conclusion}
+		\section{Conclusion}
+		\section{Evaluation}
+		\section{Future Work}
 	\newpage
 
-	\addcontentsline{toc}{section}{References}
+	\addcontentsline{toc}{chapter}{References}
 	\bibliographystyle{ieeetr}
 	\bibliography{References}
 
-	\addcontentsline{toc}{section}{Appendices}
+	\addcontentsline{toc}{chapter}{Appendices}
 
 \end{document}
