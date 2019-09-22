@@ -5,7 +5,6 @@
 \usepackage{hyperref} 
 \usepackage{graphicx}
 \usepackage{subcaption}
-\usepackage{tabularx}
 \usepackage{geometry}
 \usepackage{lipsum}
 \usepackage{listings}
@@ -13,6 +12,14 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{xparse}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+\usepackage{verbatimbox}
+
+\renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
 
 
 \definecolor{section}{HTML}{ff7468}
@@ -41,9 +48,7 @@
 
 
 \newcommand\boldcolor[1]{\textcolor{bold}{\textbf{#1}}}
-
-\newcounter{magicrownumbers}
-\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
+\newcommand\Includegraphics[2][]{\addvbuffer[3pt 0pt]{\includegraphics[#1]{#2}}}
 
 \lstset{frame=tb,
 	language=Java,
@@ -73,8 +78,9 @@
 
 \date{}
 \title{
+	\color{section}
 	Online Home Automation Control System \\
-	\large 2019-2020 Graduation Project I }
+		\color{ssub}\large 2019-2020 Graduation Project I }
 
 \author{
 	\setcode{utf8}
@@ -133,15 +139,19 @@
 
 	\chapter{Introduction}
 		\section{Problem statement \& Significance}
-		With the recent very rapid progress in technology and automation, there has become a need for remote control of almost all possible aspects of living, like using apps to control a cleaning robot or adjust the heating in the house or switch the house lights on or off. For the latter, there have been many applications that can do that, however they all work locally and there hasn’t been one yet that uses the internet so it can be used remotely from outside the house to control the lights. A service like this is crucial for many people, like moms who are outside the house and want to switch the lights on at a certain time to wake their children up, or for a traveling family to turn on air conditioner before arrriving after summer vacation.
+		\paragraph{}With the recent very rapid progress in technology and automation, there has become a need for remote control of almost all possible aspects of living, like using apps to control a cleaning robot or adjust the heating in the house or switch the house lights on or off. For the latter, there have been many applications that can do that, however they all work locally and there hasn’t been one yet that uses the internet so it can be used remotely from outside the house to control the lights. A service like this is crucial for many people, like moms who are outside the house and want to switch the lights on at a certain time to wake their children up, or for a traveling family to turn on air conditioner before arrriving after summer vacation.
 		\section{Proposed Solution}
-		Because an important service like this is still not available, the proposed solution is as follows: we will create an app that should enable the user, by clicking on the appropriate buttons, to control a physical apparatus in the building where the lights are and have the lights turn on or off accordingly. We will do that by
+		\paragraph{}Because an important service like this is still not available, the proposed solution is as follows: we will create an app that should enable the user, by clicking on the appropriate buttons, to control a physical apparatus in the building where the lights are and have the lights turn on or off accordingly. We will do that by
 		\section{Project Domain \& Limitation}
-The domain in which our project operates in is home automation or domotics, and because our application will work through the Internet, it also operates in the domain of Internet of Things. 
+\paragraph{}The domain in which our project operates in is home automation or domotics, and because our application will work through the Internet, it also operates in the domain of Internet of Things. 
 The main limitation that we will face will be the time; given the period we have to work on the project, we may just be able to create an application that will control only lights, rather than other home appliances such as air conditioners, heaters and so on. 
 			\subsection{Domain}
 			\subsection{Limitation}
 		\section{Gantt Chart}
+		\begin{figure}[h!]
+  			\caption{Gantt Chart}
+			\includegraphics[width=\linewidth]{img/gantt_chart.png}
+		\end{figure}
 		\newpage	
 		\chapter{Background Information \& Related Work}
 			\section{Background Information}
@@ -173,9 +183,110 @@ The main limitation that we will face will be the time; given the period we have
 				\end{itemize}
 			
 			\subsection{SDLC Model}
-		\section{Related Work}
-		\section{Proposed \& Similar System Comparison}
+			\paragraph{} Incremental model will be used in this project. This model is a process of software development where requirements are broken down into multiple standalone modules of software development cycle. Incremental development is done in steps from analysis design, implementation, testing / verification, maintenance\cite{sdlc}. The reason this model was chosen is the pieces will be installed, tested and connected to the system gradually. First a LED, then a linear solenoid and so on.
+			
+			
 		\newpage	
+		\section{Related Work}
+		\subsection{Insteon - Insteon Hub}
+		\begin{figure}[H]
+  			\caption{Related Work: Insteon}
+			\includegraphics[width=\linewidth]{img/insteon.png}
+		\end{figure}
+		\paragraph{}Insteon Hub is a simple and straightforward device that connects you to your home from any smartphone or tablet, anywhere in the world. Control Insteon light bulbs, wall switches, outlets, and thermostats at home or remotely and receive instant email or push notification alerts from motion, door and window, water leak, and smoke sensors while you’re away. Homepage: \url{https://www.insteon.com/}
+		\begin{itemize}
+		\item \boldcolor{Advantage:}
+			\begin{enumerate}
+				\item Control Multiple Devices Simultaneously with a Basic Scene.
+				\item Create Schedules to Turn Your Lights On and Off at Specific Times.
+				\item Automatically Turn Lights On and Off with Sensors.
+				\item Monitor Your Home with Email or Push Notification Alerts.
+			\end{enumerate}
+		\item \boldcolor{Disadvantage:} 
+			\begin{enumerate}
+				\item Hub setup takes a couple of minutes and a few moments per light switch, sensor.
+				\item Its need to connect it to power and your home's internet router so if the internet die all devices need to start over again. 
+				\item fixed the hub take more cost than its original price.
+				\item There is no database save/restore. You have to recreate all the devices, scenes, schedules if its replaced.
+			\end{enumerate}
+		\end{itemize}
+		\newpage	
+		\subsection{Wink - Wink Hub 2}
+		\begin{figure}[H]
+  			\caption{Related Work: Wink}
+  			\includegraphics[width=\linewidth]{img/wink.png}
+		\end{figure}
+		\paragraph{}Wink Hub 2 is the world’s first smart home hub created for the mainstream consumer. With industry-leading smart home protocol support, enhanced connectivity features, and a sleek design, Wink Hub 2 brings hundreds of products from best-in-class brands together for a simple, intuitive experience. Home page: \url{https://www.wink.com/about/}
+		
+		\begin{itemize}
+			\item \boldcolor{Advantage:}
+			\begin{enumerate}
+				\item Support Different platforms such as iOS or Android.
+				\item Once you've created an account, Wink has the ability to recognize the products within Wink Bright, guide you through a few simple steps, and then you're ready to go.
+				\item Wink works with Cortana Microsoft’s voice assistant and Amazon Alexa.
+				\item One Important features in wink, its can see what you’re spending even before the bill arrives.
+			\end{enumerate}
+			\item \boldcolor{Disadvantage:} 
+			\begin{enumerate}
+				\item One major problem with the Wink 2 hub is that the device sometimes loses connectivity and must be reset in order for it to connect again.
+				\item Wink app doesn't always let you access other devices' full features.
+				\item High price.
+				\item Takes 14 days to arrive.
+			\end{enumerate}
+		\end{itemize}
+		\newpage
+		\subsection{Samsung – Smart Things Hub}
+		\begin{figure}[H]
+  			\caption{Related Work: Samsung}
+			\includegraphics[width=\linewidth]{img/samsung.png}
+		\end{figure}
+		\paragraph{}Smart things hub Connect wirelessly with a wide range of smart devices and make them work together.
+		Home page: \url{https://www.smartthings.com/}
+		\begin{itemize}
+			\item \boldcolor{Advantage:}
+			\begin{enumerate}
+				\item Monitor and control connected devices in your home using a single SmartThings app for iPhone or Android.
+				\item Manage connected devices in your home with SmartThings Routines for Good Morning, Goodbye, Good Night, and more.
+				\item Receive alerts from connected devices when there’s unexpected activity in your home.
+				
+			\end{enumerate}
+			\item \boldcolor{Disadvantage:} 
+			\begin{enumerate}
+				\item Some compatible components may not work as efficiently or smoothly as you want them to, which may be inconvenient.
+				\item Some users report it stops working at times.
+				\item Difficult to upgrade from older hub.
+				\item In US Only.
+			\end{enumerate}
+		\end{itemize}
+		\section{Proposed \& Similar System Comparison}
+			\def\arraystretch{1.5}
+			\begin{table}[H]
+				\caption{Proposed \& Similar System Comparison}
+			\begin{center}
+			\begin{tabularx}{\linewidth}{|m{4cm}*4{|X}|}\hline
+					
+					& \boldcolor{Raspberry Pi} & \boldcolor{Insteon} & \boldcolor{Wink hub 2} & \boldcolor{Samsung (smart things)}  \\\hline
+					
+					\boldcolor{design} &
+						\includegraphics[width=\linewidth]{img/raspberry.png} &
+						\includegraphics[width=\linewidth]{img/insteon_hw.png} & 
+						\Includegraphics[width=\linewidth]{img/wink_hw.png} &
+						\includegraphics[width=\linewidth]{img/samsung_hw.png}
+					 \\\hline
+					\boldcolor{Works With Wi-Fi} & yes & yes & yes & yes  \\\hline
+
+
+					
+					\boldcolor{Parts Price} & very cheap & expensive & very expensive & expensive  \\\hline
+					\boldcolor{Price} & 25\$ & 80\$ & 99\$ & 70\$ \\\hline
+					
+					\boldcolor{Installation \& Configuration Difficulty} & hard to install but doesn't takes time to reinstall and configure& easy to install and hardly takes any time setting up even if you change your home  & easy to install and hardly takes any time setting up even if you change your home  & easy to install and hardly takes any time setting up even if you change your home
+					\\\hline
+				\end{tabularx}
+			\end{center}
+		\end{table}
+		\newpage	
+		\begin{comment}
 	\chapter{Requirement Determination \& Analysis}
 		\section{System Analysis}
 		\section{Gathering Information}
@@ -214,7 +325,7 @@ The main limitation that we will face will be the time; given the period we have
 		\section{Evaluation}
 		\section{Future Work}
 	\newpage
-
+	\end{comment}
 	\addcontentsline{toc}{chapter}{References}
 	\bibliographystyle{ieeetr}
 	\bibliography{References}
