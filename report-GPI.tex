@@ -19,7 +19,22 @@
 \usepackage{tabularx}
 \usepackage{verbatimbox}
 
-\renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
+
+
+\newcommand{\mychapter}[1]{\newpage%
+	\thispagestyle{plain}
+	\topskip0pt%
+	\vspace*{\fill}%
+	\addtocounter{chapter}{1}%
+	\begin{center}%
+		\textbf{\Large{\color{section}{CHAPTER NO. \thechapter \\ \uppercase{#1}}}}%
+	\end{center}%
+	\vspace*{\fill}%
+	\addtocounter{chapter}{-1}
+	\newpage%
+	\chapter{#1}
+}
+
 
 
 \definecolor{section}{HTML}{ff7468}
@@ -80,7 +95,7 @@
 \title{
 	\color{section}
 	Online Home Automation Control System \\
-		\color{ssub}\large 2019-2020 Graduation Project I }
+	\color{ssub}\large 2019-2020 Graduation Project I}
 
 \author{
 	\setcode{utf8}
@@ -166,7 +181,7 @@
 		\end{table}
 	
 
-	\chapter{Introduction}
+	\mychapter{Introduction}
 		\section{Problem statement \& Significance}
 		\paragraph{}With the recent very rapid progress in technology and automation, there has become a need for remote control of almost all possible aspects of living, especially the house appliances that surround us, because of how easy it makes the modern human’s life and how much it allows them to focus on their main work and be more productive instead of doing these remotely controlled tasks for themselves, and simply, of how convenient it is. Examples we have already encountered and used in our daily lives include using apps to control a cleaning robot or adjust the heating in the house or even make coffee or switch the house lights on or off. For the latter, there have been many applications that can do that, however they all work locally and there hasn’t been one yet that uses the internet so it can be used remotely from outside the house to control the lights. It is necessary for an application like that to exist, as a service like this would be important for many people, like, for example, working moms who are outside the house and want to switch the lights on at a certain time to wake their children up, or pet owners who need to have UV lights switched on for their pets at certain times of the day but can’t do so immediately and so on. However, the main challenge in creating a device to solve this problem is where the idea of IoT (Internet of Things) comes in; learning how to control this device through the Internet from afar, rather than being controlled by infrared rays locally as is the case with most similar applications.
 		\section{Proposed Solution}
@@ -200,7 +215,7 @@
 			\includegraphics[width=\linewidth]{img/gantt_chart.png}
 		\end{figure}
 		\newpage	
-		\chapter{Background Information \& Related Work}
+		\mychapter{Background Information \& Related Work}
 			\section{Background Information}
 			\subsection{IoT}
 			\subsection{Hardware}
@@ -383,5 +398,6 @@
 	\newpage
 	\addcontentsline{toc}{chapter}{Appendices}
 	\appendix
+	
 
 \end{document}
