@@ -125,28 +125,75 @@
 	\listoffigures
 	\newpage
 	
-	\addcontentsline{toc}{chapter}{List of Symbols \& Abbreviations}
 
+	\addcontentsline{toc}{chapter}{\nameref{sec:sym}}
 
 	\addcontentsline{toc}{chapter}{\nameref{sec:intro}}
-
-
-	\chapter*{Abstract}
-		\label{sec:intro}
-	\paragraph{} The aim for this project is to control lights, air conditioners, television or any other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time.
 	
+	\chapter*{List of Symbols \& Abbreviations}
+	\label{sec:sym}
+	\def\arraystretch{1.5}
+	\begin{table}[H]
+		\caption{List of Symbols \& Abbreviations}
+		\begin{center}
+			\begin{tabularx}{\linewidth}{|c|X|}\hline
+				
+				\boldcolor{Symbols \& Abbreviations} & \boldcolor{Meaning} \\\hline
+				UI & User Interface\\\hline
+				API & Application programming Interface\\\hline
+				GPIO & General Purpose Input Output\\\hline
+				IDE & Integrated Development Environment \\\hline
+				LED & Light Emitting Diode\\\hline
+				REST & Representational State Transfer\\\hline
+				SDLC & Software Development Life Cycle\\\hline
+				SQL & Structured Query Language\\\hline
+			\end{tabularx}
+		\end{center}
+	\end{table}
+	\chapter*{Abstract \& Keywords}
+		\label{sec:intro}
+		\paragraph{} The aim for this project is to control lights, air conditioners, television or any other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time.
+		\def\arraystretch{1.5}
+		\begin{table}[H]
+			\caption{Keywords}
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|c|X|}\hline		
+					\boldcolor{Keyword} & \boldcolor{Definition} \\\hline
+					Raspberry Pi & low cost, credit-card sized computer\cite{raspberry}. \\\hline
+					Linear solenoid &  type of electromagnetic actuator that converts an electrical signal into a magnetic field producing a linear motion\cite{linear}.\\\hline				
+				\end{tabularx}
+			\end{center}
+		\end{table}
 	
 
 	\chapter{Introduction}
 		\section{Problem statement \& Significance}
-		\paragraph{}With the recent very rapid progress in technology and automation, there has become a need for remote control of almost all possible aspects of living, like using apps to control a cleaning robot or adjust the heating in the house or switch the house lights on or off. For the latter, there have been many applications that can do that, however they all work locally and there hasn’t been one yet that uses the internet so it can be used remotely from outside the house to control the lights. A service like this is crucial for many people, like moms who are outside the house and want to switch the lights on at a certain time to wake their children up, or for a traveling family to turn on air conditioner before arrriving after summer vacation.
+		\paragraph{}With the recent very rapid progress in technology and automation, there has become a need for remote control of almost all possible aspects of living, especially the house appliances that surround us, because of how easy it makes the modern human’s life and how much it allows them to focus on their main work and be more productive instead of doing these remotely controlled tasks for themselves, and simply, of how convenient it is. Examples we have already encountered and used in our daily lives include using apps to control a cleaning robot or adjust the heating in the house or even make coffee or switch the house lights on or off. For the latter, there have been many applications that can do that, however they all work locally and there hasn’t been one yet that uses the internet so it can be used remotely from outside the house to control the lights. It is necessary for an application like that to exist, as a service like this would be important for many people, like, for example, working moms who are outside the house and want to switch the lights on at a certain time to wake their children up, or pet owners who need to have UV lights switched on for their pets at certain times of the day but can’t do so immediately and so on. However, the main challenge in creating a device to solve this problem is where the idea of IoT (Internet of Things) comes in; learning how to control this device through the Internet from afar, rather than being controlled by infrared rays locally as is the case with most similar applications.
 		\section{Proposed Solution}
-		\paragraph{}Because an important service like this is still not available, the proposed solution is as follows: we will create an app that should enable the user, by clicking on the appropriate buttons, to control a physical apparatus in the building where the lights are and have the lights turn on or off accordingly. We will do that by
+		\paragraph{}The created app should enable the user, by clicking on the appropriate buttons, to control a physical apparatus in the building where the lights are and have the lights turn on or off accordingly. This will be done by designing and creating an Android application, then using a small laptop, called Raspberry Pi, to control a small piece that will be pushed forward (on command) to switch the light on or off, the API is a web application hosted on a server.
+		
+		\subsection{Aims}
+			\paragraph{}At the end of this project, we intend to achieve the following aims:
+			\begin{itemize}
+	 			\item Learn how to design a mobile application using previously learned and new knowledge
+				\item Learn how to invoke a web API and use it in our application
+				\item Learn Python programming language to control Raspberry Pi
+				\item Learn Flask web micro-framework
+			\end{itemize}
+		\subsection{Goals}
+			\paragraph{} At the end of this project, we expect to deliver:
+			\begin{itemize}
+				\item An Android application with a user friendly, simple, clear interface with buttons to control a LED and linear solenoid.
+				\item A physical apparatus composed of the Raspberry Pi connected to and controlling the piece.
+				\item A web application following REST architecture, managing user  requests and Raspberry Pi's responses.
+			\end{itemize}
 		\section{Project Domain \& Limitation}
-\paragraph{}The domain in which our project operates in is home automation or domotics, and because our application will work through the Internet, it also operates in the domain of Internet of Things. 
-The main limitation that we will face will be the time; given the period we have to work on the project, we may just be able to create an application that will control only lights, rather than other home appliances such as air conditioners, heaters and so on. 
 			\subsection{Domain}
+				\paragraph{} Although the application will be available for all kinds of users to use, we expect that the ones who would make the most use of it would be employees who have long working hours and would need to be able to remotely control appliances in their homes, especially lights.
+				\paragraph{} The critical piece in all of this application would be the linear solenoid actuator i.e. the small electrically controlled piece that would be placed very close to the light switch and would, on command, spring forward to press on the switch to turn it on or off. 
 			\subsection{Limitation}
+			\paragraph{} The main limitation of the application is that it will be able to control only a limited type of home appliance, which is the lights. A much more advanced application would be able to control most of the other appliances, such as controlling an Air conditioner if the owner is outside, or a timer controlled coffee maker.
+			
 		\section{Gantt Chart}
 		\begin{figure}[h!]
   			\caption{Gantt Chart}
@@ -193,7 +240,7 @@ The main limitation that we will face will be the time; given the period we have
   			\caption{Related Work: Insteon}
 			\includegraphics[width=\linewidth]{img/insteon.png}
 		\end{figure}
-		\paragraph{}Insteon Hub is a simple and straightforward device that connects you to your home from any smartphone or tablet, anywhere in the world. Control Insteon light bulbs, wall switches, outlets, and thermostats at home or remotely and receive instant email or push notification alerts from motion, door and window, water leak, and smoke sensors while you’re away. Homepage: \url{https://www.insteon.com/}
+		\paragraph{}Insteon Hub is a simple and straightforward device that connects you to your home from any smartphone or tablet, anywhere in the world. Control Insteon light bulbs, wall switches, outlets, and thermostats at home or remotely and receive instant email or push notification alerts from motion, door and window, water leak, and smoke sensors while you’re away\cite{insteon}.
 		\begin{itemize}
 		\item \boldcolor{Advantage:}
 			\begin{enumerate}
@@ -216,7 +263,7 @@ The main limitation that we will face will be the time; given the period we have
   			\caption{Related Work: Wink}
   			\includegraphics[width=\linewidth]{img/wink.png}
 		\end{figure}
-		\paragraph{}Wink Hub 2 is the world’s first smart home hub created for the mainstream consumer. With industry-leading smart home protocol support, enhanced connectivity features, and a sleek design, Wink Hub 2 brings hundreds of products from best-in-class brands together for a simple, intuitive experience. Home page: \url{https://www.wink.com/about/}
+		\paragraph{}Wink Hub 2 is the world’s first smart home hub created for the mainstream consumer. With industry-leading smart home protocol support, enhanced connectivity features, and a sleek design, Wink Hub 2 brings hundreds of products from best-in-class brands together for a simple, intuitive experience\cite{wink}.
 		
 		\begin{itemize}
 			\item \boldcolor{Advantage:}
@@ -240,8 +287,7 @@ The main limitation that we will face will be the time; given the period we have
   			\caption{Related Work: Samsung}
 			\includegraphics[width=\linewidth]{img/samsung.png}
 		\end{figure}
-		\paragraph{}Smart things hub Connect wirelessly with a wide range of smart devices and make them work together.
-		Home page: \url{https://www.smartthings.com/}
+		\paragraph{}Smart things hub Connect wirelessly with a wide range of smart devices and make them work together\cite{samsung}.
 		\begin{itemize}
 			\item \boldcolor{Advantage:}
 			\begin{enumerate}
@@ -326,10 +372,16 @@ The main limitation that we will face will be the time; given the period we have
 		\section{Future Work}
 	\newpage
 	\end{comment}
-	\addcontentsline{toc}{chapter}{References}
 	\bibliographystyle{ieeetr}
+
+
+	\renewcommand{\bibname}{References}
+	\addcontentsline{toc}{chapter}{References}
 	\bibliography{References}
 
+
+	\newpage
 	\addcontentsline{toc}{chapter}{Appendices}
+	\appendix
 
 \end{document}
