@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt, oneside]{book}
+\documentclass[12pt, oneside, a4paper]{book}
 \usepackage{setspace}
 \usepackage{arabtex}
 \usepackage{utf8} 
@@ -18,11 +18,75 @@
 \usepackage{ragged2e}
 \usepackage{tabularx}
 \usepackage{verbatimbox}
+\usepackage{fancyhdr}
+% \geometry{a4paper,inner=40mm,outer=20mm,top=20mm,bottom=20mm,footskip=5mm,headsep=5mm,headheight=15mm}
+% \renewcommand{\chaptermark}[1]{\markboth{\textit{\uppercase{chapter \thechapter. #1}}}{}}
 
+\titlespacing*{\chapter}{0pt}{-\baselineskip}{1em}
+\pagestyle{fancy} % Turn on the style
+\renewcommand{\headrulewidth}{0pt}
 
+\fancyhf{} % Start with clearing everything in the header and footer
+\rhead{
+	{\tiny \RL{المملكة العربية السعودية} \\
+		\RL{وزارة التعليم العالي} \\
+		\RL{جامعة الأميرة نورة بنت عبد الرحمن} \\
+		\RL{كلية علوم الحاسب والمعلومات} \\
+		\RL{مشروع تخرج ١}}
+}
+\chead{\includegraphics[width=.1\linewidth]{img/pnu.png}}
+\lhead{
+	{\tiny Kingdom of Saudi Arabia \\
+		Ministry of Higher Education \\
+		Princess Nourah bint Abdulrahman University \\
+		Faculty of Computer \& Informaion Science \\
+		Graduation Project I}
+}
+\rfoot{\thepage}%
+\lfoot{\leftmark}
+
+\fancypagestyle{plain}
+{
+	\rhead{
+		{\tiny \RL{المملكة العربية السعودية} \\
+			\RL{وزارة التعليم العالي} \\
+			\RL{جامعة الأميرة نورة بنت عبد الرحمن} \\
+			\RL{كلية علوم الحاسب والمعلومات} \\
+			\RL{مشروع تخرج ١}}
+	}
+	\chead{\includegraphics[width=.1\linewidth]{img/pnu.png}}
+	\lhead{
+		{\tiny Kingdom of Saudi Arabia \\
+			Ministry of Higher Education \\
+			Princess Nourah bint Abdulrahman University \\
+			Faculty of Computer \& Informaion Science \\
+			Graduation Project I}
+	}
+	\rfoot{\thepage}%
+}
+\fancypagestyle{firstpage}
+{
+	\rhead{
+		{\tiny \RL{المملكة العربية السعودية} \\
+		\RL{وزارة التعليم العالي} \\
+		\RL{جامعة الأميرة نورة بنت عبد الرحمن} \\
+		\RL{كلية علوم الحاسب والمعلومات} \\
+		\RL{مشروع تخرج ١}}
+	}
+	\chead{\includegraphics[width=.1\linewidth]{img/pnu.png}}
+	\lhead{
+		{\tiny Kingdom of Saudi Arabia \\
+		Ministry of Higher Education \\
+		Princess Nourah bint Abdulrahman University \\
+		Faculty of Computer \& Informaion Science \\
+		Graduation Project I}
+	}
+}
+\usepackage{xpatch}
+\xapptocmd{\titlepage}{\thispagestyle{firstpage}}{}{}
 
 \newcommand{\mychapter}[1]{\newpage%
-	\thispagestyle{plain}
+	\thispagestyle{empty}
 	\topskip0pt%
 	\vspace*{\fill}%
 	\addtocounter{chapter}{1}%
@@ -36,8 +100,8 @@
 }
 
 
-
-\definecolor{section}{HTML}{ff7468}
+\definecolor{section}{HTML}{86496b}
+\definecolor{chapter}{HTML}{ff7468}
 \definecolor{sub}{HTML}{547a87}
 \definecolor{ssub}{HTML}{97d0c0}
 \definecolor{bold}{HTML}{ffca2e}
@@ -50,8 +114,8 @@
 
 
 \titleformat{\chapter}
-{\color{section}\normalfont\Large\bfseries}
-{\color{section}\thechapter}{1em}{}
+{\color{chapter}\normalfont\Large\bfseries}
+{\color{chapter}\thechapter}{1em}{}
 
 \titleformat{\section}
 {\color{sub}\normalfont\bfseries}
@@ -93,9 +157,9 @@
 
 \date{}
 \title{
-	\color{section}
+	\color{chapter}
 	Online Home Automation Control System \\
-	\color{ssub}\large 2019-2020 Graduation Project I}
+	\color{black}\large 2019-2020 Graduation Project I}
 
 \author{
 	\setcode{utf8}
@@ -116,6 +180,8 @@
 	\\[3ex]
 	\RL{نوف عبد الله الدعجاني} 
 	\\\texttt{437004100}
+	\\	\\
+	\Large\RL{د. عبير محمود} 
 }
 \begin{document}
 	
@@ -140,12 +206,12 @@
 	\listoffigures
 	\newpage
 	
-
 	\addcontentsline{toc}{chapter}{\nameref{sec:sym}}
 
 	\addcontentsline{toc}{chapter}{\nameref{sec:intro}}
 	
 	\chapter*{List of Symbols \& Abbreviations}
+	\markboth{\uppercase{List of Symbols \& Abbreviations}}{}
 	\label{sec:sym}
 	\def\arraystretch{1.5}
 	\begin{table}[H]
@@ -158,6 +224,7 @@
 				API & Application programming Interface\\\hline
 				GPIO & General Purpose Input Output\\\hline
 				IDE & Integrated Development Environment \\\hline
+				IoT & Internet of Things \\\hline
 				LED & Light Emitting Diode\\\hline
 				REST & Representational State Transfer\\\hline
 				SDLC & Software Development Life Cycle\\\hline
@@ -166,8 +233,9 @@
 		\end{center}
 	\end{table}
 	\chapter*{Abstract \& Keywords}
+		\markboth{\uppercase{Abstract \& Keywords}}{}
 		\label{sec:intro}
-		\paragraph{} The aim for this project is to control lights, air conditioners, television or any other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time.
+		\paragraph{} The aim for this project is to control lights, air conditioners, television or any other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time. \\ \\
 		\def\arraystretch{1.5}
 		\begin{table}[H]
 			\caption{Keywords}
@@ -210,7 +278,7 @@
 			\paragraph{} The main limitation of the application is that it will be able to control only a limited type of home appliance, which is the lights. A much more advanced application would be able to control most of the other appliances, such as controlling an Air conditioner if the owner is outside, or a timer controlled coffee maker.
 			
 		\section{Gantt Chart}
-		\begin{figure}[h!]
+		\begin{figure}[H]
   			\caption{Gantt Chart}
 			\includegraphics[width=\linewidth]{img/gantt_chart.png}
 		\end{figure}
@@ -218,6 +286,36 @@
 		\mychapter{Background Information \& Related Work}
 			\section{Background Information}
 			\subsection{IoT}
+			\paragraph{}The internet of things (IoT) constitutes one of the most important technological
+			development in the last decade. The IoT term was coined by Kevin n 1999\cite{iot_1}. IoT
+			means a “world-wide network of interconnected objects uniquely addressable, based
+			on standard communication protocols”\cite{iot_2}. in a somewhat simplified manner, we
+			can describe IoT is the ability to connecting as many things by the internet without
+			direct human intervention by using technologies such as cloud computing, Radio
+			Frequency Identification (RFID), wireless communication, sensors, Internet
+			protocol, ultra-low-power processors and others\cite{iot_3}.
+			\subsubsection{IoT Architecture}
+			\paragraph{} IoT Architecture includes three layers Perception layer, Network layer, and
+			Application layer each of them has its own functionality.
+			\begin{itemize}
+				\item \boldcolor{Perception layer:} is responsible to perceive and identifying objects or things in the
+				environment.
+				\item \boldcolor{Network layer:} is responsible for receiving and transmitting data between layers.
+				\item \boldcolor{Application layer:} is the interface for all previous Layers used to processed and
+				transported data to provide services to the users\cite{iot_4}.
+			\end{itemize}
+			\subsubsection{IoT Applications:}
+			\paragraph{}The Applications of the IoT are diversified and can be classified into three main
+			categories industry, environment, and society.
+			\begin{itemize}
+			\item \boldcolor{Industry:} The importance of the industry domain can be seen in transportation,
+			aviation, and automotive (e.g.Tesla automobile ).
+			\item \boldcolor{Environment:} The society Domain focused on telecommunication, smart building,
+			home, and medical technology (e.g.connected door locks, Closed-loop (automated)
+			insulin delivery).
+			\item \boldcolor{Society:} The environment Domain focused on recycling, disaster alerting,
+			environmental monitoring (e.g.Forest Fire Detection, Air Pollution)\cite{iot_5}.
+			\end{itemize}
 			\subsection{Hardware}
 				\begin{itemize}
 				\item \boldcolor{Raspberry Pi:} a small general purpose computer. All hardware components will be connected to it. An active connection to the internet is needed for it to fetch data from the server. %insert figure here% 
@@ -232,12 +330,12 @@
 					
 					\item \boldcolor{Python:} raspberry pi can be controlled by either c++ or python. Python was chosen because a REST API can be made using it fast.
 		 				\begin{itemize}
-		 					\item \boldcolor{GPIO:} a library for controlling any hardware component connected to the GPIO pins.
-		 					\item \boldcolor{Flask:} a lightweight framework to build web applications.
+		 					\item \textbf{GPIO:} a library for controlling any hardware component connected to the GPIO pins.
+		 					\item \textbf{Flask:} a lightweight framework to build web applications.
 						\end{itemize}
 					\item \boldcolor{Java:} mobile application are made in a native way with either swift or java.
 						\begin{itemize}
-							\item \boldcolor{Android:} a framework for making android apps.
+							\item \textbf{Android:} a framework for making android apps.
 							\item \boldcolor{Retrofit:} type-safe HTTP client for Android and Java. It will be used to send and receive commands and status from the web server.
 							
 						\end{itemize}
