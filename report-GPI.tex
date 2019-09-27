@@ -122,8 +122,13 @@
 {\color{sub}\thesection}{1em}{}
 
 \titleformat{\subsection}
+{\color{section}\normalfont\bfseries}
+{\color{section}\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
 {\color{ssub}\normalfont\bfseries}
-{\color{ssub}\thesubsection}{1em}{}
+{\color{ssub}\thesubsubsection}{1em}{}
+
 
 
 \newcommand\boldcolor[1]{\textcolor{bold}{\textbf{#1}}}
@@ -145,8 +150,8 @@
 	breakatwhitespace=true,
 	tabsize=3
 }
-
-\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{4}
 \hypersetup{
 	colorlinks,
 	citecolor=[rgb]{0,0.5,0.5},
@@ -445,15 +450,50 @@
 			\end{center}
 		\end{table}
 		\newpage	
-		\begin{comment}
-	\chapter{Requirement Determination \& Analysis}
-		\section{System Analysis}
-		\section{Gathering Information}
+
+	\mychapter{System Analysis}
 		\section{Requirement Specification}
+			\subsection{Introduction}
+			\subsection{Software Requirements}
+			\subsection{Hardware Requirements}
+			\begin{itemize}
+				\item \boldcolor{Raspberry Pi} 
+					\begin{itemize}
+						\item Raspberry Pi 3 B+.
+						\item a minimum of 2 GB of RAM.
+						\item a minimum of 10 GB space in SD card.
+						\item a monitor, a keyboard and a mouse, alternatively SSH connection could be established.
+						\item internet connection, either via Wi-Fi or Ethernet cable.
+						\item breadboard, cables, and resistors for circuit.
+						\item RGB LED, solenoid, or any other hardware components satisfying user needs.
+					\end{itemize}
+				\item \boldcolor{Web Server} 
+					\begin{itemize}
+						\item Ubuntu 16.04+ web server, we chose digital ocean's.
+						\item Minimum of 1GB of RAM.
+						\item Minimum of 10GB of available space.
+					\end{itemize}
+				\item \boldcolor{Android mobile phone} 
+			\end{itemize}
 			\subsection{Functional Requirements}
 			\subsection{Non-Functional Requirements}
 		\section{Requirement Analysis}
-		\newpage	
+			\subsection{Structured Diagrams}
+				\subsubsection{Use Case Diagram}
+				\subsubsection{Use Case Scenarios}
+				\subsubsection{Flowchart Diagram}
+				\subsubsection{Entity Relationship Diagram}
+			\subsection{Object-Oriented Diagrams}
+				\subsubsection{Sequence Diagrams}
+				\subsubsection{Class Diagram}
+		\newpage
+	\begin{comment}
+		usecase
+		sequence
+		desc
+		
+		ERD
+			
 	\chapter{System Design}
 		\section{System Architecture}
 		\section{User Interface Design}
