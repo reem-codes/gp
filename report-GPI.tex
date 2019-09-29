@@ -453,7 +453,27 @@
 
 	\mychapter{System Analysis}
 		\section{Requirement Specification}
-			\subsection{Introduction}
+			\subsection{Overview}
+				\paragraph{} The application we mean to create consists of three main systems: the android application which will be the user interface, the Raspberry Pi, which is the small computer where all the hardware pieces will be connected to, and the web server which will host the REST web application and be the connection between the android application and the Raspberry Pi.
+				\paragraph{}The user of the system will have to have the android app installed on his mobile phone. When the app is first opened, the first activity (page in android app) displays the hardwares that are connected to the Raspberry Pi. It gets this list of hardwares from the webserver by using the GET method. When the user clicks on any of the hardware that is there, a new activity opens. In it is mentioned the name of the hardware, the status (e.g. whether it is on or off), the commands and the scheduling configuration. All of this information is obtained from the server. 
+				\paragraph{}Next to the commands title, there will be a small button that when clicked on will open a third activity, which gives the option of adding a new command. The command can be instantaneous (for example, switching an LED light immediately) or it can be scheduled for a later date or time. For the instantaneous command, the POST method will be used, and for scheduling the commands, the user will have the option to choose the date and time he wishes the commands to be undertaken in. Whatever the outcome of this process is, a popup message will appear to the user either confirming the success of the command the user issued, or denying it while explaining the reason for that failure.
+				\paragraph{}Under the commands tab, there will be a  configuration 	section where all the scheduled commands will appear, along with their dates and times and options to edit them or delete them. The edit option will be done by the PUT method and the deleted option by the DELETE method. All the methods work on the data in the server’s database i.e. they either add a new command (POST), edit a scheduled command (PUT), or delete an existing command (DELETE). 
+				\paragraph{}For the Raspberry Pi, the sequence it works according to is timed. Every 5 minutes, it puts the hardware status to the server so that it can show on the user’s application hardware list. Also, every 30 seconds, it checks the server for any new commands posted by the user from the android application. If there are any new ones that have to be, it updates its own local database (an action queue) according to the priorities and scheduled dates and times of the commands. This local database is organized according to the time the command was issued (i.e. the instantaneous commands are put at the front of this queue because of their precedence and the scheduled ones are put in the command order) and contains the command ID, which hardware this command was issued for, when this command was issued, and whether the command was successfully done or not, all gotten from the server by the GET method except the “successfully done” column, which the Raspberry edits according to the hardware. 
+				\paragraph{}Whatever the result of the command was, the Raspberry posts the response of the command to the server. The android application gets this response from the server every 5 or 10 minutes, depending on the user’s choice. The response is displayed as a push notification in the user’s mobile phone. Depending on this response, the status and configuration information in the app will be updated to reflect the success or failure of the command response. Finally, it is important to note that any new hardware or configuration added to or connected to the Raspberry will have its information posted to the server by the Raspberry computer, where the user can view it then as soon as he opens his application to the first activity.
+				
+				\subsubsection{Input}
+				The user command issued using the Android client is the main input. Each command consist of the following:
+				\begin{itemize}
+					\item chosen hardware.
+					\item configuration wanted.
+					\item optional scheduling information.
+				\end{itemize}
+				The \textbf{hardware} is the physical component connected to raspberry pi. Each hardware has a set of possible states that it can be in. Those states are called \textbf{configuration}. The \textbf{schedule} indicates the time of day and days of week the user might want the command to run at.
+				\subsubsection{Output}
+				\begin{itemize}
+					\item a respond
+				\end{itemize}
+				The raspberry pi issues a \textbf{respond} indicating whether the command has been successfully done with an optional message. This respond is saved in the webserver, which in turn is read by the android client periodically.  
 			\subsection{Software Requirements}
 			\subsection{Hardware Requirements}
 			\begin{itemize}
@@ -477,15 +497,39 @@
 			\end{itemize}
 			\subsection{Functional Requirements}
 			\subsection{Non-Functional Requirements}
+			\def\arraystretch{1.5}
+			\begin{table}[H]
+				\caption{Non-functional requirements}
+				\begin{center}
+					\begin{tabularx}{\linewidth}{|c|X|}\hline
+						\boldcolor{Requirement} & \boldcolor{Description}\\\hline
+						\textbf{Availability} & The system shall not be shut down for maintenance for more than 1 minute. \\\hline
+						\textbf{Usability} & The user shall be able to learn the most important 5 functions of application in 2 hours.  \\\hline
+						\textbf{Verifiability} & When a new version of the main system is released, it shall be possible to upgrade to it from any previous version. \\\hline
+						\textbf{Performance} & Any interface between a user and the automated system shall have a maximum response time of three seconds. \\\hline
+						\textbf{Flexibility} & Application shall be made of multiple languages. So, user shall be able to nominate their preferred language when entering their personal information. \\\hline
+					\end{tabularx}
+				\end{center}
+			\end{table}
 		\section{Requirement Analysis}
 			\subsection{Structured Diagrams}
 				\subsubsection{Use Case Diagram}
-				\subsubsection{Use Case Scenarios}
-				\subsubsection{Flowchart Diagram}
-				\subsubsection{Entity Relationship Diagram}
-			\subsection{Object-Oriented Diagrams}
+				\newpage\subsubsection{Use Case Scenarios}
+				\newpage\subsubsection{Flowchart Diagram}
+				\newpage\subsubsection{Entity Relationship Diagram}
+					\begin{figure}[H]
+						\caption{Entity-relationship diagram}
+						\includegraphics[width=\linewidth]{img/diagram_er.png}
+					\end{figure}
+				
+			\newpage\subsection{Object-Oriented Diagrams}
 				\subsubsection{Sequence Diagrams}
-				\subsubsection{Class Diagram}
+				\newpage\subsubsection{Class Diagram}
+					\begin{figure}[H]
+						\caption{Class diagram}
+						\includegraphics[width=\linewidth]{img/diagram_class.jpg}
+					\end{figure}
+				
 		\newpage
 	\begin{comment}
 		usecase
