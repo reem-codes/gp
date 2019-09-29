@@ -19,7 +19,7 @@
 \usepackage{tabularx}
 \usepackage{verbatimbox}
 \usepackage{fancyhdr}
-% \geometry{a4paper,inner=40mm,outer=20mm,top=20mm,bottom=20mm,footskip=5mm,headsep=5mm,headheight=15mm}
+ \geometry{a4paper,inner=1.25in,outer=1.25in,top=1in,bottom=1in,footskip=15mm,headsep=5mm,headheight=15mm}
 % \renewcommand{\chaptermark}[1]{\markboth{\textit{\uppercase{chapter \thechapter. #1}}}{}}
 
 \titlespacing*{\chapter}{0pt}{-\baselineskip}{1em}
@@ -42,8 +42,7 @@
 		Faculty of Computer \& Informaion Science \\
 		Graduation Project I}
 }
-\rfoot{\thepage}%
-\lfoot{\leftmark}
+\cfoot{\thepage}%
 
 \fancypagestyle{plain}
 {
@@ -62,7 +61,7 @@
 			Faculty of Computer \& Informaion Science \\
 			Graduation Project I}
 	}
-	\rfoot{\thepage}%
+	\cfoot{\thepage}%
 }
 \fancypagestyle{firstpage}
 {
@@ -118,15 +117,15 @@
 {\color{chapter}\thechapter}{1em}{}
 
 \titleformat{\section}
-{\color{sub}\normalfont\bfseries}
+{\color{sub}\normalfont\fontsize{12}{16}\bfseries}
 {\color{sub}\thesection}{1em}{}
 
 \titleformat{\subsection}
-{\color{section}\normalfont\bfseries}
+{\color{section}\normalfont\fontsize{12}{14}\bfseries}
 {\color{section}\thesubsection}{1em}{}
 
 \titleformat{\subsubsection}
-{\color{ssub}\normalfont\bfseries}
+{\color{ssub}\normalfont\fontsize{12}{13}\bfseries}
 {\color{ssub}\thesubsubsection}{1em}{}
 
 
@@ -151,7 +150,7 @@
 	tabsize=3
 }
 \setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{4}
+\setcounter{tocdepth}{3}
 \hypersetup{
 	colorlinks,
 	citecolor=[rgb]{0,0.5,0.5},
@@ -196,8 +195,8 @@
 	\newpage
 
 	\addcontentsline{toc}{chapter}{Acknowledgement}
-	
-	\pagenumbering{arabic}
+	\pagenumbering{roman}
+
 	\addcontentsline{toc}{chapter}{Table of Contents}\tableofcontents
 	\newpage	
 	\doublespacing
@@ -212,9 +211,6 @@
 	\newpage
 	
 	\addcontentsline{toc}{chapter}{\nameref{sec:sym}}
-
-	\addcontentsline{toc}{chapter}{\nameref{sec:intro}}
-	
 	\chapter*{List of Symbols \& Abbreviations}
 	\markboth{\uppercase{List of Symbols \& Abbreviations}}{}
 	\label{sec:sym}
@@ -237,6 +233,8 @@
 			\end{tabularx}
 		\end{center}
 	\end{table}
+
+	\addcontentsline{toc}{chapter}{\nameref{sec:intro}}
 	\chapter*{Abstract \& Keywords}
 		\markboth{\uppercase{Abstract \& Keywords}}{}
 		\label{sec:intro}
@@ -255,6 +253,7 @@
 	
 
 	\mychapter{Introduction}
+		\pagenumbering{arabic}
 		\section{Problem statement \& Significance}
 		\paragraph{}With the recent very rapid progress in technology and automation, there has become a need for remote control of almost all possible aspects of living, especially the house appliances that surround us, because of how easy it makes the modern human’s life and how much it allows them to focus on their main work and be more productive instead of doing these remotely controlled tasks for themselves, and simply, of how convenient it is. Examples we have already encountered and used in our daily lives include using apps to control a cleaning robot or adjust the heating in the house or even make coffee or switch the house lights on or off. For the latter, there have been many applications that can do that, however they all work locally and there hasn’t been one yet that uses the internet so it can be used remotely from outside the house to control the lights. It is necessary for an application like that to exist, as a service like this would be important for many people, like, for example, working moms who are outside the house and want to switch the lights on at a certain time to wake their children up, or pet owners who need to have UV lights switched on for their pets at certain times of the day but can’t do so immediately and so on. However, the main challenge in creating a device to solve this problem is where the idea of IoT (Internet of Things) comes in; learning how to control this device through the Internet from afar, rather than being controlled by infrared rays locally as is the case with most similar applications.
 		\section{Proposed Solution}
@@ -474,10 +473,12 @@
 					\item a respond
 				\end{itemize}
 				The raspberry pi issues a \textbf{respond} indicating whether the command has been successfully done with an optional message. This respond is saved in the webserver, which in turn is read by the android client periodically.  
+			
+		\newpage\section{Requirement Analysis}
 			\subsection{Software Requirements}
-			\subsection{Hardware Requirements}
-			\begin{itemize}
-				\item \boldcolor{Raspberry Pi} 
+			\newpage\subsection{Hardware Requirements}
+				\begin{itemize}
+					\item \boldcolor{Raspberry Pi} 
 					\begin{itemize}
 						\item Raspberry Pi 3 B+.
 						\item a minimum of 2 GB of RAM.
@@ -487,33 +488,37 @@
 						\item breadboard, cables, and resistors for circuit.
 						\item RGB LED, solenoid, or any other hardware components satisfying user needs.
 					\end{itemize}
-				\item \boldcolor{Web Server} 
+					\item \boldcolor{Web Server} 
 					\begin{itemize}
 						\item Ubuntu 16.04+ web server, we chose digital ocean's.
 						\item Minimum of 1GB of RAM.
 						\item Minimum of 10GB of available space.
 					\end{itemize}
-				\item \boldcolor{Android mobile phone} 
-			\end{itemize}
-			\subsection{Functional Requirements}
-			\subsection{Non-Functional Requirements}
-			\def\arraystretch{1.5}
-			\begin{table}[H]
-				\caption{Non-functional requirements}
-				\begin{center}
-					\begin{tabularx}{\linewidth}{|c|X|}\hline
-						\boldcolor{Requirement} & \boldcolor{Description}\\\hline
-						\textbf{Availability} & The system shall not be shut down for maintenance for more than 1 minute. \\\hline
-						\textbf{Usability} & The user shall be able to learn the most important 5 functions of application in 2 hours.  \\\hline
-						\textbf{Verifiability} & When a new version of the main system is released, it shall be possible to upgrade to it from any previous version. \\\hline
-						\textbf{Performance} & Any interface between a user and the automated system shall have a maximum response time of three seconds. \\\hline
-						\textbf{Flexibility} & Application shall be made of multiple languages. So, user shall be able to nominate their preferred language when entering their personal information. \\\hline
-					\end{tabularx}
-				\end{center}
-			\end{table}
-		\section{Requirement Analysis}
-			\subsection{Structured Diagrams}
+					\item \boldcolor{Android mobile phone} 
+				\end{itemize}
+			\newpage\subsection{Functional Requirements}
+			\newpage\subsection{Non-Functional Requirements}
+				\def\arraystretch{1.5}
+				\begin{table}[H]
+					\caption{Non-functional requirements}
+					\begin{center}
+						\begin{tabularx}{\linewidth}{|c|X|}\hline
+							\boldcolor{Requirement} & \boldcolor{Description}\\\hline
+							\textbf{Availability} & The system shall not be shut down for maintenance for more than 1 minute. \\\hline
+							\textbf{Usability} & The user shall be able to learn the most important 5 functions of application in 2 hours.  \\\hline
+							\textbf{Verifiability} & When a new version of the main system is released, it shall be possible to upgrade to it from any previous version. \\\hline
+							\textbf{Performance} & Any interface between a user and the automated system shall have a maximum response time of three seconds. \\\hline
+							\textbf{Flexibility} & Application shall be made of multiple languages. So, user shall be able to nominate their preferred language when entering their personal information. \\\hline
+						\end{tabularx}
+					\end{center}
+				\end{table}
+			\newpage\subsection{Structured Diagrams}
 				\subsubsection{Use Case Diagram}
+					\begin{figure}[H]
+					\caption{Use case diagram}
+					\includegraphics[width=\linewidth]{img/diagram_usecase.jpg}
+					\end{figure}
+				
 				\newpage\subsubsection{Use Case Scenarios}
 				\newpage\subsubsection{Flowchart Diagram}
 				\newpage\subsubsection{Entity Relationship Diagram}
