@@ -98,12 +98,11 @@
 	\chapter{#1}
 }
 
-
-\definecolor{section}{HTML}{86496b}
-\definecolor{chapter}{HTML}{ff7468}
-\definecolor{sub}{HTML}{547a87}
-\definecolor{ssub}{HTML}{97d0c0}
-\definecolor{bold}{HTML}{ffca2e}
+\definecolor{chapter}{HTML}{773344}
+\definecolor{section}{HTML}{f03a47}
+\definecolor{sub}{HTML}{065143}
+\definecolor{ssub}{HTML}{4381c1}
+\definecolor{bold}{HTML}{cc3f0c}
 
 
 \definecolor{lightgray}{HTML}{eeeeee}
@@ -117,12 +116,12 @@
 {\color{chapter}\thechapter}{1em}{}
 
 \titleformat{\section}
-{\color{sub}\normalfont\fontsize{12}{16}\bfseries}
-{\color{sub}\thesection}{1em}{}
+{\color{section}\normalfont\fontsize{12}{16}\bfseries}
+{\color{section}\thesection}{1em}{}
 
 \titleformat{\subsection}
-{\color{section}\normalfont\fontsize{12}{14}\bfseries}
-{\color{section}\thesubsection}{1em}{}
+{\color{sub}\normalfont\fontsize{12}{14}\bfseries}
+{\color{sub}\thesubsection}{1em}{}
 
 \titleformat{\subsubsection}
 {\color{ssub}\normalfont\fontsize{12}{13}\bfseries}
@@ -238,7 +237,8 @@
 	\chapter*{Abstract \& Keywords}
 		\markboth{\uppercase{Abstract \& Keywords}}{}
 		\label{sec:intro}
-		\paragraph{} The aim for this project is to control lights, air conditioners, television or any other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time. \\ \\
+		\paragraph{} The aim for this project is to control light buttons, air conditioners, television or other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time. 
+		\newpage \section*{Keywords}
 		\def\arraystretch{1.5}
 		\begin{table}[H]
 			\caption{Keywords}
@@ -257,7 +257,7 @@
 		\section{Problem statement \& Significance}
 		\paragraph{}With the recent very rapid progress in technology and automation, there has become a need for remote control of almost all possible aspects of living, especially the house appliances that surround us, because of how easy it makes the modern human’s life and how much it allows them to focus on their main work and be more productive instead of doing these remotely controlled tasks for themselves, and simply, of how convenient it is. Examples we have already encountered and used in our daily lives include using apps to control a cleaning robot or adjust the heating in the house or even make coffee or switch the house lights on or off. For the latter, there have been many applications that can do that, however they all work locally and there hasn’t been one yet that uses the internet so it can be used remotely from outside the house to control the lights. It is necessary for an application like that to exist, as a service like this would be important for many people, like, for example, working moms who are outside the house and want to switch the lights on at a certain time to wake their children up, or pet owners who need to have UV lights switched on for their pets at certain times of the day but can’t do so immediately and so on. However, the main challenge in creating a device to solve this problem is where the idea of IoT (Internet of Things) comes in; learning how to control this device through the Internet from afar, rather than being controlled by infrared rays locally as is the case with most similar applications.
 		\section{Proposed Solution}
-		\paragraph{}The created app should enable the user, by clicking on the appropriate buttons, to control a physical apparatus in the building where the lights are and have the lights turn on or off accordingly. This will be done by designing and creating an Android application, then using a small laptop, called Raspberry Pi, to control a small piece that will be pushed forward (on command) to switch the light on or off, the API is a web application hosted on a server.
+		\paragraph{}The created app should enable the user, by clicking on the appropriate buttons, to control a physical apparatus that needs to be pushed to work, such as lights buttons. This will be done by designing and creating an Android application, then using a small laptop, called Raspberry Pi, to control a small piece that will be pushed forward (on command) to switch the light on or off, the API is a web application hosted on a server.
 		
 		\subsection{Aims}
 			\paragraph{}At the end of this project, we intend to achieve the following aims:
@@ -279,7 +279,7 @@
 				\paragraph{} Although the application will be available for all kinds of users to use, we expect that the ones who would make the most use of it would be employees who have long working hours and would need to be able to remotely control appliances in their homes, especially lights.
 				\paragraph{} The critical piece in all of this application would be the linear solenoid actuator i.e. the small electrically controlled piece that would be placed very close to the light switch and would, on command, spring forward to press on the switch to turn it on or off. 
 			\subsection{Limitation}
-			\paragraph{} The main limitation of the application is that it will be able to control only a limited type of home appliance, which is the lights. A much more advanced application would be able to control most of the other appliances, such as controlling an Air conditioner if the owner is outside, or a timer controlled coffee maker.
+			\paragraph{} The main limitation of the application is that it will be able to control only a limited type of home appliance. Mainly things than could be pushed to work. A much more advanced application would be able to control most of the other appliances, such as controlling an Air conditioner if the owner is outside, or a timer controlled coffee maker.
 			
 		\section{Gantt Chart}
 		\begin{figure}[H]
@@ -322,11 +322,11 @@
 			\end{itemize}
 			\subsection{Hardware}
 				\begin{itemize}
-				\item \boldcolor{Raspberry Pi:} a small general purpose computer. All hardware components will be connected to it. An active connection to the internet is needed for it to fetch data from the server. %insert figure here% 
-				\item \boldcolor{Ubuntu Web Server:} hosts the web application. Digital Ocean severs were chosen for this project.
+				\item \boldcolor{Raspberry Pi:} a small general purpose computer. All hardware components will be connected to it. An active connection to the internet is needed for it to fetch data from the server\cite{raspberry}. %insert figure here% 
+				\item \boldcolor{Ubuntu Web Server:} hosts the web application. Digital Ocean severs\cite{digital_ocean} were chosen for this project.
 				
-				\item \boldcolor{LED:} since the hardware components controlled depends heavily on the user needs, this project main aim will be controlling a small LED. LED stands for light-emitting diode. Basically a small light source. %insert figure here% %
-				\item \boldcolor{Linear Solenoid:} once the LED works, linear solenoid will be installed for demonstrating the idea. It is a small component that generates a linear motion. It will be used to press in anything, such as lights, TV remote, and coffee machine. %insert figure here%
+				\item \boldcolor{LED:} since the hardware components controlled depends heavily on the user needs, this project main aim will be controlling a small LED. LED stands for light-emitting diode\cite{led}. Basically a small light source. %insert figure here% %
+				\item \boldcolor{Linear Solenoid:} once the LED works, linear solenoid will be installed for demonstrating the idea\cite{linear}. It is a small component that generates a linear motion. It will be used to press in anything, such as lights, TV remote, and coffee machine. %insert figure here%
 				\end{itemize}
 				
 			\subsection{Programming Languages \& Frameworks}
@@ -334,16 +334,16 @@
 					
 					\item \boldcolor{Python:} raspberry pi can be controlled by either c++ or python. Python was chosen because a REST API can be made using it fast.
 		 				\begin{itemize}
-		 					\item \textbf{GPIO:} a library for controlling any hardware component connected to the GPIO pins.
+		 					\item \textbf{GPIO:} a library for controlling any hardware component connected to the GPIO pins\cite{gpio}.
 		 					\item \textbf{Flask:} a lightweight framework to build web applications.
 						\end{itemize}
 					\item \boldcolor{Java:} mobile application are made in a native way with either swift or java.
 						\begin{itemize}
 							\item \textbf{Android:} a framework for making android apps.
-							\item \boldcolor{Retrofit:} type-safe HTTP client for Android and Java. It will be used to send and receive commands and status from the web server.
+							\item \textbf{Retrofit:} type-safe HTTP client for Android and Java\cite{retro}. It will be used to send and receive commands and status from the web server.
 							
 						\end{itemize}
-					\item \boldcolor{PostgreSQL:} an open-source RDBMS. It will be installed on the server.
+					\item \boldcolor{PostgreSQL:} an open-source RDBMS\cite{postgres}. It will be installed on the server.
 				\end{itemize}
 			
 			\subsection{SDLC Model}
@@ -357,7 +357,7 @@
   			\caption{Related Work: Insteon}
 			\includegraphics[width=\linewidth]{img/insteon.png}
 		\end{figure}
-		\paragraph{}Insteon Hub is a simple and straightforward device that connects you to your home from any smartphone or tablet, anywhere in the world. Control Insteon light bulbs, wall switches, outlets, and thermostats at home or remotely and receive instant email or push notification alerts from motion, door and window, water leak, and smoke sensors while you’re away\cite{insteon}.
+		\paragraph{}Insteon Hub is a simple and straightforward system that connects you to your home from any smartphone or tablet, anywhere in the world. Control Insteon light bulbs, wall switches, outlets, and thermostats at home or remotely and receive instant email or push notification alerts from motion, door and window, water leak, and smoke sensors while you’re away\cite{insteon}.
 		\begin{itemize}
 		\item \boldcolor{Advantage:}
 			\begin{enumerate}
@@ -426,7 +426,7 @@
 			\begin{table}[H]
 				\caption{Proposed \& Similar System Comparison}
 			\begin{center}
-			\begin{tabularx}{\linewidth}{|m{4cm}*4{|X}|}\hline
+			\begin{tabularx}{1\linewidth}{|m{2.2cm}*4{|X}|}\hline
 					
 					& \boldcolor{Raspberry Pi} & \boldcolor{Insteon} & \boldcolor{Wink hub 2} & \boldcolor{Samsung (smart things)}  \\\hline
 					
@@ -438,17 +438,15 @@
 					 \\\hline
 					\boldcolor{Works With Wi-Fi} & yes & yes & yes & yes  \\\hline
 
-
-					
-					\boldcolor{Parts Price} & very cheap & expensive & very expensive & expensive  \\\hline
-					\boldcolor{Price} & 25\$ & 80\$ & 99\$ & 70\$ \\\hline
+					\boldcolor{Price} & 25\$, parts are very cheap & 80\$, expensive parts & 99\$, very expensive parts & 70\$, expensive parts \\\hline
 					
 					\boldcolor{Installation \& Configuration Difficulty} & hard to install but doesn't takes time to reinstall and configure& easy to install and hardly takes any time setting up even if you change your home  & easy to install and hardly takes any time setting up even if you change your home  & easy to install and hardly takes any time setting up even if you change your home
 					\\\hline
 				\end{tabularx}
 			\end{center}
 		\end{table}
-		\newpage	
+		\newpage
+		\paragraph{} Although similar systems already exists, our system has its own special advantages. The biggest being \textbf{hardware freedom}. In other systems, there exists a main hub receiving user command from the mobile app. So far, the ideas and implementation is identical. The previous systems require the consumer to by additional parts for it to work, such as special LED lights that needs installation or a small component controlling air conditioners. Those parts are usually limited in numbers, usage and can get very expensive fast. On the other hand, our system works with any hardware component as long as connecting it to the electrical circuit is possible.
 
 	\mychapter{System Analysis}
 		\section{Requirement Specification}
