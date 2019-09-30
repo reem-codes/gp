@@ -234,24 +234,24 @@
 			\end{tabularx}
 		\end{center}
 	\end{table}
-
+	\newpage \section*{Keywords}
+	\def\arraystretch{1.5}
+	\begin{table}[H]
+		\caption{Keywords}
+		\begin{center}
+			\begin{tabularx}{\linewidth}{|c|X|}\hline		
+				\boldcolor{Keyword} & \boldcolor{Definition} \\\hline
+				Raspberry Pi & low cost, credit-card sized computer\cite{raspberry}. \\\hline
+				Linear solenoid &  type of electromagnetic actuator that converts an electrical signal into a magnetic field producing a linear motion\cite{linear}.\\\hline				
+			\end{tabularx}
+		\end{center}
+	\end{table}
 	\addcontentsline{toc}{chapter}{\nameref{sec:intro}}
 	\chapter*{Abstract \& Keywords}
 		\markboth{\uppercase{Abstract \& Keywords}}{}
 		\label{sec:intro}
 		\paragraph{} The aim for this project is to control light buttons, air conditioners, television or other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time. 
-		\newpage \section*{Keywords}
-		\def\arraystretch{1.5}
-		\begin{table}[H]
-			\caption{Keywords}
-			\begin{center}
-				\begin{tabularx}{\linewidth}{|c|X|}\hline		
-					\boldcolor{Keyword} & \boldcolor{Definition} \\\hline
-					Raspberry Pi & low cost, credit-card sized computer\cite{raspberry}. \\\hline
-					Linear solenoid &  type of electromagnetic actuator that converts an electrical signal into a magnetic field producing a linear motion\cite{linear}.\\\hline				
-				\end{tabularx}
-			\end{center}
-		\end{table}
+		
 	
 
 	\mychapter{Introduction}
@@ -622,7 +622,7 @@
 						\caption{Class diagram}
 						\includegraphics[width=\linewidth]{img/diagram_class.jpg}
 					\end{figure}
-				
+			
 		\newpage
 	\begin{comment}
 		usecase
@@ -673,6 +673,4 @@
 	\newpage
 	\addcontentsline{toc}{chapter}{Appendices}
 	\appendix
-	
-
 \end{document}
