@@ -19,6 +19,10 @@
 \usepackage{tabularx}
 \usepackage{verbatimbox}
 \usepackage{fancyhdr}
+\usepackage{tocbibind}
+\usepackage[toc]{appendix}
+
+
  \geometry{a4paper,inner=1.25in,outer=1.25in,top=1in,bottom=1in,footskip=15mm,headsep=5mm,headheight=15mm}
 % \renewcommand{\chaptermark}[1]{\markboth{\textit{\uppercase{chapter \thechapter. #1}}}{}}
 
@@ -28,7 +32,8 @@
 
 \fancyhf{} % Start with clearing everything in the header and footer
 \rhead{
-	{\tiny \RL{المملكة العربية السعودية} \\
+	{\tiny 
+		\RL{المملكة العربية السعودية} \\
 		\RL{وزارة التعليم العالي} \\
 		\RL{جامعة الأميرة نورة بنت عبد الرحمن} \\
 		\RL{كلية علوم الحاسب والمعلومات} \\
@@ -158,60 +163,83 @@
 	urlcolor=[rgb]{0,0.5,0.5}
 }
 
-\date{}
-\title{
-	\color{chapter}
-	Online Home Automation Control System \\
-	\color{black}\large 2019-2020 Graduation Project I}
 
-\author{
-	\setcode{utf8}
-	\RL{ريم علي الغامدي} 
-	\\\texttt{437004875}
-	\\[3ex]
-	\RL{ساره خالد آل حسين} 
-	\\\texttt{436006939}
-	\\[3ex]
-	\RL{ضحى نضال الزعبي} 
-	\\\texttt{436200063}
-	\\[3ex]
-	\RL{عبير أحمد عزت} 
-	\\\texttt{436200058}
-	\\[3ex]
-	\RL{منى سعود الخثلان} 
-	\\\texttt{437004005}
-	\\[3ex]
-	\RL{نوف عبد الله الدعجاني} 
-	\\\texttt{437004100}
-	\\	\\
-	\Large\RL{د. عبير محمود} 
-}
 \begin{document}
-	
+	\setcode{utf8}
 	
 	\pagenumbering{gobble}
-	\maketitle
+
+	\begin{titlepage}
+	%=========================
+	\begin{center}
+		\hspace{0pt}\\
+		\vspace{4cm}
+		{\scalebox{1}{\large\bfseries\uppercase{Online Home Automation Control System}}}\\			
+			\vspace{2cm}
+			By: \\
+			\begin{table}[H]
+				\begin{center}
+					\begin{tabular}{rl}		
+						\texttt{437004875} & Reem Ali AlGhamdi
+						\\
+						 \texttt{436006939} & Sara Khaleed Alhussain 
+						\\
+						\texttt{436200063} & Duha Nedal Alzaabi 
+						\\
+						\texttt{436200058} & Abeer Ahmed Ezzat 
+						\\
+						\texttt{437004005} & Mona Saud AlKhathlan  
+						\\
+						\texttt{437004100} & Nouf Abdullah Addaajani	
+					\end{tabular}
+				\end{center}
+			\end{table}
+			
+			Supervised By: \\
+			\Large{Dr. Aeer Mahmoud}\\
+			
+			
+			
+			% ----------------------------------------------------------------
+			\vfill \normalsize
+			A Graduation Project Report Submitted to \\
+			College of Computer and Information Sciences at PNU \\
+			in Partial Fulfillment of the Requirements for the \\
+			Degree of \\
+			Bachelor of Science \\
+			in \\
+			Computer Sciences \\[5ex]
+			CCIS, PNU \\
+			Riyadh, KSA \\
+			1440 - 1441H \\
+			% ----------------------------------------------------------------
+		\end{center}
+	\end{titlepage}
 	\newpage
 
-	\addcontentsline{toc}{chapter}{Acknowledgement}
+	\addcontentsline{toc}{chapter}{\nameref{sec:ack}}
+	\chapter*{Acknowledgment}
+	\label{sec:ack}
+	\paragraph{} First and foremost, we thank Allah the Almighty for always blessing us and for helping us complete this project on time. We would like to express our special thanks of gratitude to our project supervisor Dr. Abeer Mahmoud for her continuous support, motivation, and for always commenting on our best qualities and enhancing them. Without her direction and proper guidance, this project would not have succeeded. We thank her for her unwavering support. Not to forget our loving families and supporting friends for helping us sticking to the schedule. Last but not least we want to thank anyone who has helped us by providing information, insight, comments or facilities that we needed to complete our project. Our heartfelt thanks to everyone we have mentioned.
+
+
+
 	\pagenumbering{roman}
 
-	\addcontentsline{toc}{chapter}{Table of Contents}\tableofcontents
+	%\addcontentsline{toc}{chapter}{Table of Contents}
+	\tableofcontents
 	\newpage	
 	\doublespacing
 	\newpage
 	
-	\addcontentsline{toc}{chapter}{List of Tables}
 	\listoftables
 	\newpage
 	
-	\addcontentsline{toc}{chapter}{List of Figures}
 	\listoffigures
 	\newpage
 	
 	\addcontentsline{toc}{chapter}{\nameref{sec:sym}}
 	\chapter*{List of Symbols \& Abbreviations}
-	\markboth{\uppercase{List of Symbols \& Abbreviations}}{}
 	\label{sec:sym}
 	\def\arraystretch{1.5}
 	\begin{table}[H]
@@ -234,7 +262,10 @@
 			\end{tabularx}
 		\end{center}
 	\end{table}
-	\newpage \section*{Keywords}
+	\newpage
+	\addcontentsline{toc}{chapter}{\nameref{sec:kw}}
+	\chapter*{Keywords}
+	\label{sec:kw}
 	\def\arraystretch{1.5}
 	\begin{table}[H]
 		\caption{Keywords}
@@ -246,9 +277,9 @@
 			\end{tabularx}
 		\end{center}
 	\end{table}
+	\newpage
 	\addcontentsline{toc}{chapter}{\nameref{sec:intro}}
-	\chapter*{Abstract \& Keywords}
-		\markboth{\uppercase{Abstract \& Keywords}}{}
+	\chapter*{Abstract}
 		\label{sec:intro}
 		\paragraph{} The aim for this project is to control light buttons, air conditioners, television or other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time. 
 		
@@ -257,7 +288,13 @@
 	\mychapter{Introduction}
 		\pagenumbering{arabic}
 		\section{Problem statement \& Significance}
-		\paragraph{}With the recent very rapid progress in technology and automation, there has become a need for remote control of almost all possible aspects of living, especially the house appliances that surround us, because of how easy it makes the modern human’s life and how much it allows them to focus on their main work and be more productive instead of doing these remotely controlled tasks for themselves, and simply, of how convenient it is. Examples we have already encountered and used in our daily lives include using apps to control a cleaning robot or adjust the heating in the house or even make coffee or switch the house lights on or off. For the latter, there have been many applications that can do that, however they all work locally and there hasn’t been one yet that uses the internet so it can be used remotely from outside the house to control the lights. It is necessary for an application like that to exist, as a service like this would be important for many people, like, for example, working moms who are outside the house and want to switch the lights on at a certain time to wake their children up, or pet owners who need to have UV lights switched on for their pets at certain times of the day but can’t do so immediately and so on. However, the main challenge in creating a device to solve this problem is where the idea of IoT (Internet of Things) comes in; learning how to control this device through the Internet from afar, rather than being controlled by infrared rays locally as is the case with most similar applications.
+		\paragraph{}With the recent very rapid progress in technology and automation, there has
+		become a need for remote control of almost all possible aspects of living. Especially
+		the house appliances that surround us, because of how easy they make the modern
+		human’s life and how much they allow him to focus on his main work 
+		instead of doing these remotely controlled tasks himself. 
+		\paragraph{}Some examples we have already encountered and used in our daily lives include using apps to control a cleaning robot or adjust the heating in the house or switch the house lights on or off. For the latter, there have been many applications that can do that. However, they all work in a small set of devices and sensors. It is necessary for such applications to exist, as a service like this would be important for many people. An example is working moms who are outside the house and want to switch the lights on at a certain time to wake their children up. Another example is pet owners who need to have UV lights switched on for their pets at certain times of the day but can’t do so immediately and so on. 
+		\paragraph{}However, the main challenge in creating a device to solve this problem is where the idea of IoT (Internet of Things) comes in; learning how to control this device through the Internet from afar, rather than being controlled by infrared rays locally as is the case with most similar applications. 
 		\section{Proposed Solution}
 		\paragraph{}The created app should enable the user, by clicking on the appropriate buttons, to control a physical apparatus that needs to be pushed to work, such as lights buttons. This will be done by designing and creating an Android application, then using a small laptop, called Raspberry Pi, to control a small piece that will be pushed forward (on command) to switch the light on or off, the API is a web application hosted on a server.
 		
@@ -447,6 +484,7 @@
 				\end{tabularx}
 			\end{center}
 		\end{table}
+		\textit{Better quality can be found at Appendix \ref{appendix:similar_system_comparision}}
 		\newpage
 		\paragraph{} Although similar systems already exists, our system has its own special advantages. The biggest being \textbf{hardware freedom}. In other systems, there exists a main hub receiving user command from the mobile app. So far, the ideas and implementation is identical. The previous systems require the consumer to by additional parts for it to work, such as special LED lights that needs installation or a small component controlling air conditioners. Those parts are usually limited in numbers, usage and can get very expensive fast. On the other hand, our system works with any hardware component as long as connecting it to the electrical circuit is possible.
 
@@ -661,16 +699,54 @@
 		\section{Evaluation}
 		\section{Future Work}
 	\newpage
+	
+	
+	
 	\end{comment}
 	\bibliographystyle{ieeetr}
-
-
 	\renewcommand{\bibname}{References}
-	\addcontentsline{toc}{chapter}{References}
 	\bibliography{References}
 
 
-	\newpage
-	\addcontentsline{toc}{chapter}{Appendices}
+
+	\clearpage
 	\appendix
+	\mychapter{Appendices}
+	%\renewcommand{thesection}{\Alph{section}}
+		\section{Figures}
+		\label{appendix:similar_system_comparision}
+		\subsection{Similar systems hub design}
+		\begin{figure}[H]
+			\caption{Similar systems: hub design}
+			\begin{subfigure}[b]{.5\linewidth}
+				\includegraphics[width=\linewidth]{img/insteon_hw.png}
+				\caption{Insteon}
+			\end{subfigure}
+			\begin{subfigure}[b]{.5\linewidth}
+				\includegraphics[width=\linewidth]{img/wink_hw.png}
+				\caption{Wink}
+			\end{subfigure}
+			\begin{subfigure}[b]{.5\linewidth}
+			\includegraphics[width=\linewidth]{img/samsung_hw.png}
+				\caption{Samsung}
+			\end{subfigure}
+			\begin{subfigure}[b]{.5\linewidth}
+				\includegraphics[width=\linewidth]{img/raspberry.png}
+				\caption{Raspberry Pi}
+			\end{subfigure}
+		\end{figure}
 \end{document}
+
+
+	\begin{comment}
+	TODO:
+	# Title page as formatted
+	# nouf edit part 1
+	# Doha Abeer edit part 2
+	
+	
+	# muna flow chart
+	# Doha data flow
+	# all functions
+	# REST API Swagger
+	\end{comment}
