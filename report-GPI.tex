@@ -180,17 +180,17 @@
 			\begin{table}[H]
 				\begin{center}
 					\begin{tabular}{rl}		
-						\texttt{437004875} & Reem Ali AlGhamdi
-						\\
-						 \texttt{436006939} & Sara Khaleed Alhussain 
-						\\
-						\texttt{436200063} & Duha Nedal Alzaabi 
-						\\
 						\texttt{436200058} & Abeer Ahmed Ezzat 
+						\\
+						\texttt{436200063} & Doha Nidal AlZouhbi
 						\\
 						\texttt{437004005} & Mona Saud AlKhathlan  
 						\\
-						\texttt{437004100} & Nouf Abdullah Addaajani	
+						\texttt{437004100} & Nouf Abdullah AlDajani 
+						\\	
+						\texttt{437004875} & Reem Ali AlGhamdi
+						\\
+						\texttt{436006939} & Sarah Khalid AlHussain 
 					\end{tabular}
 				\end{center}
 			\end{table}
@@ -495,9 +495,8 @@
 				\paragraph{}The user of the system will have to have the android app installed on his mobile phone. When the app is first opened, the first activity (page in android app) displays the hardwares that are connected to the Raspberry Pi. It gets this list of hardwares from the webserver by using the GET method. When the user clicks on any of the hardware that is there, a new activity opens. In it is mentioned the name of the hardware, the status (e.g. whether it is on or off), the commands and the scheduling configuration. All of this information is obtained from the server. 
 				\paragraph{}Next to the commands title, there will be a small button that when clicked on will open a third activity, which gives the option of adding a new command. The command can be instantaneous (for example, switching an LED light immediately) or it can be scheduled for a later date or time. For the instantaneous command, the POST method will be used, and for scheduling the commands, the user will have the option to choose the date and time he wishes the commands to be undertaken in. Whatever the outcome of this process is, a popup message will appear to the user either confirming the success of the command the user issued, or denying it while explaining the reason for that failure.
 				\paragraph{}Under the commands tab, there will be a  configuration 	section where all the scheduled commands will appear, along with their dates and times and options to edit them or delete them. The edit option will be done by the PUT method and the deleted option by the DELETE method. All the methods work on the data in the server’s database i.e. they either add a new command (POST), edit a scheduled command (PUT), or delete an existing command (DELETE). 
-				\paragraph{}For the Raspberry Pi, the sequence it works according to is timed. Every 5 minutes, it puts the hardware status to the server so that it can show on the user’s application hardware list. Also, every 30 seconds, it checks the server for any new commands posted by the user from the android application. If there are any new ones that have to be, it updates its own local database (an action queue) according to the priorities and scheduled dates and times of the commands. This local database is organized according to the time the command was issued (i.e. the instantaneous commands are put at the front of this queue because of their precedence and the scheduled ones are put in the command order) and contains the command ID, which hardware this command was issued for, when this command was issued, and whether the command was successfully done or not, all gotten from the server by the GET method except the “successfully done” column, which the Raspberry edits according to the hardware. 
-				\paragraph{}Whatever the result of the command was, the Raspberry posts the response of the command to the server. The android application gets this response from the server every 5 or 10 minutes, depending on the user’s choice. The response is displayed as a push notification in the user’s mobile phone. Depending on this response, the status and configuration information in the app will be updated to reflect the success or failure of the command response. Finally, it is important to note that any new hardware or configuration added to or connected to the Raspberry will have its information posted to the server by the Raspberry computer, where the user can view it then as soon as he opens his application to the first activity.
-				
+				\paragraph{}For the Raspberry Pi, the sequence it works according to is timed. Every 5 minutes, it puts the hardware status to the server so that it can show on the user’s application hardware list. Also, every 30 seconds, it checks the server for any new commands posted by the user from the android application. If there are any new ones that have to be, it updates its own local database (a local queue) according to the priorities and scheduled dates and times of the commands. This local database is organized according to the time the command was issued (i.e. the instantaneous commands are put at the front of this queue because of their precedence and the scheduled ones are put in the command order) and contains the command ID, which hardware this command was issued for, when this command was issued, and whether the command was successfully done or not, all gotten from the server by the GET method except the “successfully done” column, which the Raspberry edits according to the hardware. 
+				\paragraph{}Whatever the result of the command was, the Raspberry posts the response of the command to the server. The android application gets this response from the server every 5 or 10 minutes, depending on the user’s choice. The response is displayed as a push notification in the user’s mobile phone. Depending on this response, the status and configuration information in the app will be updated to reflect the success or failure of the command response. Finally, it is important to note that any new hardware or configuration added to or connected to the Raspberry will have its information posted to the server by the Raspberry computer, where the user can view it then as soon as he opens his application to the first activity. When the response is successfully done and read by the user, the webserver deletes it from the database to save space. The webserver also deletes instantaneous commands once the user is notified the execution result. 
 				\subsubsection{Input}
 				The user command issued using the Android client is the main input. Each command consist of the following:
 				\begin{itemize}
@@ -508,9 +507,9 @@
 				The \textbf{hardware} is the physical component connected to raspberry pi. Each hardware has a set of possible states that it can be in. Those states are called \textbf{configuration}. The \textbf{schedule} indicates the time of day and days of week the user might want the command to run at.
 				\subsubsection{Output}
 				\begin{itemize}
-					\item a respond
+					\item a response
 				\end{itemize}
-				The raspberry pi issues a \textbf{respond} indicating whether the command has been successfully done with an optional message. This respond is saved in the webserver, which in turn is read by the android client periodically.  
+				The raspberry pi issues a \textbf{response} indicating whether the command has been successfully done with an optional message. This response is saved in the webserver, which in turn is read by the android client periodically.  
 			
 		\newpage\section{Requirement Analysis}
 			\subsection{Software Requirements}
@@ -573,25 +572,32 @@
 			\renewcommand{\labelenumii}{\theenumii}
 			\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
 				\begin{enumerate}[label=3.2.3.\arabic*]
+					\item \boldcolor{Admin's Functionalities:}
+					\begin{enumerate}
+						\item Admin shall be able to add new hardware to the system.
+						\item Admin shall be able to add new configuration to the system.
+					\end{enumerate}
 					\item \boldcolor{Android Client's Functionalities:}
 					\begin{enumerate}
-						\item Android client should get system hardware list from
-						webserver.
+						\item Android client should get system hardware list from webserver.
 						\item Android client should get scheduled commands from webserver.
 						\item Android client shall be able to submit a new a command, might be scheduled,
-						to webserver.
-						
+						to webserver.	
 						\item Android client shall be able to delete a scheduled command from webserver.
 						\item Android client shall be able to edit a scheduled command from webserver.
 						\item Android client shall get responses from webserver automatically.
 					\end{enumerate}
 					\item \boldcolor{Raspberry pi's Functionalities:}
 					\begin{enumerate}
-						\item Raspberry pi should get command each 30 sec.
-						\item Raspberry pi shall be able to edit local queue.
-						\item Raspberry pi shall be able to edit hardware's current configuration(status).
+						\item Raspberry pi should get command list each 30 seconds.
+						\item Raspberry pi shall be able to update local queue.
+						\item Raspberry pi shall execute commands saved in queue.
 						\item Raspberry pi shall be able to submit a command response to server.
-						\item Raspberry pi shall be able to update server's hardware and configuration lists.
+					\end{enumerate}
+					\item \boldcolor{Web application's Functionalities:}
+					\begin{enumerate}
+						\item Web application should delete executed commands.
+						\item Web application should delete read responses.
 					\end{enumerate}
 				\end{enumerate}
 			\newpage\subsection{Non-Functional Requirements}
@@ -617,6 +623,36 @@
 					\end{figure}
 				
 				\newpage\subsubsection{Use Case Scenarios}
+				\boldcolor{executes commands}
+					\newline\textbf{Goal:} to execute commands saved in the local queue on a timely fashion.
+					\newline\textbf{Actors:} Raspberry Pi.	
+					\newline\textbf{Precondition:} raspberry pi got the commands from webserver, updated local database.
+					\newline\textbf{Primary Scenario:}	
+					\begin{enumerate}[label*=\arabic*.]
+						\item raspberry pi fetches first processed command saved in local queue.
+						\item raspberry pi calls the function \textit{EcecuteCommand()} and pass it the command as a parameter.
+						\item raspberry pi look for the pin connecting the hardware and apply the desired configuration to it.
+					\end{enumerate}
+					\textbf{Variant:}\newline	
+					\hspace*{5mm}1.a local queue might be empty, no action is taken. \\
+					\hspace*{5mm}2.a a hardware error might happen, such as disconnected cable. \\
+					\newline\boldcolor{submit a command response to server.}
+					\newline\textbf{Goal:} to submit the result of the command execution to the server by saving it as a response row.
+					\newline\textbf{Actors:} Raspberry Pi, webserver.
+					\newline\textbf{Precondition:} raspberry pi executed commands.
+					\newline\textbf{Primary Scenario:}	
+					\begin{enumerate}[label*=\arabic*.]
+						\item raspberry pi determines whether the execution was successful. 
+						\item raspberry pi includes a message if any.
+						\item  raspberry pi requests the webserver endpoint \textit{/response} with the method \textit{POST}, needed parameter are added to the request body.
+						\item webserver receives request, a new row to the database response table is added and ready for the android client to read. 
+						 
+					\end{enumerate}
+					\textbf{Variant:}\newline	
+					\hspace*{5mm}*. internet might disconnect.
+					
+						
+				
 				\newpage\subsubsection{Flowchart Diagram}
 				\newpage\subsubsection{Entity Relationship Diagram}
 					\paragraph{} In our system, there are two databases: the \textit{system database} stored in the web server, and \textit{the queue}, a local database for the raspberry pi. To make understanding the databases' easier, we represented it using entity relationship diagram. It is a graphical representation that demonstrates the relationship between concept, people, places, objects or events inside a system. The main components are the entities, relationship and cardinality. Entities are concepts or object that need their data stored. Cardinality defines that relationship in terms of numbers\cite{erd}.
@@ -628,13 +664,13 @@
 						\item \textbf{Configuration:} hardwares can have different states. For example, a LED light could be on or off. An RGB LED can be ON on a certain color, of off. Configurations save the possible states a hardware can be in.
 						\item \textbf{Command:} users can change raspberry pi's hardwares to be in a certain configuration. These commands are stored here. The users requests could either be instant, or scheduled. 
 						\item \textbf{Schedule:} since commands can be scheduled, those data should be saved here. The user can choose the days and time a command fires.
-						\item \textbf{Respond:} when raspberry pi finish executing a command, it issues a respond.
+						\item \textbf{Response:} when raspberry pi finish executing a command, it issues a response.
 					\end{enumerate}
 					\item \boldcolor{Local Queue}: This database is stored locally in raspberry pi. After raspberry gets user commands from server, it process them and order them based on their execution time.
 					\begin{enumerate}
 						\item \textbf{Hardware:} similar to the server's hardware list, this entity store the hardware connected. The system database gets data related to hardware from this entity 
 						\item \textbf{Configuration:} this table stores the possible configuration. When the table is edited, the server database is updated.
-						\item \textbf{Queue:} only the commands to be executed are stored here, once a command is executed, it gets deleted from the queue. This entity contains processed commands. i.e each queue stores the exact date and time a command will be executed instead of the schedule information.
+						\item \textbf{PCommand:} only the commands to be executed are stored here, once a command is executed, it gets deleted from the queue. This entity contains processed commands. i.e each queue stores the exact date and time a command will be executed instead of the schedule information.
 					\end{enumerate}
 				\end{itemize}
 			
@@ -740,7 +776,6 @@
 
 	\begin{comment}
 	TODO:
-	# Title page as formatted
 	# nouf edit part 1
 	# Doha Abeer edit part 2
 	
