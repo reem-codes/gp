@@ -21,9 +21,10 @@
 \usepackage{fancyhdr}
 \usepackage{tocbibind}
 \usepackage[toc]{appendix}
+\usepackage[final]{pdfpages}
 
-
- \geometry{a4paper,inner=1.25in,outer=1.25in,top=1in,bottom=1in,footskip=15mm,headsep=5mm,headheight=15mm}
+%
+ \geometry{a4paper,inner=1.25in,outer=1.25in,top=1in,bottom=1in,footskip=15mm,headsep=30mm, headheight=-3mm}
 % \renewcommand{\chaptermark}[1]{\markboth{\textit{\uppercase{chapter \thechapter. #1}}}{}}
 
 \titlespacing*{\chapter}{0pt}{-\baselineskip}{1em}
@@ -95,7 +96,7 @@
 	\vspace*{\fill}%
 	\addtocounter{chapter}{1}%
 	\begin{center}%
-		\textbf{\Large{\color{section}{CHAPTER NO. \thechapter \\ \uppercase{#1}}}}%
+		\textbf{\Large{\color{chapter}{CHAPTER NO. \thechapter \\ \uppercase{#1}}}}%
 	\end{center}%
 	\vspace*{\fill}%
 	\addtocounter{chapter}{-1}
@@ -133,7 +134,7 @@
 {\color{ssub}\thesubsubsection}{1em}{}
 
 
-
+\newcommand{\code}[1]{{\color{red}\colorbox{lightgray}{#1}}}
 \newcommand\boldcolor[1]{\textcolor{bold}{\textbf{#1}}}
 \newcommand\Includegraphics[2][]{\addvbuffer[3pt 0pt]{\includegraphics[#1]{#2}}}
 
@@ -174,7 +175,7 @@
 	\begin{center}
 		\hspace{0pt}\\
 		\vspace{4cm}
-		{\scalebox{1}{\large\bfseries\uppercase{Online Home Automation Control System}}}\\			
+		{\scalebox{1}{\large\bfseries\color{section}\uppercase{Online Home Automation Control System}}}\\			
 			\vspace{2cm}
 			By: \\
 			\begin{table}[H]
@@ -623,7 +624,7 @@
 					\end{figure}
 				
 				\newpage\subsubsection{Use Case Scenarios}
-				\boldcolor{executes commands}
+				\boldcolor{execute commands}
 					\newline\textbf{Goal:} to execute commands saved in the local queue on a timely fashion.
 					\newline\textbf{Actors:} Raspberry Pi.	
 					\newline\textbf{Precondition:} raspberry pi got the commands from webserver, updated local database.
@@ -691,12 +692,44 @@
 				
 			\newpage\subsection{Object-Oriented Diagrams}
 				\subsubsection{Sequence Diagrams}
+				\begin{figure}[H]
+					\caption{execute commands}
+					\includegraphics[width=\linewidth]{img/sequence_execute.png}
+				\end{figure}
+				\begin{figure}[H]
+					\caption{submit a command response to server}
+					\includegraphics[width=\linewidth]{img/sequence_submit_response.png}
+				\end{figure}
 				\newpage\subsubsection{Class Diagram}
+					\paragraph{} \textit{Figure \ref{fig:class_web}} shows the class diagram for the web application, and \textit{figure \ref{fig:class_rp}} shows the class diagram for raspberry pi.The classes are essentially wrappers for the databases tables, except for the class \textbf{RaspberryPi}, where the functions for controlling the hardwares are.
+					\paragraph{}The classes which represent database's tables inherit from a \textbf{BaseEntity} generic class. This generic class has the entity's id and \textbf{updateAt} property, which determines when the entity was created/last updated. This generic class is important as it has the methods needed to communicate with the web server. An example is \code{hardware.edit(1)}, which corresponds to the REST API \textbf{PUT} \code{/hardware/1}.
 					\begin{figure}[H]
-						\caption{Class diagram}
-						\includegraphics[width=\linewidth]{img/diagram_class.jpg}
+						\caption{Class diagram for the web application}
+						\label{fig:class_web}
+						\includegraphics[width=\linewidth]{img/diagram_class1.png}
 					\end{figure}
-			
+					\begin{figure}[H]
+						\caption{Class diagram for the raspberry pi}
+						\label{fig:class_rp}
+						\includegraphics[width=\linewidth]{img/diagram_class2.png}
+					\end{figure}
+				\newpage\subsubsection{UML representation of the REST API Diagram}
+				\paragraph{} Correct calls to the web application via the REST API is the building block of our project. Thus, talking about the structure is essential. The API has 5 entities representing the database's tables. For each entity, client can use 2 methods with the entity url -e.g. \code{/hardware}-: 
+				\begin{itemize}
+					\item \textbf{GET}: this method corresponds to the SQL's \code{SELECT * from ...;}.
+					\item \textbf{POST}: a body of type JSON is required. It holds the object attributes. This method corresponds to the SQL's \code{INSERT INTO}.
+				\end{itemize} 
+			 	\paragraph{}Also, client can use 3 methods with the entity url + id -e.g.\code{/hardware/6}-: 
+			 	\begin{itemize}
+			 		\item \textbf{GET}: this method corresponds to the SQL's \code{SELECT * from ... WHERE id = ...;}.
+			 		\item \textbf{PUT}: a body of type JSON is required. It holds the object attributes. This method corresponds to the SQL's \code{UPDATE ... WHERE id = ..;}.
+			 		\item \textbf{DELETE}: this method corresponds to the SQL's \code{DELETE FROM ... WHERE id = ..;}.
+			 	\end{itemize} 
+		 		\textit{For full documentation see Appendix \ref{appendix:api_doc}}
+				\begin{figure}[H]
+					\caption{REST API}
+					\includegraphics[width=\linewidth]{img/rest_uml.png}
+				\end{figure}	
 		\newpage
 	\begin{comment}
 		usecase
@@ -744,14 +777,13 @@
 	\bibliography{References}
 
 
-
 	\clearpage
-	\appendix
 	\mychapter{Appendices}
+	\appendix
 	%\renewcommand{thesection}{\Alph{section}}
-		\section{Figures}
+		\chapter{Figures}
 		\label{appendix:similar_system_comparision}
-		\subsection{Similar systems hub design}
+		\section{Similar systems hub design}
 		\begin{figure}[H]
 			\caption{Similar systems: hub design}
 			\begin{subfigure}[b]{.5\linewidth}
@@ -771,13 +803,18 @@
 				\caption{Raspberry Pi}
 			\end{subfigure}
 		\end{figure}
+
+		\newpage\chapter{REST API Documentation}
+		\label{appendix:api_doc}
+		\includepdf[pages=-, width=\linewidth, pagecommand={\pagestyle{fancy}}]{file/api-documentation.pdf}
+
 \end{document}
 
 
 	\begin{comment}
 	TODO:
-	# nouf edit part 1
-	# Doha Abeer edit part 2
+	# nouf IoT
+	# Doha class
 	
 	
 	# muna flow chart
