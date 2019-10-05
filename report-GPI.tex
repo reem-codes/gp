@@ -685,6 +685,24 @@
 						
 				
 				\newpage\subsubsection{Flowchart Diagram}
+				% add webserver work, and change between webserver and web app
+				\paragraph{} The flowchart for the system has three parallel processes: the raspberry pi process, the android app, and the android app back work.
+				\begin{itemize}
+					\item \boldcolor{Raspberry pi}: Every 30 seconds, raspberry first requests command list from the server, the web application then fetches the list from the database and returns it. Raspberry pi updates the local queue with them. It then checks the first command in the queue, if it was due it gets executed and post the response to the server. After execution, it checks the first in queue again.
+					\item \boldcolor{Android app}: when android app is first opened, it requests hardware list from the webserver. After the web app fetches the hardware list from the database, it returns it to the android app, which displays the hardwares to the user. If the user clickes in a hardware, a new activity is opened containing the hardware information and the command list for that hardware. The user then can do 3 things: 
+					\begin{enumerate}
+						\item Edit a certain command: android request PUT to the command chosen from the server.
+						\item Delete a certain command: android request DELETE to the command chosen from the server.
+						\item Add a new command: android shows a new activity prompting the user for the command information, then it requests POST command to the server. 
+					\end{enumerate}
+					Regardless of the choice, the web app then process the request.
+					\item \boldcolor{Android app back work}: each 5 or 10 minutes, android requests the responses from the webserver. When there is a response to be read, it shows it to the user as a push notification.
+					\item \boldcolor{Web app}: when a command has no schedule and it was executed, the web app immediately deletes it from the database. Web app also deletes any read response.
+				\end{itemize}
+				\begin{figure}[H]
+					\caption{Flow chart for the system}
+					\includegraphics[width=\linewidth]{img/flowchart.png}
+				\end{figure}
 				\newpage\subsubsection{Entity Relationship Diagram}
 					\paragraph{} In our system, there are two databases: the \textit{system database} stored in the web server, and \textit{the queue}, a local database for the raspberry pi. To make understanding the databases' easier, we represented it using entity relationship diagram. It is a graphical representation that demonstrates the relationship between concept, people, places, objects or events inside a system. The main components are the entities, relationship and cardinality. Entities are concepts or object that need their data stored. Cardinality defines that relationship in terms of numbers\cite{erd}.
 				
