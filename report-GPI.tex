@@ -624,33 +624,63 @@
 					\end{figure}
 				
 				\newpage\subsubsection{Use Case Scenarios}
-				\boldcolor{execute commands}
-					\newline\textbf{Goal:} to execute commands saved in the local queue on a timely fashion.
-					\newline\textbf{Actors:} Raspberry Pi.	
-					\newline\textbf{Precondition:} raspberry pi got the commands from webserver, updated local database.
-					\newline\textbf{Primary Scenario:}	
-					\begin{enumerate}[label*=\arabic*.]
-						\item raspberry pi fetches first processed command saved in local queue.
-						\item raspberry pi calls the function \textit{EcecuteCommand()} and pass it the command as a parameter.
-						\item raspberry pi look for the pin connecting the hardware and apply the desired configuration to it.
-					\end{enumerate}
-					\textbf{Variant:}\newline	
-					\hspace*{5mm}1.a local queue might be empty, no action is taken. \\
-					\hspace*{5mm}2.a a hardware error might happen, such as disconnected cable. \\
-					\newline\boldcolor{submit a command response to server.}
-					\newline\textbf{Goal:} to submit the result of the command execution to the server by saving it as a response row.
-					\newline\textbf{Actors:} Raspberry Pi, webserver.
-					\newline\textbf{Precondition:} raspberry pi executed commands.
-					\newline\textbf{Primary Scenario:}	
-					\begin{enumerate}[label*=\arabic*.]
-						\item raspberry pi determines whether the execution was successful. 
-						\item raspberry pi includes a message if any.
-						\item  raspberry pi requests the webserver endpoint \textit{/response} with the method \textit{POST}, needed parameter are added to the request body.
-						\item webserver receives request, a new row to the database response table is added and ready for the android client to read. 
-						 
-					\end{enumerate}
-					\textbf{Variant:}\newline	
-					\hspace*{5mm}*. internet might disconnect.
+				
+				\boldcolor{Android app gets hardware list}
+				\newline\textbf{Goal:} to get all hardware in the system from webserver.
+				\newline\textbf{Actors:} Android app, Web server.
+				\newline\textbf{Precondition:} user opens android app.
+				\newline\textbf{Primary Scenario:}	
+				\begin{enumerate}[label*=\arabic*.]
+					\item android app calls the webserver endpoint \code{/hardware}
+					\item webserver fetches data from database using \code{hardware.index()}
+					\item webserver responses to request with an array of hardwares in the response's body
+					\item Android display this array to user in UI.
+				\end{enumerate}
+				\textbf{Variant:}\newline
+				\hspace*{5mm}*. user might exist android app. \\
+				\hspace*{5mm}1.android app might fail to connect to the internet \\
+				\newline\boldcolor{Android app gets command list}
+				\newline\textbf{Goal:} to get all commands in the system related to selected hardware.
+				\newline\textbf{Actors:} Android app, Web server.
+				\newline\textbf{Precondition:} android app gets hardware list
+				\newline\textbf{Primary Scenario:}	
+				\begin{enumerate}[label*=\arabic*.]
+					\item user selects hardware from UI.
+					\item android app calls the webserver endpoint \code{/hardware/\{hardwareId\}/command}, where \textit{hardwareId} is the id of the hardware the user selected.
+					\item webserver fetches data from database using \code{command.indexByHardwareId(\{hardwareId\})}
+					\item webserver responses to request with an array of commands in the response's body
+					\item ando
+				\end{enumerate}
+				\textbf{Variant:}\newline
+				\hspace*{5mm}*. user might exist android app. \\
+				\hspace*{5mm}2.android app might fail to connect to the internet \\
+				\newline\boldcolor{Raspberry pi executes commands}
+				\newline\textbf{Goal:} to execute commands saved in the local queue on a timely fashion.
+				\newline\textbf{Actors:} Raspberry Pi.	
+				\newline\textbf{Precondition:} raspberry pi got the commands from webserver, updated local database.
+				\newline\textbf{Primary Scenario:}	
+				\begin{enumerate}[label*=\arabic*.]
+					\item raspberry pi fetches first processed command saved in local queue.
+					\item raspberry pi calls the function \code{EcecuteCommand()} and pass it the command as a parameter.
+					\item raspberry pi look for the pin connecting the hardware and apply the desired configuration to it.
+				\end{enumerate}
+				\textbf{Variant:}\newline	
+				\hspace*{5mm}1.a local queue might be empty, no action is taken. \\
+				\hspace*{5mm}2.a a hardware error might happen, such as disconnected cable. \\
+				\newline\boldcolor{Raspberry pi submits a command response to server}
+				\newline\textbf{Goal:} to submit the result of the command execution to the server by saving it as a response row.
+				\newline\textbf{Actors:} Raspberry Pi, webserver.
+				\newline\textbf{Precondition:} raspberry pi executed commands.
+				\newline\textbf{Primary Scenario:}	
+				\begin{enumerate}[label*=\arabic*.]
+					\item raspberry pi determines whether the execution was successful. 
+					\item raspberry pi includes a message if any.
+					\item  raspberry pi requests the webserver endpoint \code{/response} with the method \textit{POST}, needed parameter are added to the request body.
+					\item webserver receives request, a new row to the database response table is added and ready for the android client to read. 
+				 
+				\end{enumerate}
+				\textbf{Variant:}\newline	
+				\hspace*{5mm}*. internet might disconnect.
 					
 						
 				
@@ -693,11 +723,11 @@
 			\newpage\subsection{Object-Oriented Diagrams}
 				\subsubsection{Sequence Diagrams}
 				\begin{figure}[H]
-					\caption{execute commands}
+					\caption{Raspberry pi executes commands}
 					\includegraphics[width=\linewidth]{img/sequence_execute.png}
 				\end{figure}
 				\begin{figure}[H]
-					\caption{submit a command response to server}
+					\caption{Raspberry pi submits a command response to server}
 					\includegraphics[width=\linewidth]{img/sequence_submit_response.png}
 				\end{figure}
 				\newpage\subsubsection{Class Diagram}
