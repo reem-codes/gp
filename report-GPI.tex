@@ -773,11 +773,17 @@
 			 		\item \textbf{PUT}: a body of type JSON is required. It holds the object attributes. This method corresponds to the SQL's \code{UPDATE ... WHERE id = ..;}.
 			 		\item \textbf{DELETE}: this method corresponds to the SQL's \code{DELETE FROM ... WHERE id = ..;}.
 			 	\end{itemize} 
-		 		\textit{For full documentation see Appendix \ref{appendix:api_doc}}
+		 		\textit{Figure \ref{fig:rest} shows the API's hierarchy and figure \ref{fig:rest_model} shows the models. For full documentation see Appendix \ref{appendix:api_doc}}
 				\begin{figure}[H]
 					\caption{REST API}
+					\label{fig:rest}
 					\includegraphics[width=\linewidth]{img/rest_uml.png}
-				\end{figure}	
+				\end{figure}
+			\begin{figure}[H]
+				\caption{REST API models}
+				\label{fig:rest_model}
+				\includegraphics[width=\linewidth]{img/rest_uml_model.png}
+			\end{figure}	
 		\newpage
 	\begin{comment}
 		usecase
