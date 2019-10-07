@@ -330,35 +330,20 @@
 		\mychapter{Background Information \& Related Work}
 			\section{Background Information}
 			\subsection{IoT}
-			\paragraph{}The internet of things (IoT) constitutes one of the most important technological
-			development in the last decade. The IoT term was coined by Kevin n 1999\cite{iot_1}. IoT
-			means a “world-wide network of interconnected objects uniquely addressable, based
-			on standard communication protocols”\cite{iot_2}. in a somewhat simplified manner, we
-			can describe IoT is the ability to connecting as many things by the internet without
-			direct human intervention by using technologies such as cloud computing, Radio
-			Frequency Identification (RFID), wireless communication, sensors, Internet
-			protocol, ultra-low-power processors and others\cite{iot_3}.
+			\paragraph{}The internet of things (IoT) is one of the most important technological developments in the last decade. Do you wonder were the term IoT came from? It was coined by Kevin in 1999 \cite{iot_1}. This means we can describe IoT as the ability to connect as many things by the internet without humans’ help by using technologies such as cloud computing, Radio Frequency Identification (RFID), wireless communication, sensors, Internet protocol, ultra-low-power processors and others \cite{iot_3}.
 			\subsubsection{IoT Architecture}
-			\paragraph{} IoT Architecture includes three layers Perception layer, Network layer, and
-			Application layer each of them has its own functionality.
+			\paragraph{} It is basically what IoT is made of. It contains three layers; Perception layer, Network layer, and Application layer. So, to know these layers better we need to know the definition of them.
 			\begin{itemize}
-				\item \boldcolor{Perception layer:} is responsible to perceive and identifying objects or things in the
-				environment.
-				\item \boldcolor{Network layer:} is responsible for receiving and transmitting data between layers.
-				\item \boldcolor{Application layer:} is the interface for all previous Layers used to processed and
-				transported data to provide services to the users\cite{iot_4}.
+				\item \boldcolor{Perception layer:} is responsible for perceiving and identifying objects or things in the environment \cite{iot_4}.
+				\item \boldcolor{Network layer:} is responsible for receiving and transmitting data between layers \cite{iot_5}.
+				\item \boldcolor{Application layer:} is the interface for all previous layers used to process and transport data to provide services to the users \cite{iot_6}.
 			\end{itemize}
 			\subsubsection{IoT Applications}
-			\paragraph{}The Applications of the IoT are diversified and can be classified into three main
-			categories industry, environment, and society.
+			\paragraph{}There are different kinds of applications that make life easier and more secure. These are some example of them:
 			\begin{itemize}
-			\item \boldcolor{Industry:} The importance of the industry domain can be seen in transportation,
-			aviation, and automotive (e.g.Tesla automobile ).
-			\item \boldcolor{Environment:} The society Domain focused on telecommunication, smart building,
-			home, and medical technology (e.g.connected door locks, Closed-loop (automated)
-			insulin delivery).
-			\item \boldcolor{Society:} The environment Domain focused on recycling, disaster alerting,
-			environmental monitoring (e.g.Forest Fire Detection, Air Pollution)\cite{iot_5}.
+			\item \boldcolor{Automobiles:}  by IoT technology, it makes cars smarter and works to improve safety on the road by helping cars detect obstacles and assist braking or adapt their speed to the flow of traffic. Also it helps protect the environment by reducing fuel consumption, etc \cite{iot_7}.
+			\item \boldcolor{Smart Home:}  You can control your entire home with a touch screen or your smartphone whether you are inside or outside a home, for example, you can lock or open your doors, turn on/off the light and air conditioner, etc \cite{iot_8}.
+			\item \boldcolor{Healthcare:} IoT has an important role in healthcare applications by providing the ability to easily monitor and manage patient health without having to manually visit each patient the doctor can give a remote diagnosis to provide quality care more quickly and manage the health care environment more efficiently \cite{iot_5}.
 			\end{itemize}
 			\subsection{Hardware}
 				\begin{itemize}
@@ -597,7 +582,7 @@
 					\end{enumerate}
 					\item \boldcolor{Web application's Functionalities:}
 					\begin{enumerate}
-						\item Web application should delete executed commands.
+						\item Web application should delete executed immediate commands.
 						\item Web application should delete read responses.
 					\end{enumerate}
 				\end{enumerate}
@@ -637,7 +622,7 @@
 					\item Android display this array to user in UI.
 				\end{enumerate}
 				\textbf{Variant:}\newline
-				\hspace*{5mm}*. user might exist android app. \\
+				\hspace*{5mm}*. user might exit android app. \\
 				\hspace*{5mm}1.android app might fail to connect to the internet \\
 				\newline\boldcolor{Android app gets command list}
 				\newline\textbf{Goal:} to get all commands in the system related to selected hardware.
@@ -648,12 +633,24 @@
 					\item user selects hardware from UI.
 					\item android app calls the webserver endpoint \code{/hardware/\{hardwareId\}/command}, where \textit{hardwareId} is the id of the hardware the user selected.
 					\item webserver fetches data from database using \code{command.indexByHardwareId(\{hardwareId\})}
-					\item webserver responses to request with an array of commands in the response's body
+					\item webserver responds to request with an array of commands in the response's body
+				\end{enumerate}
+				\textbf{Variant:}\newline
+				\hspace*{5mm}*. user might exit android app. \\
+				\hspace*{5mm}2.android app might fail to connect to the internet \\
+				\newline\boldcolor{Raspberry pi gets command list}
+				\newline\textbf{Goal:} to get all commands in the system.
+				\newline\textbf{Actors:} Raspberry pi, Web server.
+				\newline\textbf{Precondition:} None
+				\newline\textbf{Primary Scenario:}	
+				\begin{enumerate}[label*=\arabic*.]
+					\item Raspberry pi calls the webserver endpoint \code{/command} to get all the commands
+					\item webserver fetches data from database using \code{command.index()}
+					\item webserver responds to request with an array of commands in the response's body
 					\item ando
 				\end{enumerate}
 				\textbf{Variant:}\newline
-				\hspace*{5mm}*. user might exist android app. \\
-				\hspace*{5mm}2.android app might fail to connect to the internet \\
+				\hspace*{5mm}*. raspberry pi might fail to connect to the internet \\
 				\newline\boldcolor{Raspberry pi executes commands}
 				\newline\textbf{Goal:} to execute commands saved in the local queue on a timely fashion.
 				\newline\textbf{Actors:} Raspberry Pi.	
@@ -685,11 +682,10 @@
 						
 				
 				\newpage\subsubsection{Flowchart Diagram}
-				% add webserver work, and change between webserver and web app
-				\paragraph{} The flowchart for the system has three parallel processes: the raspberry pi process, the android app, and the android app back work.
+				\paragraph{} Figure \ref{fig:ig:flow_android} shows the flow chart for the android app, and figure \ref{fig:ig:flow_rasp} shows the raspberry pi's flowchart.
 				\begin{itemize}
-					\item \boldcolor{Raspberry pi}: Every 30 seconds, raspberry first requests command list from the server, the web application then fetches the list from the database and returns it. Raspberry pi updates the local queue with them. It then checks the first command in the queue, if it was due it gets executed and post the response to the server. After execution, it checks the first in queue again.
-					\item \boldcolor{Android app}: when android app is first opened, it requests hardware list from the webserver. After the web app fetches the hardware list from the database, it returns it to the android app, which displays the hardwares to the user. If the user clickes in a hardware, a new activity is opened containing the hardware information and the command list for that hardware. The user then can do 3 things: 
+					\item \boldcolor{Raspberry pi}: Every 30 seconds, raspberry first requests command list from the server, the web application then fetches the list from the database and returns it. Raspberry pi updates the local queue with them. It then checks the first command in the queue, if it was due it gets executed and post the response to the server. After execution,  it checks the first in queue again.
+					\item \boldcolor{Android app}: when android app is first opened, it requests hardware list from the webserver. After the web app fetches the hardware list from the database, it returns it to the android app, which displays the hardwares to the user. If the user clicks in a hardware, a new activity is opened containing the hardware information and the command list for that hardware. The user then can do 3 things: 
 					\begin{enumerate}
 						\item Edit a certain command: android request PUT to the command chosen from the server.
 						\item Delete a certain command: android request DELETE to the command chosen from the server.
@@ -700,8 +696,15 @@
 					\item \boldcolor{Web app}: when a command has no schedule and it was executed, the web app immediately deletes it from the database. Web app also deletes any read response.
 				\end{itemize}
 				\begin{figure}[H]
-					\caption{Flow chart for the system}
-					\includegraphics[width=\linewidth]{img/flowchart.png}
+					\caption{Flow chart - Android app}
+					\label{fig:ig:flow_android}
+					\includegraphics[width=\linewidth]{img/flowchart_android.png}
+				\end{figure}
+				\begin{figure}[H]
+					\centering
+					\caption{Flow chart - Raspberry pi}
+					\label{fig:ig:flow_rasp}
+					\includegraphics[width=.65\linewidth]{img/flowchart_raspberry.png}
 				\end{figure}
 				\newpage\subsubsection{Entity Relationship Diagram}
 					\paragraph{} In our system, there are two databases: the \textit{system database} stored in the web server, and \textit{the queue}, a local database for the raspberry pi. To make understanding the databases' easier, we represented it using entity relationship diagram. It is a graphical representation that demonstrates the relationship between concept, people, places, objects or events inside a system. The main components are the entities, relationship and cardinality. Entities are concepts or object that need their data stored. Cardinality defines that relationship in terms of numbers\cite{erd}.
@@ -867,12 +870,6 @@
 
 	\begin{comment}
 	TODO:
-	# nouf IoT
-	# Doha class
-	
-	
-	# muna flow chart
 	# Doha data flow
 	# all functions
-	# REST API Swagger
 	\end{comment}

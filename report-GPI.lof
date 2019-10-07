@@ -6,15 +6,16 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Related Work: Samsung\relax }}{12}{figure.caption.14}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Use case diagram\relax }}{23}{figure.caption.17}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Flow chart for the system\relax }}{28}{figure.caption.18}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Entity-relationship diagrams\relax }}{31}{figure.caption.19}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Raspberry pi executes commands\relax }}{32}{figure.caption.20}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Raspberry pi submits a command response to server\relax }}{33}{figure.caption.21}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Class diagram for the web application\relax }}{35}{figure.caption.22}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Class diagram for the raspberry pi\relax }}{36}{figure.caption.23}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces REST API\relax }}{38}{figure.caption.24}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces REST API models\relax }}{39}{figure.caption.25}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Flow chart - Android app\relax }}{29}{figure.caption.18}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Flow chart - Raspberry pi\relax }}{30}{figure.caption.19}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Entity-relationship diagrams\relax }}{33}{figure.caption.20}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Raspberry pi executes commands\relax }}{34}{figure.caption.21}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Raspberry pi submits a command response to server\relax }}{35}{figure.caption.22}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Class diagram for the web application\relax }}{37}{figure.caption.23}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Class diagram for the raspberry pi\relax }}{38}{figure.caption.24}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces REST API\relax }}{40}{figure.caption.25}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces REST API models\relax }}{41}{figure.caption.26}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Similar systems: hub design\relax }}{45}{figure.caption.27}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Similar systems: hub design\relax }}{47}{figure.caption.28}
 \addvspace {10\p@ }
