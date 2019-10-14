@@ -23,6 +23,7 @@
 \usepackage[toc]{appendix}
 \usepackage[final]{pdfpages}
 
+
 %
  \geometry{a4paper,inner=1.25in,outer=1.25in,top=1in,bottom=1in,footskip=15mm,headsep=30mm, headheight=-3mm}
 % \renewcommand{\chaptermark}[1]{\markboth{\textit{\uppercase{chapter \thechapter. #1}}}{}}
@@ -244,7 +245,6 @@
 	\label{sec:sym}
 	\def\arraystretch{1.5}
 	\begin{table}[H]
-		\caption{List of Symbols \& Abbreviations}
 		\begin{center}
 			\begin{tabularx}{\linewidth}{|c|X|}\hline
 				
@@ -262,6 +262,7 @@
 				Linear solenoid &  type of electromagnetic actuator that converts an electrical signal into a magnetic field producing a linear motion\cite{linear}.\\\hline
 			\end{tabularx}
 		\end{center}
+		\caption{List of Symbols \& Abbreviations}
 	\end{table}
 	\newpage
 	\addcontentsline{toc}{chapter}{\nameref{sec:kw}}
@@ -269,7 +270,6 @@
 	\label{sec:kw}
 	\def\arraystretch{1.5}
 	\begin{table}[H]
-		\caption{Keywords}
 		\begin{center}
 			\begin{tabularx}{\linewidth}{|c|X|}\hline		
 				\boldcolor{Keyword} & \boldcolor{Definition} \\\hline
@@ -277,6 +277,7 @@
 				Linear solenoid &  type of electromagnetic actuator that converts an electrical signal into a magnetic field producing a linear motion\cite{linear}.\\\hline				
 			\end{tabularx}
 		\end{center}
+		\caption{Keywords}
 	\end{table}
 	\newpage
 	\addcontentsline{toc}{chapter}{\nameref{sec:intro}}
@@ -289,15 +290,13 @@
 	\mychapter{Introduction}
 		\pagenumbering{arabic}
 		\section{Problem statement \& Significance}
-		\paragraph{}With the recent very rapid progress in technology and automation, there has
+		\paragraph{}With the recent very rapid progress in technology and automation, and towards easier daily life tasks, there has
 		become a need for remote control of almost all possible aspects of living. Especially
-		the house appliances that surround us, because of how easy they make the modern
-		human’s life and how much they allow him to focus on his main work 
-		instead of doing these remotely controlled tasks himself. 
+		the house appliances that surround us,that allow focusing on main work of each day.
 		\paragraph{}Some examples we have already encountered and used in our daily lives include using apps to control a cleaning robot or adjust the heating in the house or switch the house lights on or off. For the latter, there have been many applications that can do that. However, they all work in a small set of devices and sensors. It is necessary for such applications to exist, as a service like this would be important for many people. An example is working moms who are outside the house and want to switch the lights on at a certain time to wake their children up. Another example is pet owners who need to have UV lights switched on for their pets at certain times of the day but can’t do so immediately and so on. 
 		\paragraph{}However, the main challenge in creating a device to solve this problem is where the idea of IoT (Internet of Things) comes in; learning how to control this device through the Internet from afar, rather than being controlled by infrared rays locally as is the case with most similar applications. 
 		\section{Proposed Solution}
-		\paragraph{}The created app should enable the user, by clicking on the appropriate buttons, to control a physical apparatus that needs to be pushed to work, such as lights buttons. This will be done by designing and creating an Android application, then using a small laptop, called Raspberry Pi, to control a small piece that will be pushed forward (on command) to switch the light on or off, the API is a web application hosted on a server.
+		\paragraph{}This project propose building an intelligent application that is based on IoT techniques. The created app should enable the user, by clicking on the appropriate buttons, to control a physical apparatus that needs to be pushed to work, such as lights buttons. This will be done by designing and creating an Android application, then using a small laptop, called Raspberry Pi, to control a small piece that will be pushed forward (on command) to switch the light on or off, the API is a web application hosted on a server.
 		
 		\subsection{Aims}
 			\paragraph{}At the end of this project, we intend to achieve the following aims:
@@ -323,9 +322,9 @@
 			
 		\section{Gantt Chart}
 		\begin{figure}[H]
-  			\caption{Gantt Chart}
 			\includegraphics[width=\linewidth]{img/gantt_chart.png}
-		\end{figure}
+  			\caption{Gantt Chart}	
+	\end{figure}
 		\newpage	
 		\mychapter{Background Information \& Related Work}
 			\section{Background Information}
@@ -379,10 +378,11 @@
 		\section{Related Work}
 		\subsection{Insteon - Insteon Hub}
 		\begin{figure}[H]
-  			\caption{Related Work: Insteon}
 			\includegraphics[width=\linewidth]{img/insteon.png}
+  			\caption{Related Work: Insteon}
+  			\label{related:insteon}
 		\end{figure}
-		\paragraph{}Insteon Hub is a simple and straightforward system that connects you to your home from any smartphone or tablet, anywhere in the world. Control Insteon light bulbs, wall switches, outlets, and thermostats at home or remotely and receive instant email or push notification alerts from motion, door and window, water leak, and smoke sensors while you’re away\cite{insteon}.
+		\paragraph{}Insteon Hub is a simple and straightforward system that connects you to your home from any smartphone or tablet, anywhere in the world. Control Insteon light bulbs, wall switches, outlets, and thermostats at home or remotely and receive instant email or push notification alerts from motion, door and window, water leak, and smoke sensors while you’re away\cite{insteon}. \textit{Figure \ref{related:insteon} shows the home page for Insteon}.
 		\begin{itemize}
 		\item \boldcolor{Advantage:}
 			\begin{enumerate}
@@ -402,10 +402,11 @@
 		\newpage	
 		\subsection{Wink - Wink Hub 2}
 		\begin{figure}[H]
-  			\caption{Related Work: Wink}
   			\includegraphics[width=\linewidth]{img/wink.png}
+  			\caption{Related Work: Wink}
+  			\label{related:wink}
 		\end{figure}
-		\paragraph{}Wink Hub 2 is the world’s first smart home hub created for the mainstream consumer. With industry-leading smart home protocol support, enhanced connectivity features, and a sleek design, Wink Hub 2 brings hundreds of products from best-in-class brands together for a simple, intuitive experience\cite{wink}.
+		\paragraph{}Wink Hub 2 is the world’s first smart home hub created for the mainstream consumer. With industry-leading smart home protocol support, enhanced connectivity features, and a sleek design, Wink Hub 2 brings hundreds of products from best-in-class brands together for a simple, intuitive experience\cite{wink}. \textit{Figure \ref{related:wink} shows the home page for Wink}.
 		
 		\begin{itemize}
 			\item \boldcolor{Advantage:}
@@ -425,11 +426,12 @@
 		\end{itemize}
 		\newpage
 		\subsection{Samsung – Smart Things Hub}
-		\begin{figure}[H]
-  			\caption{Related Work: Samsung}
+		\begin{figure}[H] 			
 			\includegraphics[width=\linewidth]{img/samsung.png}
+			\caption{Related Work: Samsung}
+			\label{related:samsung}
 		\end{figure}
-		\paragraph{}Smart things hub Connect wirelessly with a wide range of smart devices and make them work together\cite{samsung}.
+		\paragraph{}Smart things hub Connect wirelessly with a wide range of smart devices and make them work together\cite{samsung}. \textit{Figure \ref{related:samsung} shows the home page for Samsung}.
 		\begin{itemize}
 			\item \boldcolor{Advantage:}
 			\begin{enumerate}
@@ -449,7 +451,7 @@
 		\section{Proposed \& Similar System Comparison}
 			\def\arraystretch{1.5}
 			\begin{table}[H]
-				\caption{Proposed \& Similar System Comparison}
+
 			\begin{center}
 			\begin{tabularx}{1\linewidth}{|m{2.2cm}*4{|X}|}\hline
 					
@@ -469,6 +471,7 @@
 					\\\hline
 				\end{tabularx}
 			\end{center}
+			\caption{Proposed \& Similar System Comparison}
 		\end{table}
 		\textit{Better quality can be found at Appendix \ref{appendix:similar_system_comparision}}
 		\newpage
@@ -477,8 +480,8 @@
 	\mychapter{System Analysis}
 		\section{Requirement Specification}
 			\subsection{Overview}
-				\paragraph{} The application we mean to create consists of three main systems: the android application which will be the user interface, the Raspberry Pi, which is the small computer where all the hardware pieces will be connected to, and the web server which will host the REST web application and be the connection between the android application and the Raspberry Pi.
-				\paragraph{}The user of the system will have to have the android app installed on his mobile phone. When the app is first opened, the first activity (page in android app) displays the hardwares that are connected to the Raspberry Pi. It gets this list of hardwares from the webserver by using the GET method. When the user clicks on any of the hardware that is there, a new activity opens. In it is mentioned the name of the hardware, the status (e.g. whether it is on or off), the commands and the scheduling configuration. All of this information is obtained from the server. 
+				\paragraph{} The proposed project consists of three main systems: the android application which will be the user interface, the Raspberry Pi, which is the small computer where all the hardware pieces will be connected to, and the web server which will host the REST web application and be the connection between the android application and the Raspberry Pi.
+				\paragraph{}First, the user is required to install the android app on his mobile phone. When the app is first opened, the first activity (page in android app) displays the hardwares that are connected to the Raspberry Pi. It gets this list of hardwares from the webserver by using the GET method. When the user clicks on any of the hardware that is there, a new activity opens. In it is mentioned the name of the hardware, the status (e.g. whether it is on or off), the commands and the scheduling configuration. All of this information is obtained from the server. 
 				\paragraph{}Next to the commands title, there will be a small button that when clicked on will open a third activity, which gives the option of adding a new command. The command can be instantaneous (for example, switching an LED light immediately) or it can be scheduled for a later date or time. For the instantaneous command, the POST method will be used, and for scheduling the commands, the user will have the option to choose the date and time he wishes the commands to be undertaken in. Whatever the outcome of this process is, a popup message will appear to the user either confirming the success of the command the user issued, or denying it while explaining the reason for that failure.
 				\paragraph{}Under the commands tab, there will be a  configuration 	section where all the scheduled commands will appear, along with their dates and times and options to edit them or delete them. The edit option will be done by the PUT method and the deleted option by the DELETE method. All the methods work on the data in the server’s database i.e. they either add a new command (POST), edit a scheduled command (PUT), or delete an existing command (DELETE). 
 				\paragraph{}For the Raspberry Pi, the sequence it works according to is timed. Every 5 minutes, it puts the hardware status to the server so that it can show on the user’s application hardware list. Also, every 30 seconds, it checks the server for any new commands posted by the user from the android application. If there are any new ones that have to be, it updates its own local database (a local queue) according to the priorities and scheduled dates and times of the commands. This local database is organized according to the time the command was issued (i.e. the instantaneous commands are put at the front of this queue because of their precedence and the scheduled ones are put in the command order) and contains the command ID, which hardware this command was issued for, when this command was issued, and whether the command was successfully done or not, all gotten from the server by the GET method except the “successfully done” column, which the Raspberry edits according to the hardware. 
@@ -588,7 +591,6 @@
 			\newpage\subsection{Non-Functional Requirements}
 				\def\arraystretch{1.5}
 				\begin{table}[H]
-					\caption{Non-functional requirements}
 					\begin{center}
 						\begin{tabularx}{\linewidth}{|c|X|}\hline
 							\boldcolor{Requirement} & \boldcolor{Description}\\\hline
@@ -599,12 +601,15 @@
 							\textbf{Flexibility} & Application shall be made of multiple languages. So, user shall be able to nominate their preferred language when entering their personal information. \\\hline
 						\end{tabularx}
 					\end{center}
+					\caption{Non-functional requirements}
+					\label{table:non-func}
 				\end{table}
+			\paragraph{} \textit{Table \ref{table:non-func}} shows the non-functional requirements for the system and their description. The most important requirement is availability, because the system will fail once the user and raspberry pi were not able to communicate. %secuirty
 			\newpage\subsection{Structured Diagrams}
 				\subsubsection{Use Case Diagram}
 					\begin{figure}[H]
-					\caption{Use case diagram}
 					\includegraphics[width=\linewidth]{img/diagram_usecase.jpg}
+					\caption{Use case diagram}
 					\end{figure}
 				
 				\newpage\subsubsection{Use Case Scenarios}
@@ -621,7 +626,12 @@
 				\end{enumerate}
 				\textbf{Variant:}\newline
 				\hspace*{5mm}1.A. A physical defect might appear in the new hardware, the wires connecting it to the Raspberry Pi, or its ports, all resulting in the new hardware not working correctly. \\
-				\newline\boldcolor{Admin adds a new configuration to system}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_add_hardware.png}
+					\caption{sequence diagram: Admin adds a new hardware to system}
+					\label{admin_hw}
+				\end{figure} 
+				\newpage\hspace*{-6mm}\boldcolor{Admin adds a new configuration to system}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{admin_config}}
 				\newline\textbf{Goal:} to add a new configuration to a new hardware.
 				\newline\textbf{Actors:} Admin, Raspberry Pi, Web server.
@@ -633,7 +643,12 @@
 				\end{enumerate}
 				\textbf{Variant:}\newline
 				\hspace*{5mm}1.A. A physical defect might appear in the new hardware, the wires connecting it to the Raspberry Pi, or its ports, all resulting in the new hardware not working correctly. \\
-				\newline\boldcolor{Android app gets hardware list}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_add_config.png}
+					\caption{sequence diagram: Admin adds a new configuration to system}
+					\label{admin_config}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Android app gets hardware list}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{android_hw}}
 				\newline\textbf{Goal:} to get all hardware in the system from webserver.
 				\newline\textbf{Actors:} Android app, Web server.
@@ -648,7 +663,12 @@
 				\textbf{Variant:}\newline
 				\hspace*{5mm}*. user might exit android app. \\
 				\hspace*{5mm}1.A. android app might fail to connect to the internet \\
-				\newline\boldcolor{Android app gets command list}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_android_hw.png}
+					\caption{sequence diagram: Android app gets hardware list}
+					\label{android_hw}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Android app gets command list}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{android_command_list}}
 				\newline\textbf{Goal:} to get all commands in the system related to selected hardware.
 				\newline\textbf{Actors:} Android app, Web server.
@@ -663,7 +683,12 @@
 				\textbf{Variant:}\newline
 				\hspace*{5mm}*. user might exit android app. \\
 				\hspace*{5mm}2.A. android app might fail to connect to the internet \\
-				\newline\boldcolor{Android app deletes a scheduled command}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_android_command_list.png}
+					\caption{sequence diagram: Android app gets command list}
+					\label{android_command_list}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Android app deletes a scheduled command}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{android_del}}
 				\newline\textbf{Goal:} to delete a scheduled command from webserver related to selected hardware.
 				\newline\textbf{Actors:} User, Android app, Web server
@@ -677,7 +702,12 @@
 				\textbf{Variant:}\newline
 				\hspace*{5mm}1.A. user might not have a schedule command. \\
 				\hspace*{5mm}2.A. android app might fail to connect to the internet \\
-				\newline\boldcolor{Android app edits a scheduled command}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_android_delete.png}
+					\caption{sequence diagram: Android app deletes a scheduled command}
+					\label{android_del}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Android app edits a scheduled command}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{android_edit}}
 				\newline\textbf{Goal:} to edit a scheduled command from webserver related to selected hardware. 
 				\newline\textbf{Actors:} User, Android app, Web server
@@ -691,7 +721,12 @@
 				\textbf{Variant:}\newline
 				\hspace*{5mm}1.A. user might not have a schedule command. \\
 				\hspace*{5mm}2.A. android app might fail to connect to the internet \\
-				\newline\boldcolor{Android app adds a new command}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_android_edit.png}
+					\caption{sequence diagram: Android app edits a scheduled command}
+					\label{android_edit}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Android app adds a new command}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{android_add}}
 				\newline\textbf{Goal:} to add a new command to webserver.
 				\newline\textbf{Actors:} User, Android app, Web server
@@ -705,7 +740,12 @@
 				\end{enumerate}
 				\textbf{Variant:}\newline
 				\hspace*{5mm}*. internet might disconnect\\
-				\newline\boldcolor{Android app gets responses}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_android_add.jpg}
+					\caption{sequence diagram: Android app adds a new command}
+					\label{android_add}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Android app gets responses}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{android_response}}
 				\newline\textbf{Goal:} to get the result of the command execution to the user as a notification
 				\newline\textbf{Actors:} Android app, Web server
@@ -717,7 +757,12 @@
 				\end{enumerate}
 				\textbf{Variant:}\newline
 				\hspace*{5mm}*. internet might disconnect\\
-				\newline\boldcolor{Raspberry pi gets command list}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_android_response.jpg}
+					\caption{sequence diagram: Android app gets responses}
+					\label{android_response}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Raspberry pi gets command list}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{rp_command_list}}
 				\newline\textbf{Goal:} to get all commands in the system.
 				\newline\textbf{Actors:} Raspberry pi, Web server.
@@ -730,7 +775,12 @@
 				\end{enumerate}
 				\textbf{Variant:}\newline
 				\hspace*{5mm}*. raspberry pi might fail to connect to the internet \\
-				\newline\boldcolor{Raspberry pi updates local queue}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequece_rp_command.png}
+					\caption{sequence diagram: Raspberry pi gets commands from server}					
+					\label{rp_command_list}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Raspberry pi updates local queue}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{rp_queue}}
 				\newline\textbf{Goal:} to updates local queue.
 				\newline\textbf{Actors:} Raspberry pi.
@@ -744,7 +794,11 @@
 				\end{enumerate}
 				\textbf{Variant:}\newline
 				\hspace*{5mm}3.A. if today is not part of the days, discard command \\
-				\newline\boldcolor{Raspberry pi executes commands}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_queue.png}
+					\caption{sequence diagram: Raspberry pi updates local queue}					\label{rp_queue}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Raspberry pi executes commands}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{rp_execute}}
 				\newline\textbf{Goal:} to execute commands saved in the local queue on a timely fashion.
 				\newline\textbf{Actors:} Raspberry Pi.	
@@ -758,7 +812,12 @@
 				\textbf{Variant:}\newline	
 				\hspace*{5mm}1.A. local queue might be empty, no action is taken. \\
 				\hspace*{5mm}2.A. a hardware error might happen, such as disconnected cable. \\
-				\newline\boldcolor{Raspberry pi submits a command response to server}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_execute.png}
+					\caption{sequence diagram: Raspberry pi executes commands}					
+					\label{rp_execute}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Raspberry pi submits a command response to server}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{rp_response}}
 				\newline\textbf{Goal:} to submit the result of the command execution to the server by saving it as a response row.
 				\newline\textbf{Actors:} Raspberry Pi, webserver.
@@ -772,7 +831,12 @@
 				\end{enumerate}
 				\textbf{Variant:}\newline	
 				\hspace*{5mm}*. internet might disconnect.\\
-				\newline\boldcolor{Web application deletes executed immediate commands}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_submit_response.png}
+					\caption{sequence diagram: Raspberry pi submits a command response to server}
+					\label{rp_response}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Web application deletes executed immediate commands}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{web_delete_c}}
 				\newline\textbf{Goal:} to delete all executed immediate commands.
 				\newline\textbf{Actors:} Web application, database.
@@ -783,7 +847,12 @@
 					\item  Web application will select the immediate command from database using \code{Command.scheduled=null}.
 					\item Web application checks if response has been read by the user. using \code{response.isRead()} then, deletes command.
 				\end{enumerate}
-				\boldcolor{Web application deletes executed immediate commands}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_w_delete_c.png}
+					\caption{sequence diagram: Web application deletes executed immediate commands}
+					\label{web_delete_c}
+				\end{figure}
+				\newpage\hspace*{-6mm}\boldcolor{Web application deletes executed immediate commands}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{web_delete_r}}
 				\newline\textbf{Goal:} to delete all executed immediate commands.
 				\newline\textbf{Actors:} Web application, database.
@@ -793,7 +862,11 @@
 					\item Web application fetches responses from database 
 					\item if response has been read by the user, delete it.
 				\end{enumerate}	
-				
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_web_del_r.png}
+					\caption{sequence diagram: Web application deletes responses}
+					\label{web_delete_r}
+				\end{figure}
 				\newpage\subsubsection{Flowchart Diagram}
 				\paragraph{} Figure \ref{fig:ig:flow_android} shows the flow chart for the android app, and figure \ref{fig:ig:flow_rasp} shows the raspberry pi's flowchart.
 				\begin{itemize}
@@ -809,15 +882,15 @@
 					\item \boldcolor{Web app}: when a command has no schedule and it was executed, the web app immediately deletes it from the database. Web app also deletes any read response.
 				\end{itemize}
 				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/flowchart_android.png}
 					\caption{Flow chart - Android app}
 					\label{fig:ig:flow_android}
-					\includegraphics[width=\linewidth]{img/flowchart_android.png}
 				\end{figure}
 				\begin{figure}[H]
 					\centering
+					\includegraphics[width=.65\linewidth]{img/flowchart_raspberry.png}
 					\caption{Flow chart - Raspberry pi}
 					\label{fig:ig:flow_rasp}
-					\includegraphics[width=.65\linewidth]{img/flowchart_raspberry.png}
 				\end{figure}
 				\newpage\subsubsection{Entity Relationship Diagram}
 					\paragraph{} In our system, there are two databases: the \textit{system database} stored in the web server, and \textit{the queue}, a local database for the raspberry pi. To make understanding the databases' easier, we represented it using entity relationship diagram. It is a graphical representation that demonstrates the relationship between concept, people, places, objects or events inside a system. The main components are the entities, relationship and cardinality. Entities are concepts or object that need their data stored. Cardinality defines that relationship in terms of numbers\cite{erd}.
@@ -841,7 +914,6 @@
 			
 			\textit{Figure \ref{fig:erd} shows the Entity-relationship diagram.} 
 					\begin{figure}[H]
-						\caption{Entity-relationship diagrams}
 						\label{fig:erd}
 						\begin{subfigure}[b]{\linewidth}
 							\includegraphics[width=\linewidth]{img/diagram_er1.png}
@@ -852,96 +924,28 @@
 							\includegraphics[width=\linewidth]{img/diagram_er2.png}
 							\caption{Local queue}
 						\end{subfigure}
+						\caption{Entity-relationship diagrams}
 					\end{figure}
 				
 			
 				\newpage\subsubsection{Dataflow Diagram}
 				\begin{figure}[H]
-					\caption{Dataflow diagram}
 					\includegraphics[width=\linewidth]{img/diagram_dataflow.jpg}
+					\caption{Dataflow diagram}
 				\end{figure}
 				\newpage\subsection{Object-Oriented Diagrams}
-				\subsubsection{Sequence Diagrams}
-				\begin{figure}[H]
-					\caption{sequence diagram: Admin adds a new hardware to system}
-					\label{admin_hw}
-					\includegraphics[width=\linewidth]{img/sequence_add_hardware.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Admin adds a new configuration to system}
-					\label{admin_config}
-					\includegraphics[width=\linewidth]{img/sequence_add_config.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Android app gets hardware list}
-					\label{android_hw}
-					\includegraphics[width=\linewidth]{img/sequence_android_hw.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Android app gets command list}
-					\label{android_command_list}
-					\includegraphics[width=\linewidth]{img/sequence_android_command_list.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Android app deletes a scheduled command}
-					\label{android_del}
-					\includegraphics[width=\linewidth]{img/sequence_android_delete.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Android app edits a scheduled command}
-					\label{android_edit}
-					\includegraphics[width=\linewidth]{img/sequence_android_edit.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Android app adds a new command}
-					\label{android_add}
-					\includegraphics[width=\linewidth]{img/sequence_android_add.jpg}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Android app gets responses}
-					\label{android_response}
-					\includegraphics[width=\linewidth]{img/sequence_android_response.jpg}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Raspberry pi gets commands from server}					
-					\label{rp_command_list}
-					\includegraphics[width=\linewidth]{img/sequece_rp_command.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Raspberry pi updates local queue}					\label{rp_queue}
-					\includegraphics[width=\linewidth]{img/sequence_queue.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Raspberry pi executes commands}					\label{rp_execute}
-					\includegraphics[width=\linewidth]{img/sequence_execute.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Raspberry pi submits a command response to server}
-					\label{rp_response}
-					\includegraphics[width=\linewidth]{img/sequence_submit_response.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Web application deletes executed immediate commands}
-					\label{web_delete_c}
-					\includegraphics[width=\linewidth]{img/sequence_w_delete_c.png}
-				\end{figure}
-				\begin{figure}[H]
-					\caption{sequence diagram: Web application deletes responses}
-					\label{web_delete_r}
-					\includegraphics[width=\linewidth]{img/sequence_web_del_r.png}
-				\end{figure}
-				\newpage\subsubsection{Class Diagram}
+				\subsubsection{Class Diagram}
 					\paragraph{} \textit{Figure \ref{fig:class_web}} shows the class diagram for the web application, and \textit{figure \ref{fig:class_rp}} shows the class diagram for raspberry pi.The classes are essentially wrappers for the databases tables, except for the class \textbf{RaspberryPi}, where the functions for controlling the hardwares are.
 					\paragraph{}The classes which represent database's tables inherit from a \textbf{BaseEntity} generic class. This generic class has the entity's id and \textbf{updateAt} property, which determines when the entity was created/last updated. This generic class is important as it has the methods needed to communicate with the web server. An example is \code{hardware.edit(1)}, which corresponds to the REST API \textbf{PUT} \code{/hardware/1}.
 					\begin{figure}[H]
+						\includegraphics[width=\linewidth]{img/diagram_class1.png}
 						\caption{Class diagram for the web application}
 						\label{fig:class_web}
-						\includegraphics[width=\linewidth]{img/diagram_class1.png}
 					\end{figure}
 					\begin{figure}[H]
+						\includegraphics[width=\linewidth]{img/diagram_class2.png}
 						\caption{Class diagram for the raspberry pi}
 						\label{fig:class_rp}
-						\includegraphics[width=\linewidth]{img/diagram_class2.png}
 					\end{figure}
 				\newpage\subsubsection{UML representation of the REST API Diagram}
 				\paragraph{} Correct calls to the web application via the REST API is the building block of our project. Thus, talking about the structure is essential. The API has 5 entities representing the database's tables. For each entity, client can use 2 methods with the entity url -e.g. \code{/hardware}-: 
@@ -957,26 +961,27 @@
 			 	\end{itemize} 
 		 		\textit{Figure \ref{fig:rest} shows the API's hierarchy and figure \ref{fig:rest_model} shows the models. For full documentation see Appendix \ref{appendix:api_doc}}
 				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/rest_uml.png}
 					\caption{REST API}
 					\label{fig:rest}
-					\includegraphics[width=\linewidth]{img/rest_uml.png}
 				\end{figure}
 			\begin{figure}[H]
+				\includegraphics[width=\linewidth]{img/rest_uml_model.png}
 				\caption{REST API models}
 				\label{fig:rest_model}
-				\includegraphics[width=\linewidth]{img/rest_uml_model.png}
 			\end{figure}	
 		\newpage
-	\begin{comment}
-		usecase
-		sequence
-		desc
-		
-		ERD
+
 			
-	\chapter{System Design}
+	\mychapter{System Design}
 		\section{System Architecture}
+		% flowchart
+		% REST UML
+		% Swagger docs
+		% deployment diagram
+		% component diagram
 		\section{User Interface Design}
+	\begin{comment}
 		\newpage	
 	\chapter{Implementation}
 		\section{Implementation}
@@ -1021,7 +1026,6 @@
 		\label{appendix:similar_system_comparision}
 		\section{Similar systems hub design}
 		\begin{figure}[H]
-			\caption{Similar systems: hub design}
 			\begin{subfigure}[b]{.5\linewidth}
 				\includegraphics[width=\linewidth]{img/insteon_hw.png}
 				\caption{Insteon}
@@ -1038,6 +1042,7 @@
 				\includegraphics[width=\linewidth]{img/raspberry.png}
 				\caption{Raspberry Pi}
 			\end{subfigure}
+			\caption{Similar systems: hub design}
 		\end{figure}
 
 		\newpage\chapter{REST API Documentation}

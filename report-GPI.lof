@@ -6,29 +6,30 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Related Work: Samsung\relax }}{12}{figure.caption.14}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Use case diagram\relax }}{23}{figure.caption.17}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Flow chart - Android app\relax }}{34}{figure.caption.18}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Flow chart - Raspberry pi\relax }}{35}{figure.caption.19}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Entity-relationship diagrams\relax }}{38}{figure.caption.20}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Dataflow diagram\relax }}{39}{figure.caption.21}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces sequence diagram: Admin adds a new hardware to system\relax }}{40}{figure.caption.22}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces sequence diagram: Admin adds a new configuration to system\relax }}{40}{figure.caption.23}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces sequence diagram: Android app gets hardware list\relax }}{41}{figure.caption.24}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces sequence diagram: Android app gets command list\relax }}{41}{figure.caption.25}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces sequence diagram: Android app deletes a scheduled command\relax }}{42}{figure.caption.26}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces sequence diagram: Android app edits a scheduled command\relax }}{42}{figure.caption.27}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces sequence diagram: Android app adds a new command\relax }}{43}{figure.caption.28}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces sequence diagram: Android app gets responses\relax }}{43}{figure.caption.29}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces sequence diagram: Raspberry pi gets commands from server\relax }}{44}{figure.caption.30}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces sequence diagram: Raspberry pi updates local queue\relax }}{44}{figure.caption.31}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces sequence diagram: Raspberry pi executes commands\relax }}{45}{figure.caption.32}
-\contentsline {figure}{\numberline {3.17}{\ignorespaces sequence diagram: Raspberry pi submits a command response to server\relax }}{45}{figure.caption.33}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces sequence diagram: Web application deletes executed immediate commands\relax }}{46}{figure.caption.34}
-\contentsline {figure}{\numberline {3.19}{\ignorespaces sequence diagram: Web application deletes responses\relax }}{47}{figure.caption.35}
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Class diagram for the web application\relax }}{49}{figure.caption.36}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Class diagram for the raspberry pi\relax }}{50}{figure.caption.37}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces REST API\relax }}{52}{figure.caption.38}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces REST API models\relax }}{53}{figure.caption.39}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces sequence diagram: Admin adds a new hardware to system\relax }}{24}{figure.caption.18}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces sequence diagram: Admin adds a new configuration to system\relax }}{25}{figure.caption.19}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces sequence diagram: Android app gets hardware list\relax }}{26}{figure.caption.20}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces sequence diagram: Android app gets command list\relax }}{27}{figure.caption.21}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces sequence diagram: Android app deletes a scheduled command\relax }}{28}{figure.caption.22}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces sequence diagram: Android app edits a scheduled command\relax }}{29}{figure.caption.23}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces sequence diagram: Android app adds a new command\relax }}{30}{figure.caption.24}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces sequence diagram: Android app gets responses\relax }}{31}{figure.caption.25}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces sequence diagram: Raspberry pi gets commands from server\relax }}{33}{figure.caption.26}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces sequence diagram: Raspberry pi updates local queue\relax }}{34}{figure.caption.27}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces sequence diagram: Raspberry pi executes commands\relax }}{36}{figure.caption.28}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces sequence diagram: Raspberry pi submits a command response to server\relax }}{38}{figure.caption.29}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces sequence diagram: Web application deletes executed immediate commands\relax }}{40}{figure.caption.30}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces sequence diagram: Web application deletes responses\relax }}{41}{figure.caption.31}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Flow chart - Android app\relax }}{44}{figure.caption.32}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Flow chart - Raspberry pi\relax }}{45}{figure.caption.33}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Entity-relationship diagrams\relax }}{48}{figure.caption.34}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Dataflow diagram\relax }}{49}{figure.caption.35}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Class diagram for the web application\relax }}{51}{figure.caption.36}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Class diagram for the raspberry pi\relax }}{52}{figure.caption.37}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces REST API\relax }}{54}{figure.caption.38}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces REST API models\relax }}{55}{figure.caption.39}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Similar systems: hub design\relax }}{59}{figure.caption.41}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Similar systems: hub design\relax }}{63}{figure.caption.41}
 \addvspace {10\p@ }
