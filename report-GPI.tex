@@ -981,6 +981,54 @@
 		% deployment diagram
 		% component diagram
 		\section{User Interface Design}
+		\subsection{Home Activity}
+		\paragraph{} \textit{Figure \ref{fig:activity_home}} shows the home activity. It is the activity that the user will see when the app is first launched. All the hardwares in the system shall be displayed in a grid.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.5\linewidth]{img/activity_home.jpg}
+			\caption{UI: Home Activity}
+			\label{fig:activity_home}
+		\end{figure}
+		\newpage\subsection{Hardware Activity}
+		\paragraph{} \textit{Figure \ref{fig:activity_hardware}} shows the hardware activity. The user first is shown the current status for the hardware. Then, a list of active command is presented with the ability to edit/delete each command. Also, the user can click on the \textit{+} icon to add a new command.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.5\linewidth]{img/activity_hardware.jpg}
+			\caption{UI: Hardware Activity}
+			\label{fig:activity_hardware}
+		\end{figure}
+		\newpage\subsection{New Command Activity}
+		\paragraph{} \textit{Figure \ref{fig:activity_new_command}} shows the new command activity, where the user can add a new command to be executed. First, the user choose the configuration wanted. Then either execute the command now, or click on the schedule, which will open a new activity to choose the scheduling information desired.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.5\linewidth]{img/activity_new_command.jpg}
+			\caption{UI: New Command Activity}
+			\label{fig:activity_new_command}
+		\end{figure}
+		\newpage\subsection{Schedule Activity}
+		\paragraph{} \textit{Figure \ref{fig:activity_schedule}} shows the schedule activity. This activity appears once the user clicks on add schedule in the previous activity. The user can choose the time of execution and the days to execute the action here.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.5\linewidth]{img/activity_schedule.jpg}
+			\caption{UI: Schedule Activity}
+			\label{fig:activity_schedule}
+	\end{figure}
+		\newpage\subsection{Progress Fragment}
+		\paragraph{} \textit{Figure \ref{fig:activity_progress}} shows the waiting progress fragment that will appear until the web server respond with the code \code{201}, which denotes a successful creation of a command.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.5\linewidth]{img/activity_progress.jpg}
+			\caption{UI: Progress Fragment}
+			\label{fig:activity_progress}
+		\end{figure}
+		\newpage\subsection{Message Fragment}
+		\paragraph{} Once the server respond, the message embedded with the response shall be displayed to the user. Either \textbf{Done!} with \code{201} or the error message when the code is different. \textit{Figure \ref{fig:activity_done}} shows the message when the command is successfully created.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.5\linewidth]{img/activity_done.jpg}
+			\caption{UI: Message Fragment}
+			\label{fig:activity_done}
+		\end{figure}
 	\begin{comment}
 		\newpage	
 	\chapter{Implementation}
