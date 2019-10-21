@@ -249,17 +249,17 @@
 			\begin{tabularx}{\linewidth}{|c|X|}\hline
 				
 				\boldcolor{Symbols \& Abbreviations} & \boldcolor{Meaning} \\\hline
-				UI & User Interface\\\hline
 				API & Application programming Interface\\\hline
 				GPIO & General Purpose Input Output\\\hline
+				GUI & Graphical User Interface\\\hline
 				IDE & Integrated Development Environment \\\hline
 				IoT & Internet of Things \\\hline
+				JSON & JavaScript Object Notation\\\hline
 				LED & Light Emitting Diode\\\hline
 				REST & Representational State Transfer\\\hline
 				SDLC & Software Development Life Cycle\\\hline
 				SQL & Structured Query Language\\\hline
-				Raspberry Pi & low cost, credit-card sized computer\cite{raspberry}. \\\hline
-				Linear solenoid &  type of electromagnetic actuator that converts an electrical signal into a magnetic field producing a linear motion\cite{linear}.\\\hline
+				UI & User Interface\\\hline
 			\end{tabularx}
 		\end{center}
 		\caption{List of Symbols \& Abbreviations}
@@ -975,12 +975,26 @@
 			
 	\mychapter{System Design}
 		\section{System Architecture}
-		% flowchart
-		% REST UML
-		% Swagger docs
-		% deployment diagram
-		% component diagram
-		\section{User Interface Design}
+		\paragraph{} The proposed project has 3 sub-systems. The Android App, the web app and finally the raspberry pi script. The android app works as the user interface. The raspberry pi app is the one responsible for controlling the actual hardwares. Finally, the web app works as a medium for managing user requests and raspberry pi's response. \textit{Figure \ref{fig:diagrm_component} and figure \ref{fig:diagram_deployment} show the architecture for the system using component and deployment diagrams.}
+		\subsection{The android application}
+		\paragraph{} Also known as the presentation layer. It enables the user to interact with the system through a simple graphical user interface. Android application can send requests to the web server and receive responses. This app is designed using Java programming language, Android framework, Retrofit library for managing networking and finally Gson for parsing JSON responses.
+		\subsection{The raspberry pi script}
+		\paragraph{} Also known as the business layer. It executes the commands and send responses to the web application. The script is a simple python program that controls different hardwares using GPIO library. 
+		\subsection{The web application}
+		\paragraph{} Also known as the control layer. It works as an immediate medium between the user and raspberry pi. The advantage for adding this layer is guaranteed execution regardless of user location and distance from raspberry pi. The web app will be deployed on an ubuntu server. It is made using python programming language and flask framework. Also, sqlalchemy, which is an ORM for managing database interaction, will be used to ease the development. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{img/diagram_component.jpg}
+			\caption{Component Diagram}
+			\label{fig:diagrm_component}
+		\end{figure}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{img/diagram_deployment.jpg}
+			\caption{Deployment Diagram}
+			\label{fig:diagram_deployment}
+		\end{figure}
+		\newpage\section{User Interface Design}
 		\subsection{Home Activity}
 		\paragraph{} \textit{Figure \ref{fig:activity_home}} shows the home activity. It is the activity that the user will see when the app is first launched. All the hardwares in the system shall be displayed in a grid.
 		\begin{figure}[H]

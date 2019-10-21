@@ -29,13 +29,15 @@
 \contentsline {figure}{\numberline {3.22}{\ignorespaces REST API\relax }}{54}{figure.caption.38}
 \contentsline {figure}{\numberline {3.23}{\ignorespaces REST API models\relax }}{55}{figure.caption.39}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces UI: Home Activity\relax }}{57}{figure.caption.40}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces UI: Hardware Activity\relax }}{58}{figure.caption.41}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces UI: New Command Activity\relax }}{59}{figure.caption.42}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces UI: Schedule Activity\relax }}{60}{figure.caption.43}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces UI: Progress Fragment\relax }}{61}{figure.caption.44}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces UI: Message Fragment\relax }}{62}{figure.caption.45}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Component Diagram\relax }}{58}{figure.caption.40}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Deployment Diagram\relax }}{58}{figure.caption.41}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces UI: Home Activity\relax }}{59}{figure.caption.42}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces UI: Hardware Activity\relax }}{60}{figure.caption.43}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces UI: New Command Activity\relax }}{61}{figure.caption.44}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces UI: Schedule Activity\relax }}{62}{figure.caption.45}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces UI: Progress Fragment\relax }}{63}{figure.caption.46}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces UI: Message Fragment\relax }}{64}{figure.caption.47}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Similar systems: hub design\relax }}{68}{figure.caption.47}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Similar systems: hub design\relax }}{70}{figure.caption.49}
 \addvspace {10\p@ }
