@@ -23,24 +23,24 @@
 \contentsline {figure}{\numberline {3.16}{\ignorespaces sequence diagram: Raspberry pi submits a command response to server\relax }}{43}{figure.caption.32}
 \contentsline {figure}{\numberline {3.17}{\ignorespaces sequence diagram: Web application deletes executed immediate commands\relax }}{45}{figure.caption.33}
 \contentsline {figure}{\numberline {3.18}{\ignorespaces sequence diagram: Web application deletes responses\relax }}{46}{figure.caption.34}
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Flow chart - Android app\relax }}{49}{figure.caption.35}
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Flow chart - Raspberry pi\relax }}{50}{figure.caption.36}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Entity-relationship diagrams\relax }}{53}{figure.caption.37}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Dataflow diagram\relax }}{54}{figure.caption.38}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Class diagram for the web application\relax }}{56}{figure.caption.39}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Class diagram for the raspberry pi\relax }}{57}{figure.caption.40}
-\contentsline {figure}{\numberline {3.25}{\ignorespaces REST API\relax }}{59}{figure.caption.41}
-\contentsline {figure}{\numberline {3.26}{\ignorespaces REST API models\relax }}{60}{figure.caption.42}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Flow chart - Android app\relax }}{48}{figure.caption.35}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Flow chart - Raspberry pi\relax }}{49}{figure.caption.36}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Entity-relationship diagrams\relax }}{52}{figure.caption.37}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Dataflow diagram\relax }}{53}{figure.caption.38}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Class diagram for the web application\relax }}{55}{figure.caption.39}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Class diagram for the raspberry pi\relax }}{56}{figure.caption.40}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces REST API\relax }}{58}{figure.caption.41}
+\contentsline {figure}{\numberline {3.26}{\ignorespaces REST API models\relax }}{59}{figure.caption.42}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Component Diagram\relax }}{63}{figure.caption.43}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Deployment Diagram\relax }}{63}{figure.caption.44}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces UI: Home Activity\relax }}{64}{figure.caption.45}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces UI: Hardware Activity\relax }}{65}{figure.caption.46}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces UI: New Command Activity\relax }}{66}{figure.caption.47}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces UI: Schedule Activity\relax }}{67}{figure.caption.48}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces UI: Progress Fragment\relax }}{68}{figure.caption.49}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces UI: Message Fragment\relax }}{69}{figure.caption.50}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Component Diagram\relax }}{62}{figure.caption.43}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Deployment Diagram\relax }}{62}{figure.caption.44}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces UI: Home Activity\relax }}{63}{figure.caption.45}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces UI: Hardware Activity\relax }}{64}{figure.caption.46}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces UI: New Command Activity\relax }}{65}{figure.caption.47}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces UI: Schedule Activity\relax }}{66}{figure.caption.48}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces UI: Progress Fragment\relax }}{67}{figure.caption.49}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces UI: Message Fragment\relax }}{68}{figure.caption.50}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Similar systems: hub design\relax }}{75}{figure.caption.52}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Similar systems: hub design\relax }}{74}{figure.caption.52}
 \addvspace {10\p@ }
