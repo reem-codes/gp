@@ -222,7 +222,7 @@
 	\addcontentsline{toc}{chapter}{\nameref{sec:ack}}
 	\chapter*{Acknowledgment}
 	\label{sec:ack}
-	\paragraph{} First and foremost, we thank Allah the Almighty for always blessing us and for helping us complete this project on time. We would like to express our special thanks of gratitude to our project supervisor Dr. Abeer Mahmoud for her continuous support, motivation, and for always commenting on our best qualities and enhancing them. Without her direction and proper guidance, this project would not have succeeded. We thank her for her unwavering support. Not to forget our loving families and supporting friends for helping us sticking to the schedule. Last but not least we want to thank anyone who has helped us by providing information, insight, comments or facilities that we needed to complete our project. Our heartfelt thanks to everyone we have mentioned.
+	\paragraph{} First and foremost, we thank Allah the Almighty for always blessing us and for helping us complete this project on time. We would like to express our special thanks of gratitude to our project supervisor Dr. Abeer Mahmoud for her continuous support, motivation, and for always commenting on our best qualities and enhancing them. Without her direction and proper guidance, this project would not have succeeded. We thank her for her unwavering support. Not to forget our loving families and supporting friends for helping us sticking to the schedule. We also would like to thank Princess Nourah bint Abdulrahman University. Last but not least we want to thank anyone who has helped us by providing information, insight, comments or facilities that we needed to complete our project. Our heartfelt thanks to everyone we have mentioned.
 
 
 
@@ -481,10 +481,18 @@
 		\section{Requirement Specification}
 			\subsection{Overview}
 				\paragraph{} The proposed project consists of three main systems: the android application which will be the user interface, the Raspberry Pi, which is the small computer where all the hardware pieces will be connected to, and the web server which will host the REST web application and be the connection between the android application and the Raspberry Pi.
-				\paragraph{}First, the user is required to install the android app on his mobile phone. When the app is first opened, the first activity (page in android app) displays the hardwares that are connected to the Raspberry Pi. It gets this list of hardwares from the webserver by using the GET method. When the user clicks on any of the hardware that is there, a new activity opens. In it is mentioned the name of the hardware, the status (e.g. whether it is on or off), the commands and the scheduling configuration. All of this information is obtained from the server. 
+				
+				\paragraph{}First, the user is required to install the android app on his mobile phone. When the app is opened, the user either register or login. Once logged in, a list of raspberry pis is shown with the possibility of adding more. To add a new raspberry pi, the user must scan the QR code that belongs to the raspberry pi. Any user or raspberry added is immediately uploaded to the web server.
+				
+				\paragraph{}Once a raspberry is clicked, an activity displaying the hardwares that are connected to the Raspberry Pi is shown. It gets this list of hardwares from the webserver by using the GET method. When the user clicks on any  hardware that is there, a new activity opens. In it is mentioned the name of the hardware, the status (e.g. whether it is on or off), the commands and the scheduling configuration. All of this information is obtained from the server. 
+				
 				\paragraph{}Next to the commands title, there will be a small button that when clicked on will open a third activity, which gives the option of adding a new command. The command can be instantaneous (for example, switching an LED light immediately) or it can be scheduled for a later date or time. For the instantaneous command, the POST method will be used, and for scheduling the commands, the user will have the option to choose the date and time he wishes the commands to be undertaken in. Whatever the outcome of this process is, a popup message will appear to the user either confirming the success of the command the user issued, or denying it while explaining the reason for that failure.
+				
 				\paragraph{}Under the commands tab, there will be a  configuration 	section where all the scheduled commands will appear, along with their dates and times and options to edit them or delete them. The edit option will be done by the PUT method and the deleted option by the DELETE method. All the methods work on the data in the server’s database i.e. they either add a new command (POST), edit a scheduled command (PUT), or delete an existing command (DELETE). 
+				
+			
 				\paragraph{}For the Raspberry Pi, the sequence it works according to is timed. Every 5 minutes, it puts the hardware status to the server so that it can show on the user’s application hardware list. Also, every 30 seconds, it checks the server for any new commands posted by the user from the android application. If there are any new ones that have to be, it updates its own local database (a local queue) according to the priorities and scheduled dates and times of the commands. This local database is organized according to the time the command was issued (i.e. the instantaneous commands are put at the front of this queue because of their precedence and the scheduled ones are put in the command order) and contains the command ID, which hardware this command was issued for, when this command was issued, and whether the command was successfully done or not, all gotten from the server by the GET method except the “successfully done” column, which the Raspberry edits according to the hardware. 
+				
 				\paragraph{}Whatever the result of the command was, the Raspberry posts the response of the command to the server. The android application gets this response from the server every 5 or 10 minutes, depending on the user’s choice. The response is displayed as a push notification in the user’s mobile phone. Depending on this response, the status and configuration information in the app will be updated to reflect the success or failure of the command response. Finally, it is important to note that any new hardware or configuration added to or connected to the Raspberry will have its information posted to the server by the Raspberry computer, where the user can view it then as soon as he opens his application to the first activity. When the response is successfully done and read by the user, the webserver deletes it from the database to save space. The webserver also deletes instantaneous commands once the user is notified the execution result. 
 				\subsubsection{Input}
 				The user command issued using the Android client is the main input. Each command consist of the following:
@@ -568,7 +576,10 @@
 					\end{enumerate}
 					\item \boldcolor{Android Client's Functionalities:}
 					\begin{enumerate}
-						\item Android client should get system hardware list from webserver. %M
+						\item Android client shall allow user to login or register
+						\item Android client shall allow user to add a new raspberry pi to the system
+						\item Android client shall allow user to remove a raspberry pi from the system
+						\item Android client should get hardware list from webserver. %M
 						\item Android client should get scheduled commands from webserver. %M
 						\item Android client shall be able to submit a new a command, might be scheduled, to webserver. %N
 						\item Android client shall be able to delete a scheduled command from webserver. %N
@@ -596,9 +607,10 @@
 							\boldcolor{Requirement} & \boldcolor{Description}\\\hline
 							\textbf{Availability} & The system shall not be shut down for maintenance for more than 1 minute. \\\hline
 							\textbf{Usability} & The user shall be able to learn the most important 5 functions of application in 2 hours.  \\\hline
-							\textbf{Verifiability} & When a new version of the main system is released, it shall be possible to upgrade to it from any previous version. \\\hline
+							\textbf{Verifiability} & The system shall check the user identity. \\\hline
 							\textbf{Performance} & Any interface between a user and the automated system shall have a maximum response time of three seconds. \\\hline
-							\textbf{Flexibility} & Application shall be made of multiple languages. So, user shall be able to nominate their preferred language when entering their personal information. \\\hline
+							\textbf{Flexibility} & Any hardware component, such as linear solenoid or an infra-red controller, can be added to the system as long as it can be connected to the electric circuit.  \\\hline
+							\textbf{Security} & Each user can only communicate with assigned raspberry pi. In a similar manner, raspberry pi only reads commands meant for it and not for other ones.  \\\hline
 						\end{tabularx}
 					\end{center}
 					\caption{Non-functional requirements}
@@ -612,7 +624,7 @@
 					\caption{Use case diagram}
 					\end{figure}
 				
-				\newpage\subsubsection{Use Case Scenarios}
+				\newpage\subsubsection{Use Case Scenarios \& Sequence Diagrams}
 				\boldcolor{Admin adds a new hardware to system}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{admin_hw}}
 				\newline\textbf{Goal:} to add a new hardware device that the user can control to the Raspberry Pi.
@@ -648,13 +660,79 @@
 					\caption{sequence diagram: Admin adds a new configuration to system}
 					\label{admin_config}
 				\end{figure}
-				\newpage\hspace*{-6mm}\boldcolor{Android app gets hardware list}
-				\newline\textbf{Sequence diagram:} \textit{Figure \ref{android_hw}}
-				\newline\textbf{Goal:} to get all hardware in the system from webserver.
+				%%%
+				\newpage\hspace*{-6mm}\boldcolor{User login or register}
+				\newline\textbf{Sequence diagram:} \textit{Figure \ref{user_login}}
+				\newline\textbf{Goal:} to login a user if exists, or make a new user otherwise.
 				\newline\textbf{Actors:} Android app, Web server.
 				\newline\textbf{Precondition:} user opens android app.
 				\newline\textbf{Primary Scenario:}	
 				\begin{enumerate}[label*=\arabic*.]
+					\item android app prompt user to enter credentials.
+					\item android POST data to webserver's endpoint \code{/login} 
+					\item web app checks email and password. If the user already exists and credentials are correct, return token. If the the user doesn't exist create user and return token.
+					\item Android calls web server's endpoint \code{/raspberry} using the token in the authorization header to get the list of raspberry pi's related to the user
+					\item Android display this array to user in UI.
+				\end{enumerate}
+				\textbf{Variant:}\newline
+				\hspace*{5mm}*. user might exit android app. \\
+				\hspace*{5mm}2.A. android app might fail to connect to the internet \\
+				\hspace*{5mm}3.A. email might not match password, return error message \\
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_user_login.png}
+					\caption{sequence diagram: User login or register}
+					\label{user_login}
+				\end{figure}
+			
+				\newpage\hspace*{-6mm}\boldcolor{User adds new raspberry pi}
+				\newline\textbf{Sequence diagram:} \textit{Figure \ref{user_rp}}
+				\newline\textbf{Goal:} to add a raspberry pi to the system
+				\newline\textbf{Actors:} Android app, Web server.
+				\newline\textbf{Precondition:} user logged in.
+				\newline\textbf{Primary Scenario:}	
+				\begin{enumerate}[label*=\arabic*.]
+					\item user clicks on add new raspberry pi button.
+					\item android app opens camera for the user to scan the QR code on the raspberry pi.
+					\item once the code is scanned, the android app POST the raspberry pi id to the server's endpoint \code{/raspberry}.
+				\end{enumerate}
+				\textbf{Variant:}\newline
+				\hspace*{5mm}*. user might exit android app. \\
+				\hspace*{5mm}2.A. user might close camera or scan incorrect item. \\
+				\hspace*{5mm}3.A. android app might fail to connect to the internet \\
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_user_rp.png}
+					\caption{sequence diagram: User adds new raspberry pi}
+					\label{user_rp}
+				\end{figure}
+			
+				\newpage\hspace*{-6mm}\boldcolor{User removes raspberry pi}
+				\newline\textbf{Sequence diagram:} \textit{Figure \ref{user_rp_rm}}
+				\newline\textbf{Goal:} to remove a raspberry pi from the system.
+				\newline\textbf{Actors:} Android app, Web server.
+				\newline\textbf{Precondition:} user logged in.
+				\newline\textbf{Primary Scenario:}	
+				\begin{enumerate}[label*=\arabic*.]
+					\item user clicks on delete raspberry pi.
+					\item Android client requests URL \code{/raspberry/\{id\}} with HTTP method \textit{DELETE} where\textit{\{id\}} is the raspberry pi selected id. 
+					\item webserver receives requests and deletes the raspberry pi from user.
+				\end{enumerate}
+				\textbf{Variant:}\newline
+				\hspace*{5mm}*. user might exit android app. \\
+				\hspace*{5mm}2.A. android app might fail to connect to the internet \\
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/sequence_user_rp_rm.png}
+					\caption{sequence diagram: User removes raspberry pi}
+					\label{user_rp_rm}
+				\end{figure}
+				%%
+				\newpage\hspace*{-6mm}\boldcolor{Android app gets hardware list}
+				\newline\textbf{Sequence diagram:} \textit{Figure \ref{android_hw}}
+				\newline\textbf{Goal:} to get all hardware in the system from webserver.
+				\newline\textbf{Actors:} Android app, Web server.
+				\newline\textbf{Precondition:} user logged in successfully
+				\newline\textbf{Primary Scenario:}	
+				\begin{enumerate}[label*=\arabic*.]
+					\item user clicks on a raspberry pi.
 					\item android app calls the webserver endpoint \code{/hardware}
 					\item webserver fetches data from database using \code{hardware.index()}
 					\item webserver responses to request with an array of hardwares in the response's body
@@ -896,9 +974,11 @@
 					\paragraph{} In our system, there are two databases: the \textit{system database} stored in the web server, and \textit{the queue}, a local database for the raspberry pi. To make understanding the databases' easier, we represented it using entity relationship diagram. It is a graphical representation that demonstrates the relationship between concept, people, places, objects or events inside a system. The main components are the entities, relationship and cardinality. Entities are concepts or object that need their data stored. Cardinality defines that relationship in terms of numbers\cite{erd}.
 				
 				\begin{itemize}
-					\item \boldcolor{System database}: This database is the main database. It will be stored in the web server and gets accessed by the android client and the raspberry pi. There are 5 main entities: 
+					\item \boldcolor{System database}: This database is the main database. It will be stored in the web server and gets accessed by the android client and the raspberry pi. There are 7 main entities: 
 					\begin{enumerate}
-						\item \textbf{Hardware:} it will store information related to the physical components to raspberry pi. Such as LED lights, linear solenoid or an infra-red controller.  
+						\item \textbf{User:} to manage access, a user entity is essential. IT will store the user credentials. 
+						\item \textbf{RaspberryPi:} Here, the data for each physical raspberry pi is saved. Each user can have many raspberry pis and each  raspberry can belong to multiple people.
+						\item \textbf{Hardware:} it will store information related to the physical components connected to a raspberry pi. Such as LED lights, linear solenoid or an infra-red controller.  
 						\item \textbf{Configuration:} hardwares can have different states. For example, a LED light could be on or off. An RGB LED can be ON on a certain color, of off. Configurations save the possible states a hardware can be in.
 						\item \textbf{Command:} users can change raspberry pi's hardwares to be in a certain configuration. These commands are stored here. The users requests could either be instant, or scheduled. 
 						\item \textbf{Schedule:} since commands can be scheduled, those data should be saved here. The user can choose the days and time a command fires.
