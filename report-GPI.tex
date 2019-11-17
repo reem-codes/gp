@@ -930,9 +930,9 @@
 					\caption{sequence diagram: Web application deletes executed immediate commands}
 					\label{web_delete_c}
 				\end{figure}
-				\newpage\hspace*{-6mm}\boldcolor{Web application deletes executed immediate commands}
+				\newpage\hspace*{-6mm}\boldcolor{Web application deletes read responses}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{web_delete_r}}
-				\newline\textbf{Goal:} to delete all executed immediate commands.
+				\newline\textbf{Goal:} to delete all read responses.
 				\newline\textbf{Actors:} Web application, database.
 				\newline\textbf{Precondition:} None
 				\newline\textbf{Primary Scenario:}	
@@ -1055,13 +1055,15 @@
 			
 	\mychapter{System Design}
 		\section{System Architecture}
-		\paragraph{} The proposed project has 3 sub-systems. The Android App, the web app and finally the raspberry pi script. The android app works as the user interface. The raspberry pi app is the one responsible for controlling the actual hardwares. Finally, the web app works as a medium for managing user requests and raspberry pi's response. \textit{Figure \ref{fig:diagrm_component} and figure \ref{fig:diagram_deployment} show the architecture for the system using component and deployment diagrams.}
+		\paragraph{} The proposed project has 4 tiers. The Android App, the web app and finally the raspberry pi script and finally the system database. The android app works as the user interface. The raspberry pi app is the one responsible for controlling the actual hardwares. The web app  works as a medium for managing user requests and raspberry pi's response. Finally, the database that stores these data. \textit{Figure \ref{fig:diagrm_component} and figure \ref{fig:diagram_deployment} show the architecture for the system using component and deployment diagrams.}
 		\subsection{The android application}
-		\paragraph{} Also known as the presentation layer. It enables the user to interact with the system through a simple graphical user interface. Android application can send requests to the web server and receive responses. This app is designed using Java programming language, Android framework, Retrofit library for managing networking and finally Gson for parsing JSON responses.
+		\paragraph{} Also known as the client tier. It enables the user to interact with the system through a simple graphical user interface. Android application can send requests to the web server and receive responses. This app is designed using Java programming language, Android framework, Retrofit library for managing networking and finally Gson for parsing JSON responses.
 		\subsection{The raspberry pi script}
-		\paragraph{} Also known as the business layer. It executes the commands and send responses to the web application. The script is a simple python program that controls different hardwares using GPIO library. 
+		\paragraph{} Also known as the aggregation tier. It executes the commands and send responses to the web application. The script is a simple python program that controls different hardwares using GPIO library. 
 		\subsection{The web application}
-		\paragraph{} Also known as the control layer. It works as an immediate medium between the user and raspberry pi. The advantage for adding this layer is guaranteed execution regardless of user location and distance from raspberry pi. The web app will be deployed on an ubuntu server. It is made using python programming language and flask framework. Also, sqlalchemy, which is an ORM for managing database interaction, will be used to ease the development. 
+		\paragraph{} Also known as the delivery tier. It works as an immediate medium between the user and raspberry pi. The advantage for adding this layer is guaranteed execution regardless of user location and distance from raspberry pi. The web app will be deployed on an ubuntu server. It is made using python programming language and flask framework. Also, sqlalchemy, which is an ORM for managing database interaction, will be used to ease the development. 
+		\subsection{The system database}
+		\paragraph{} Also known as the Services tier. It manages and stores all system data.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{img/diagram_component.jpg}
@@ -1074,9 +1076,32 @@
 			\caption{Deployment Diagram}
 			\label{fig:diagram_deployment}
 		\end{figure}
+		\paragraph{} \textit{Figure \ref{fig:diagram_architecture}} shows the four-tier architecture explained above. In our system, the best architecture to use is four-tier architecture because of it is flexibility and scalability to add multiple services. Also, it adopts users’ experiences that are fast, responsive, and tailored unique needs. Furthermore, multi-tier architecture also reduces traffic on the network\cite{architecture}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{img/diagram_architecture.png}
+			\caption{Architecture Diagram}
+			\label{fig:diagram_architecture}
+		\end{figure}
 		\newpage\section{User Interface Design}
-		\subsection{Home Activity}
-		\paragraph{} \textit{Figure \ref{fig:activity_home}} shows the home activity. It is the activity that the user will see when the app is first launched. All the hardwares in the system shall be displayed in a grid.
+		\subsection{Login Activity}
+		\paragraph{} \textit{Figure \ref{fig:activity_login}} shows the login activity. It is the activity that the user will see when the app is first launched to prompt the user to enter their credentials.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.5\linewidth]{img/activity_login.png}
+			\caption{UI: Login Activity}
+			\label{fig:activity_login}
+		\end{figure}
+		\newpage\subsection{Raspberry Activity}
+		\paragraph{} \textit{Figure \ref{fig:activity_raspberry}} shows the raspberry activity. All the raspberry connected to the user shall be viewed here, with the option of deleting them or adding new ones.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.5\linewidth]{img/activity_raspberry.png}
+			\caption{UI: Raspberry Activity}
+			\label{fig:activity_raspberry}
+		\end{figure}
+		\newpage\subsection{Hardwares Activity}
+		\paragraph{} \textit{Figure \ref{fig:activity_home}} shows the hardwares activity.  All the hardwares in the system shall be displayed in a grid.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=.5\linewidth]{img/activity_home.jpg}
