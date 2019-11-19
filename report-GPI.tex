@@ -309,17 +309,15 @@
 		\subsection{Goals}
 			\paragraph{} At the end of this project, we expect to deliver:
 			\begin{itemize}
-				\item An Android application with a user friendly, simple, clear interface with buttons to control a LED and linear solenoid.
+				\item An Android application with a user friendly, simple, clear interface with buttons to control a LED and linear solenoid. However, theoretically, the system can accept any other electronic device as long as it can be installed in the electronic circuit. 
 				\item A physical apparatus composed of the Raspberry Pi connected to and controlling the piece.
 				\item A web application following REST architecture, managing user  requests and Raspberry Pi's responses.
 			\end{itemize}
 		\section{Project Domain \& Limitation}
 			\subsection{Domain}
-				\paragraph{} Although the application will be available for all kinds of users to use, we expect that the ones who would make the most use of it would be employees who have long working hours and would need to be able to remotely control appliances in their homes, especially lights.
-				\paragraph{} The critical piece in all of this application would be the linear solenoid actuator i.e. the small electrically controlled piece that would be placed very close to the light switch and would, on command, spring forward to press on the switch to turn it on or off. 
+				\paragraph{} Although the application will be available for all kinds of users to use, we expect that the ones who would make the most use of it would be people who have some background in electrical engineering and computer science. 
 			\subsection{Limitation}
-			\paragraph{} The main limitation of the application is that it will be able to control only a limited type of home appliance. Mainly things than could be pushed to work. A much more advanced application would be able to control most of the other appliances, such as controlling an Air conditioner if the owner is outside, or a timer controlled coffee maker.
-			
+			\paragraph{} This project aims to control any hardware connected to the electronic circuit. Thus, the flexibility and freedom are extremely high. However, this advantage comes at a non-financial cost: the learning curve. The users must be knowledgeable about the basics of electrical engineering and computer science. A manual could be made to make the process easier.
 		\section{Gantt Chart}
 		\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/gantt_chart.png}
@@ -557,9 +555,9 @@
 						\item breadboard, cables, and resistors for circuit.
 						\item RGB LED, solenoid, or any other hardware components satisfying user needs.
 					\end{itemize}
-					\item \boldcolor{Web Server} 
+					\item \boldcolor{Server} 
 					\begin{itemize}
-						\item Ubuntu 16.04+ web server, we chose digital ocean's.
+						\item Ubuntu 16.04+ server, we chose digital ocean's. The web server and database server shall be installed here.
 						\item Minimum of 1GB of RAM.
 						\item Minimum of 10GB of available space.
 					\end{itemize}
@@ -611,6 +609,7 @@
 							\textbf{Performance} & Any interface between a user and the automated system shall have a maximum response time of three seconds. \\\hline
 							\textbf{Flexibility} & Any hardware component, such as linear solenoid or an infra-red controller, can be added to the system as long as it can be connected to the electric circuit.  \\\hline
 							\textbf{Security} & Each user can only communicate with assigned raspberry pi. In a similar manner, raspberry pi only reads commands meant for it and not for other ones.  \\\hline
+							\textbf{Efficiency} & The web server cleans the database and deletes any unneeded rows routinely.  \\\hline
 						\end{tabularx}
 					\end{center}
 					\caption{Non-functional requirements}
@@ -619,9 +618,18 @@
 			\paragraph{} \textit{Table \ref{table:non-func}} shows the non-functional requirements for the system and their description. The most important requirement is availability, because the system will fail once the user and raspberry pi were not able to communicate. %secuirty
 			\newpage\subsection{Structured Diagrams}
 				\subsubsection{Use Case Diagram}
+				\paragraph{} \textit{Figure \ref{fig:diagram_usecase}} shows the use-case diagram of the system. Although the system learning curve is steep, each raspberry pi can be connected to multiple users and vice versa -i.e. many to many relationship-. In other words, in a household of four people, all of them can connect to the same raspberry and control the AC. However, only one of them must be knowledgeable about the basics of electrical engineering and computer science. This person is referred to as the \textbf{Admin}. All other users including the admin are referred to as \textbf{Users}. 
+				 In this system, there are four main actors:
+				\begin{itemize}
+					\item \boldcolor{User}: any person using the system. They don't have to have any kind of background information at all. All they need to do is install the android app and clicks buttons on it. 
+					\item \boldcolor{Admin}: a type of user than configure the raspberry pi. They must manually connect the hardware to the GPIO pins, add it to the database and configure it. 
+					\item \boldcolor{Android client}: the android application that the user uses. The android app makes requests and takes responses from the web server either by user order, such as deleting a certain command, or by itself such as getting the raspberry pi responses from the webserver periodically. 
+					\item \boldcolor{Raspberry Pi}: the computer controlling the hardwares. It communicates with the web server to get the commands periodically then executes it.
+				\end{itemize}
 					\begin{figure}[H]
-					\includegraphics[width=\linewidth]{img/diagram_usecase.jpg}
+					\includegraphics[width=\linewidth]{img/diagram_usecase.png}
 					\caption{Use case diagram}
+					\label{fig:diagram_usecase}
 					\end{figure}
 				
 				\newpage\subsubsection{Use Case Scenarios \& Sequence Diagrams}
