@@ -448,6 +448,7 @@
 		\end{itemize}
 		\section{Proposed \& Similar System Comparison}
 			\def\arraystretch{1.5}
+			\renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
 			\begin{table}[H]
 
 			\begin{center}
@@ -461,11 +462,12 @@
 						\Includegraphics[width=\linewidth]{img/wink_hw.png} &
 						\includegraphics[width=\linewidth]{img/samsung_hw.png}
 					 \\\hline
-					\boldcolor{Works With Wi-Fi} & yes & yes & yes & yes  \\\hline
 
-					\boldcolor{Price} & 25\$, parts are very cheap & 80\$, expensive parts & 99\$, very expensive parts & 70\$, expensive parts \\\hline
+					\boldcolor{Hub Price} & 25\$ & 80\$ & 99\$ & 70\$ \\\hline
+					\boldcolor{Hardware Price} & parts are very cheap &  expensive parts & very expensive parts & expensive parts \\\hline
+					\boldcolor{Flexibility} & any hardware that can be physically connected & 42 hardwares of basic variety\cite{insteon_p} & 102 hardwares of different variety\cite{wink_p} & only 6 hardwares support \cite{samsung_p} \\\hline
 					
-					\boldcolor{Installation \& Configuration Difficulty} & hard to install but doesn't takes time to reinstall and configure& easy to install and hardly takes any time setting up even if you change your home  & easy to install and hardly takes any time setting up even if you change your home  & easy to install and hardly takes any time setting up even if you change your home
+					\boldcolor{Installation \& Configuration Difficulty} & require one expert user. Easy control for all other users via mobile app & easy to install and control hardwares with mobile app  &easy to install and control hardwares with mobile app  & easy to install and control hardwares with mobile app
 					\\\hline
 				\end{tabularx}
 			\end{center}
@@ -474,7 +476,8 @@
 		\textit{Better quality can be found at Appendix \ref{appendix:similar_system_comparision}}
 		\newpage
 		\paragraph{} Although similar systems already exists, our system has its own special advantages. The biggest being \textbf{hardware freedom}. In other systems, there exists a main hub receiving user command from the mobile app. So far, the ideas and implementation is identical. The previous systems require the consumer to by additional parts for it to work, such as special LED lights that needs installation or a small component controlling air conditioners. Those parts are usually limited in numbers, usage and can get very expensive fast. On the other hand, our system works with any hardware component as long as connecting it to the electrical circuit is possible.
-
+		\paragraph{} However, this great flexibility comes with a great sacrifice: the steep learning curve. To keep the hardware prices as low as possible while maintaining high flexibility requires the buyer household to have one expert user. For example, in a family of four, all can control the AC. However, one of them must be an expert who can configure the hardware controlling the AC and adding it to raspberry pi manually. Of course, making it easier is possible, but it will result in a higher component cost and less flexibility as hardware components would need to be bought from our company (future implementation) in comparison to buying it from any cheap electronic store (current proposed solution).
+		% figure XX shows this relationship between flexibility, price, easiness for the three system, our proposed solution and the merchant edition %
 	\mychapter{System Analysis}
 		\section{Requirement Specification}
 			\subsection{Overview}
@@ -567,10 +570,10 @@
 			\renewcommand{\labelenumii}{\theenumii}
 			\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
 				\begin{enumerate}[label=3.2.3.\arabic*]
-					\item \boldcolor{Admin's Functionalities:}
+					\item \boldcolor{Expert User's Functionalities:}
 					\begin{enumerate}
-						\item Admin shall be able to add new hardware to the system. %A
-						\item Admin shall be able to add new configuration to the system. %A
+						\item Expert user shall be able to add new hardware to the system. %A
+						\item Expert user shall be able to add new configuration to the system. %A
 					\end{enumerate}
 					\item \boldcolor{Android Client's Functionalities:}
 					\begin{enumerate}
@@ -604,9 +607,9 @@
 						\begin{tabularx}{\linewidth}{|c|X|}\hline
 							\boldcolor{Requirement} & \boldcolor{Description}\\\hline
 							\textbf{Availability} & The system shall not be shut down for maintenance for more than 1 minute. \\\hline
-							\textbf{Usability} & The user shall be able to learn the most important 5 functions of application in 2 hours.  \\\hline
+							\textbf{Usability} & Except the expert user, all other user of the system shall be able to use the system immediately without much training  \\\hline
 							\textbf{Verifiability} & The system shall check the user identity. \\\hline
-							\textbf{Performance} & Any interface between a user and the automated system shall have a maximum response time of three seconds. \\\hline
+							\textbf{Performance and Delay} & The raspberry pi shall read user commands each 30 seconds to avoid delay or overhead in the system\\\hline
 							\textbf{Flexibility} & Any hardware component, such as linear solenoid or an infra-red controller, can be added to the system as long as it can be connected to the electric circuit.  \\\hline
 							\textbf{Security} & Each user can only communicate with assigned raspberry pi. In a similar manner, raspberry pi only reads commands meant for it and not for other ones.  \\\hline
 							\textbf{Efficiency} & The web server cleans the database and deletes any unneeded rows routinely.  \\\hline
@@ -615,14 +618,14 @@
 					\caption{Non-functional requirements}
 					\label{table:non-func}
 				\end{table}
-			\paragraph{} \textit{Table \ref{table:non-func}} shows the non-functional requirements for the system and their description. The most important requirement is availability, because the system will fail once the user and raspberry pi were not able to communicate. %secuirty
+			\paragraph{} \textit{Table \ref{table:non-func}} shows the non-functional requirements for the system and their description. The most important requirement is flexibility, as it is the core feature differentiating the proposed system from other systems. Next comes security and verifiability. They guarantee that no intruders are going to interrupt the system even if they communicated with the REST API directly without the android app because they won't be authorized -or authenticated- to enter the system. The other requirements are manly for performance and ease of use. 
 			\newpage\subsection{Structured Diagrams}
 				\subsubsection{Use Case Diagram}
-				\paragraph{} \textit{Figure \ref{fig:diagram_usecase}} shows the use-case diagram of the system. Although the system learning curve is steep, each raspberry pi can be connected to multiple users and vice versa -i.e. many to many relationship-. In other words, in a household of four people, all of them can connect to the same raspberry and control the AC. However, only one of them must be knowledgeable about the basics of electrical engineering and computer science. This person is referred to as the \textbf{Admin}. All other users including the admin are referred to as \textbf{Users}. 
+				\paragraph{} \textit{Figure \ref{fig:diagram_usecase}} shows the use-case diagram of the system. Although the system learning curve is steep, each raspberry pi can be connected to multiple users and vice versa -i.e. many to many relationship-. In other words, in a household of four people, all of them can connect to the same raspberry and control the AC. However, only one of them must be knowledgeable about the basics of electrical engineering and computer science. This person is referred to as the \textbf{Expert User}. All other users including the expert user are referred to as \textbf{Users}. 
 				 In this system, there are four main actors:
 				\begin{itemize}
 					\item \boldcolor{User}: any person using the system. They don't have to have any kind of background information at all. All they need to do is install the android app and clicks buttons on it. 
-					\item \boldcolor{Admin}: a type of user than configure the raspberry pi. They must manually connect the hardware to the GPIO pins, add it to the database and configure it. 
+					\item \boldcolor{Expert user}: a type of user than configure the raspberry pi. They must manually connect the hardware to the GPIO pins, add it to the database and configure it. 
 					\item \boldcolor{Android client}: the android application that the user uses. The android app makes requests and takes responses from the web server either by user order, such as deleting a certain command, or by itself such as getting the raspberry pi responses from the webserver periodically. 
 					\item \boldcolor{Raspberry Pi}: the computer controlling the hardwares. It communicates with the web server to get the commands periodically then executes it.
 				\end{itemize}
@@ -633,39 +636,39 @@
 					\end{figure}
 				
 				\newpage\subsubsection{Use Case Scenarios \& Sequence Diagrams}
-				\boldcolor{Admin adds a new hardware to system}
+				\boldcolor{Expert user adds a new hardware to system}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{admin_hw}}
 				\newline\textbf{Goal:} to add a new hardware device that the user can control to the Raspberry Pi.
-				\newline\textbf{Actors:} Admin, Raspberry Pi, Web server.
+				\newline\textbf{Actors:} Expert user, Raspberry Pi, Web server.
 				\newline\textbf{Precondition:} None.
 				\newline\textbf{Primary Scenario:}	
 				\begin{enumerate}[label*=\arabic*.]
-					\item Admin physically connects the new hardware to the Raspberry Pi
-					\item Admin inserts new hardware attributes into hardware table in the raspberry local database. 
+					\item Expert user physically connects the new hardware to the Raspberry Pi
+					\item Expert user inserts new hardware attributes into hardware table in the raspberry local database. 
 					\item Raspberry pi uploads information to the webserver using \textit{POST} \code{/hardware}
 				\end{enumerate}
 				\textbf{Variant:}\newline
 				\hspace*{5mm}1.A. A physical defect might appear in the new hardware, the wires connecting it to the Raspberry Pi, or its ports, all resulting in the new hardware not working correctly. \\
 				\begin{figure}[H]
 					\includegraphics[width=\linewidth]{img/sequence_add_hardware.png}
-					\caption{sequence diagram: Admin adds a new hardware to system}
+					\caption{sequence diagram: Expert user adds a new hardware to system}
 					\label{admin_hw}
 				\end{figure} 
-				\newpage\hspace*{-6mm}\boldcolor{Admin adds a new configuration to system}
+				\newpage\hspace*{-6mm}\boldcolor{Expert user adds a new configuration to system}
 				\newline\textbf{Sequence diagram:} \textit{Figure \ref{admin_config}}
 				\newline\textbf{Goal:} to add a new configuration to a new hardware.
-				\newline\textbf{Actors:} Admin, Raspberry Pi, Web server.
+				\newline\textbf{Actors:} Expert user, Raspberry Pi, Web server.
 				\newline\textbf{Precondition:} Hardware has been added to the system successfully.
 				\newline\textbf{Primary Scenario:}	
 				\begin{enumerate}[label*=\arabic*.]
-					\item Admin inserts new configuration attributes into configuration table in the raspberry local database. 
+					\item Expert user inserts new configuration attributes into configuration table in the raspberry local database. 
 					\item Raspberry pi uploads information to the webserver using \textit{POST} \code{/configuration}
 				\end{enumerate}
 				\textbf{Variant:}\newline
 				\hspace*{5mm}1.A. A physical defect might appear in the new hardware, the wires connecting it to the Raspberry Pi, or its ports, all resulting in the new hardware not working correctly. \\
 				\begin{figure}[H]
 					\includegraphics[width=\linewidth]{img/sequence_add_config.png}
-					\caption{sequence diagram: Admin adds a new configuration to system}
+					\caption{sequence diagram: Expert user adds a new configuration to system}
 					\label{admin_config}
 				\end{figure}
 				%%%
