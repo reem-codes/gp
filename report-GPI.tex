@@ -477,7 +477,33 @@
 		\newpage
 		\paragraph{} Although similar systems already exists, our system has its own special advantages. The biggest being \textbf{hardware freedom}. In other systems, there exists a main hub receiving user command from the mobile app. So far, the ideas and implementation is identical. The previous systems require the consumer to by additional parts for it to work, such as special LED lights that needs installation or a small component controlling air conditioners. Those parts are usually limited in numbers, usage and can get very expensive fast. On the other hand, our system works with any hardware component as long as connecting it to the electrical circuit is possible.
 		\paragraph{} However, this great flexibility comes with a great sacrifice: the steep learning curve. To keep the hardware prices as low as possible while maintaining high flexibility requires the buyer household to have one expert user. For example, in a family of four, all can control the AC. However, one of them must be an expert who can configure the hardware controlling the AC and adding it to raspberry pi manually. Of course, making it easier is possible, but it will result in a higher component cost and less flexibility as hardware components would need to be bought from our company (future implementation) in comparison to buying it from any cheap electronic store (current proposed solution).
-		% figure XX shows this relationship between flexibility, price, easiness for the three system, our proposed solution and the merchant edition %
+		\paragraph{} \textit{figure \ref{fig:radar_diagram}} shows this relationship between flexibility, cost and usability for the three systems, our proposed solution and the merchant edition(future work).
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[b]{.4\linewidth}
+				\includegraphics[width=\linewidth]{img/Inston.png}
+				\caption{Insteon}
+			\end{subfigure}
+			\begin{subfigure}[b]{.4\linewidth}
+				\includegraphics[width=\linewidth]{img/Wink.png}
+				\caption{Wink}
+			\end{subfigure}
+			\begin{subfigure}[b]{.4\linewidth}
+				\includegraphics[width=\linewidth]{img/Samsung.png}
+				\caption{Samsung}
+			\end{subfigure}
+			\begin{subfigure}[b]{.4\linewidth}
+				\includegraphics[width=\linewidth]{img/proposed.png}
+				\caption{Proposed System}
+			\end{subfigure}
+			\begin{subfigure}[b]{.4\linewidth}
+				\includegraphics[width=\linewidth]{img/future.jpg}
+				\caption{Future Work}
+			\end{subfigure}
+		
+			\caption{Relationship between cost, flexibility and usability}
+			\label{fig:radar_diagram}
+		\end{figure}
 	\mychapter{System Analysis}
 		\section{Requirement Specification}
 			\subsection{Overview}
@@ -1099,7 +1125,7 @@
 		\paragraph{} \textit{Figure \ref{fig:activity_login}} shows the login activity. It is the activity that the user will see when the app is first launched to prompt the user to enter their credentials.
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=.5\linewidth]{img/activity_login.png}
+			\includegraphics[width=.5\linewidth]{img/activity_login1.jpg}
 			\caption{UI: Login Activity}
 			\label{fig:activity_login}
 		\end{figure}
