@@ -256,7 +256,9 @@
 				IoT & Internet of Things \\\hline
 				JSON & JavaScript Object Notation\\\hline
 				LED & Light Emitting Diode\\\hline
+				ORM & Object relational mapping\\\hline
 				REST & Representational State Transfer\\\hline
+				SDK & software development kit \\\hline
 				SDLC & Software Development Life Cycle\\\hline
 				SQL & Structured Query Language\\\hline
 				UI & User Interface\\\hline
@@ -283,7 +285,8 @@
 	\addcontentsline{toc}{chapter}{\nameref{sec:intro}}
 	\chapter*{Abstract}
 		\label{sec:intro}
-		\paragraph{} The aim for this project is to control light buttons, air conditioners, television or other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time. 
+		\paragraph{} With the recent very rapid progress in technology and automation, and towards easier daily life tasks, there has
+		become a need for remote control of almost all possible aspects of living. Some examples are already available. However, they lack flexibility, which restrict the user to a certain set of hardwares with limited variety. The aim for this project is to control light buttons, air conditioners, television or other home appliance regardless of the person's location. The methodology is simple: an android app will send controlling requests to a web server. Raspberry Pi will be getting all the new requests from the server, processing it accordingly and controlling the hardware components connected to it. Such a system will allow someone in the United States to turn the lights in their house in Saudi Arabia on. However, an active connection to the internet must be present all the time. 
 		
 	
 
@@ -315,9 +318,12 @@
 			\end{itemize}
 		\section{Project Domain \& Limitation}
 			\subsection{Domain}
-				\paragraph{} Although the application will be available for all kinds of users to use, we expect that the ones who would make the most use of it would be people who have some background in electrical engineering and computer science. 
+				\paragraph{} This project falls under the Internet of Things (IoT) scope, which is a branch of cloud computing. 
+				
+				 
 			\subsection{Limitation}
 			\paragraph{} This project aims to control any hardware connected to the electronic circuit. Thus, the flexibility and freedom are extremely high. However, this advantage comes at a non-financial cost: the learning curve. The users must be knowledgeable about the basics of electrical engineering and computer science. A manual could be made to make the process easier.
+			\paragraph{} Although the application will be available for all kinds of users to use, we expect that the ones who would make the most use of it would be people who have some background in electrical engineering and computer science. 
 		\section{Gantt Chart}
 		\begin{figure}[H]
 			\includegraphics[width=\linewidth]{img/gantt_chart.png}
@@ -357,7 +363,7 @@
 					\item \boldcolor{Python:} raspberry pi can be controlled by either c++ or python. Python was chosen because a REST API can be made using it fast.
 		 				\begin{itemize}
 		 					\item \textbf{GPIO:} a library for controlling any hardware component connected to the GPIO pins\cite{gpio}.
-		 					\item \textbf{Flask:} a lightweight framework to build web applications.
+		 					\item \textbf{Flask:} a lightweight framework to build web applications\cite{flask}.
 						\end{itemize}
 					\item \boldcolor{Java:} mobile application are made in a native way with either swift or java.
 						\begin{itemize}
@@ -538,39 +544,33 @@
 		\newpage\section{Requirement Analysis}
 			\subsection{Software Requirements}
 			\begin{itemize}
-				\item \boldcolor{Languages}
+				\item \boldcolor{Android Application}
 				\begin{itemize}
-					\item Java
-					\item Python
-					\item SQL
+					\item \textbf{Java programming language}: it  is  a  general-purpose,  concurrent,  class-based,  object-oriented  programming  language\cite{java}. It is going to be used to develop the android mobile application.
+					\item \textbf{Android SDK}: a software development kit for developing android mobile apps. It includes a comprehensive set of development tools and libraries to aid the development process\cite{android_studio}.
+					\item \textbf{RetroFit library}: a type-safe HTTP client for Android and Java\cite{retro}. It will be used to send and receive commands and status from the web server.
+					\item \textbf{Android studio}: Android Studio is the official integrated development environment for Google's Android operating system\cite{android_studio}. This IDE is going to be used to write the android application code.
 				\end{itemize}
-				
-				\item \boldcolor{Frameworks \& libraries}
+				\item \boldcolor{Web Application}
 				\begin{itemize}
-					\item Android
-					\item Retrofit
-					\item GPIO
-					\item Flask
-					\item SQLAlchemy
-				\end{itemize}
-
-				\item \boldcolor{IDE}
-				\begin{itemize}
-					\item Android studio
-					\item Pycharm
+					\item \textbf{Python programming language}:  
+					\item \textbf{Flask framework}: a lightweight micro-framework to build web applications\cite{flask}. It will be used to build the REST API and interact with the database.
+					\item \textbf{SQLalchemy library}: flask does not offer a database abstraction layer\cite{flask}, so a supporting library must be installed to interact with the database. SQlAlchemy is an Object relational mapper that does not restrict its user to an RDBMS\cite{sqlalchemy}. However, this project will use postgres.
+					\item \textbf{SQL programming language}: 	 
+					\item \textbf{Postgresql RDBMS}:  an open-source RDBMS\cite{postgres}. It will be installed on the server.
+					\item \textbf{pycharm IDE}: an IDE to develop mobile application by JetBrains\cite{pycharm}. This IDE will be used to make the web application.
+					\item \textbf{Nginx web server}: an open-source web server\cite{nginx}. This web server is going to be installed to serve the web application and static files, such as the REST API docs.
 				\end{itemize}
 
-				\item \boldcolor{Databases}
+				\item \boldcolor{Raspberry pi Application}
 				\begin{itemize}
-					\item Postgresql
-					\item Sqlite
+					\item \textbf{Python programming language}
+					\item \textbf{SQL programming language}	 
+					\item \textbf{GPIO library}:
+					\item \textbf{SQLite RDBMS}: 
+					\item \textbf{nano text editor}: 
 				\end{itemize}
-			
-				\item \boldcolor{Web Server}
-				\begin{itemize}
-					\item Nginx
-					\item uWsgi
-				\end{itemize}
+
 			\end{itemize}
 			\newpage\subsection{Hardware Requirements}
 				\begin{itemize}
