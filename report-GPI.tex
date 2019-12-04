@@ -553,10 +553,10 @@
 				\end{itemize}
 				\item \boldcolor{Web Application}
 				\begin{itemize}
-					\item \textbf{Python programming language}:  
+					\item \textbf{Python programming language}: it is a high-level interpreted general purpose language\cite{python}. It will be used in making the web application.
 					\item \textbf{Flask framework}: a lightweight micro-framework to build web applications\cite{flask}. It will be used to build the REST API and interact with the database.
 					\item \textbf{SQLalchemy library}: flask does not offer a database abstraction layer\cite{flask}, so a supporting library must be installed to interact with the database. SQlAlchemy is an Object relational mapper that does not restrict its user to an RDBMS\cite{sqlalchemy}. However, this project will use postgres.
-					\item \textbf{SQL programming language}: 	 
+					\item \textbf{SQL programming language}: it is a database manipulating programming language. It is used to store and manage information in relational databases that enables users to create view, store procedure and functions in a database\cite{sql}. It will be used to save commands, users, raspberries, hardwares, and responses.
 					\item \textbf{Postgresql RDBMS}:  an open-source RDBMS\cite{postgres}. It will be installed on the server.
 					\item \textbf{pycharm IDE}: an IDE to develop mobile application by JetBrains\cite{pycharm}. This IDE will be used to make the web application.
 					\item \textbf{Nginx web server}: an open-source web server\cite{nginx}. This web server is going to be installed to serve the web application and static files, such as the REST API docs.
@@ -564,11 +564,10 @@
 
 				\item \boldcolor{Raspberry pi Application}
 				\begin{itemize}
-					\item \textbf{Python programming language}
-					\item \textbf{SQL programming language}	 
-					\item \textbf{GPIO library}:
-					\item \textbf{SQLite RDBMS}: 
-					\item \textbf{nano text editor}: 
+					\item \textbf{Python programming language}: it will be used to program the raspberry pi.
+					\item \textbf{SQL programming language}: it will be used in entering the data to the local queue.
+					\item \textbf{GPIO library}: a library for controlling any hardware component connected to the GPIO pins\cite{gpio}.
+					\item \textbf{SQLite RDBMS}: it is a file-based lightweight RDBMS\cite{sqlite}. It will be used to store data in the local queue.
 				\end{itemize}
 
 			\end{itemize}
@@ -1046,6 +1045,14 @@
 				
 			
 				\newpage\subsubsection{Dataflow Diagram}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/diagram_dataflow_lvl0.png}
+					\caption{Dataflow diagram - Level 0}
+				\end{figure}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{img/diagram_dataflow_lvl1.png}
+					\caption{Dataflow diagram - Level 1}
+				\end{figure}
 				\begin{figure}[H]
 					\includegraphics[width=\linewidth]{img/diagram_dataflow.jpg}
 					\caption{Dataflow diagram}
