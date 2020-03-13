@@ -22,7 +22,7 @@
 \usepackage{tocbibind}
 \usepackage[toc]{appendix}
 \usepackage[final]{pdfpages}
-
+\usepackage{graphicx}
 
 %
  \geometry{a4paper,inner=1.25in,outer=1.25in,top=1in,bottom=1in,footskip=15mm,headsep=30mm, headheight=-3mm}
@@ -175,22 +175,25 @@
 	%=========================
 	\begin{center}
 		\hspace{0pt}\\
-		\vspace{4cm}
+		\vspace{3cm}
 		{\scalebox{1}{\large\bfseries\color{section}\uppercase{Online Home Automation Control System}}}\\			
-			\vspace{2cm}
+			\begin{figure}[H]
+				\centering
+				\includegraphics{img/logo.png}
+			\end{figure}
 			By: \\
 			\begin{table}[H]
 				\begin{center}
-					\begin{tabular}{rl}		
+					\begin{tabular}{rl}	
+						\texttt{437004875} & Reem Ali AlGhamdi	
+						\\
 						\texttt{436200058} & Abeer Ahmed Ezzat 
-						\\
-						\texttt{436200063} & Doha Nidal AlZouhbi
-						\\
-						\texttt{437004005} & Mona Saud AlKhathlan  
 						\\
 						\texttt{437004100} & Nouf Abdullah AlDajani 
 						\\	
-						\texttt{437004875} & Reem Ali AlGhamdi
+						\texttt{437004005} & Mona Saud AlKhathlan  
+						\\
+						\texttt{436200063} & Doha Nidal AlZouhbi
 						\\
 						\texttt{436006939} & Sarah Khalid AlHussain 
 					\end{tabular}
@@ -512,6 +515,7 @@
 		\end{figure}
 	\mychapter{System Analysis}
 		\section{Requirement Specification}
+			\paragraph{} These requirements were selected after discussing the proposed idea thoroughly. Top-down approach was used, in which we discussed the general goal of this project, then broke it down even further to smaller manageable units. 
 			\subsection{Overview}
 				\paragraph{} The proposed project consists of three main systems: the android application which will be the user interface, the Raspberry Pi, which is the small computer where all the hardware pieces will be connected to, and the web server which will host the REST web application and be the connection between the android application and the Raspberry Pi.
 				
@@ -543,6 +547,7 @@
 			
 		\newpage\section{Requirement Analysis}
 			\subsection{Software Requirements}
+			\label{sec:software_req}
 			\begin{itemize}
 				\item \boldcolor{Android Application}
 				\begin{itemize}
@@ -572,6 +577,7 @@
 
 			\end{itemize}
 			\newpage\subsection{Hardware Requirements}
+			\label{sec:hardware_req}
 				\begin{itemize}
 					\item \boldcolor{Raspberry Pi} 
 					\begin{itemize}
@@ -1192,15 +1198,244 @@
 			\caption{UI: Message Fragment}
 			\label{fig:activity_done}
 		\end{figure}
-	\begin{comment}
+
 		\newpage	
-	\chapter{Implementation}
-		\section{Implementation}
+	\mychapter{Implementation}
 		\section{Implementation Requirements}
-			\subsection{Software Requirements}
-			\subsection{Hardware Requirements}
-		\section{Implementation Detailed}
-		\section{I/O Screens}
+		\paragraph{}As mentioned before, the system has three major components: \boldcolor{Web application}, \boldcolor{mobile application} and \boldcolor{raspberry pi script}. The software requirement was detailed in section \ref{sec:software_req} while the hardware requirements was in section \ref{sec:hardware_req}.  However, after writing the code for each component, an installation has to be made. 
+		\subsection{Software Requirements}
+		\paragraph{} Jet brain's IDE were used to write the code, specifically \textbf{PyCharm}. For the android application, the official \textbf{Android Studio} was used.
+		
+		\subsection{Hardware Requirements}
+		\paragraph{} For the web application, a server was brought. The OS is \textit{ubunut 16.04}. The official digitalocean \cite{digitalocean_2019} guide was followed. After that, a domain name was assigned to the web application and it is now available over \url{gp.reem-codes.com}.
+		\paragraph{} For the android application, an android mobile is required.
+		\paragraph{} Finally for the raspberry script, raspberry pi was bought along with its accessories mentioned before. \textit{Figure \ref{conn}} shows raspberry pi connected to two LEDs.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.5\linewidth]{img/connect.jpg}
+			\caption{Connecting Raspberry Pi with the hardware}
+			\label{conn}
+		\end{figure}
+		
+		
+		\section{Implementation Details}
+		\paragraph{} The project was divided into three parts. Each part is a stand-alone application. However, the communication is done using the web api application. Since the system is broken down into 3 components, a functionality as straight-forward as \textit{login} for instance may be written in two or more of these applications.
+		\paragraph{} Below are the main functionality of the system, along with their major code and the way they work
+		
+		\subsection{Web Application}
+		 
+		% login
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|c|X|}\hline
+					\boldcolor{Function Name} & \textbf{Login} \\\hline
+					\boldcolor{Input} & email and password, or raspberry id\\\hline
+					\boldcolor{Output} & token or an error message\\\hline
+					\boldcolor{Explanation} & a straightforward method. When an email and password is passed to it, a token is returned if the authentication was correct. Otherwise an error message appears. This method also is used for raspberry login with the same procedure. \\\hline
+					\multicolumn{2}{|c|}{\Includegraphics[scale=.6]{img/code_login.png}}
+					\\\hline
+				\end{tabularx}
+			\end{center}
+		\end{table}
+	
+		% GET POST PUT DELETE
+		\paragraph{} Besides the login function, the web application offers methods to access the database's tables. 
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|c|X|}\hline
+					\boldcolor{Function Name} & \textbf{API functions} \\\hline
+					\boldcolor{Input} & the token, id and body if needed\\\hline
+					\boldcolor{Output} & message and the object if needed\\\hline
+					\boldcolor{Explanation} & For each model, 5 functions are written: index, edit, delete, get and insert. \\\hline
+					\multicolumn{2}{|c|}{\Includegraphics[width=.5\linewidth]{img/code_api.png}}
+					\\\hline
+				\end{tabularx}
+			\end{center}
+		\end{table}
+					
+		\subsection{Raspberry Pi}			
+		% main -rp
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|c|X|}\hline
+					\boldcolor{Function Name} & \textbf{Main} \\\hline
+					\boldcolor{Input} & All the commands gotten from the server\\\hline
+					\boldcolor{Output} & Execution of the method \textbf{execute} which carries out the commands and switches on the LED \\\hline
+					\boldcolor{Explanation} & The function, when invoked, uses the GET method to get all the commands saved in the server. It iterates through them and checks if the command’s schedule\_id attribute is set to some value. In that case, the command is scheduled. The time string of the schedule is taken from schedule’s time attribute and is saved then turned into a format that includes the day’s date. The day of the week is identified and turned into a binary digit using the binary\_to\_position function. Then, if the day and execution time are less than the present, the execute function is called, and the command is executed. Otherwise, if the schedule\_id is not set to some value, this means that the command is immediate, and the execute function is called right away.  \\\hline
+					\multicolumn{2}{|c|}{\Includegraphics[width=.5\linewidth]{img/code_main.png}}
+					\\\hline
+				\end{tabularx}
+			\end{center}
+		\end{table}
+		
+		% execute - rp
+		\begin{table}[H]
+		\begin{center}
+			\begin{tabularx}{\linewidth}{|c|X|}\hline
+				\boldcolor{Function Name} & \textbf{Execute} \\\hline
+				\boldcolor{Input} & \textbf{\_gpio}: The GPIO pin connected.
+				\textbf{ \_on}: Whether to make it high or low.
+				\textbf{Command\_id}: The commands that will be executed.
+				\textbf{hw\_id}: The physical components connected to a raspberry pi. Such as LED lights, linear solenoids.
+							
+				\\\hline
+				\boldcolor{Output} & Post response to the server that indicates whether the commands has been successfully done with date and time.\\\hline
+				\boldcolor{Explanation} & 
+				The function will turn the hardware ON and OFF depending on the GPIO pin. The POST method will be sending a response and the PUT method will change the status of hardware from the OFF status to ON or conversely.    \\\hline
+				\multicolumn{2}{|c|}{\Includegraphics[width=.5\linewidth]{img/code_exec.png}}
+				\\\hline
+			\end{tabularx}
+		\end{center}
+	\end{table}
+
+		\newpage\subsection{Android Application}
+		\paragraph{} Even though the majority of functions are in android studio, a few will be mentioned. The rest are filler functions and boiler plates. The most important functions are:
+		\begin{itemize}
+			\item create, get, delete and edit command, hardware and raspberry: basically, providing UI interfaces for the users to manipulate the models of the system. These are done using \textbf{Adapters} and \textbf{onActivityResults}.
+			\item get response each 5 minutes from the server: to see the execution result of a command. This is done using \textbf{onStartCommand} function.
+			\item communicating with the server: and it is done using different methods all following the same \textbf{methodModelApi}format. In which the method is GET, POST, PUT or DELETE. The model is either command, schedule, hardware, response or raspberry.
+		\end{itemize} 
+			
+			
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|c|X|}\hline
+					\boldcolor{Function Name} & \textbf{methodModelApi} \\\hline
+					\boldcolor{Input} & the id and body if needed. The access token.
+					
+					\\\hline
+					\boldcolor{Output} & Show message to user.\\\hline
+					\boldcolor{Explanation} & 
+					These methods family are used to communicate with the server using the okhttp library. A request is build then a response is received. The response is validated and turned into an object for further processing \\\hline
+					\multicolumn{2}{|c|}{\Includegraphics[width=.5\linewidth]{img/code_android_api.png}}
+					\\\hline
+				\end{tabularx}
+			\end{center}
+		\end{table}
+			
+						
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|c|X|}\hline
+					\boldcolor{Function Name} & \textbf{onStartCommand} \\\hline
+					\boldcolor{Input} & the time interval of executing
+					\\\hline
+					\boldcolor{Output} & show response to users as a push notification.\\\hline
+					\boldcolor{Explanation} & 
+					At first, this method check if the user is logged in. If they are the \textbf{getResponseApi} -part of the \textbf{methodModelApi} family- is called. This methods get all responses belonging to this user and show them as push notification. This process is repeated each 5 minutes. \\\hline
+					\multicolumn{2}{|c|}{\Includegraphics[width=.5\linewidth]{img/code_response.png}}
+					\\\hline
+				\end{tabularx}
+			\end{center}
+		\end{table}
+	
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|c|X|}\hline
+					\boldcolor{Function Name} & \textbf{user event listeners in adapters} \\\hline
+					\boldcolor{Input} & user clicks on delete icon or edit icon
+					\\\hline
+					\boldcolor{Output} & Show the user a form for editing or creating. \\\hline
+					\boldcolor{Explanation} & 
+					In android, adapters are classes managing list of data. For each item, we attached a delete and edit methods. Also, create method is attached to the whole list so an item can be added. All of these functions work on the user interface but call one of the  \textbf{methodModelApi} family in the background to enforce these changes in the server.
+					\\\hline
+					\multicolumn{2}{|l|}{
+											edit event listener
+						\Includegraphics[width=.5\linewidth]{img/code_event_edit.png}} \\
+					\multicolumn{2}{|l|}{
+						and delete event listener
+						\Includegraphics[width=.5\linewidth]{img/code_event_delete.png}}
+					\\\hline
+				\end{tabularx}
+			\end{center}
+		\end{table}
+
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|c|X|}\hline
+					\boldcolor{Function Name} & \textbf{onActivityResult} \\\hline
+					\boldcolor{Input} & the action: edit or create
+					\\\hline
+					\boldcolor{Output} & return user to the list view page \\\hline
+					\boldcolor{Explanation} & 
+					When a user clicks on create button or the edit button, a form is shown to take the input. Once the input is taken, a function of the  \textbf{methodModelApi} family is called.
+					\\\hline
+					\multicolumn{2}{|c|}{
+
+						\Includegraphics[width=.8\linewidth]{img/code_onactivityresult.png}} 
+				
+					\\\hline
+				\end{tabularx}
+			\end{center}
+		\end{table}
+
+		\newpage\section{I/O Screens}
+		\paragraph{} The following are the main input and output screens
+		\subsection{Login Screen}
+		\paragraph{} First, the user is required to login or register before using the system. \textit{Figure \ref{output:login}} shows the login interface.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.5\linewidth]{img/output_login.jpg}
+			\caption{I/O: Login Screen}
+			\label{output:login}
+		\end{figure}
+	
+		\newpage\subsection{Raspberry Pi Screen}
+		\paragraph{} After successful login, the user is redirected to the raspberry pi's list of connected devices. \textit{Figure \ref{output:rp}} shows the Raspberry Pi interfaces. 
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[b]{.4\linewidth}
+				\includegraphics[width=\linewidth]{img/output_raspberry_list.jpg}
+				\caption{I/O: Raspberry Pi List}
+			\end{subfigure}
+			\begin{subfigure}[b]{.4\linewidth}
+				\includegraphics[width=\linewidth]{img/output_raspberry_edit.jpg}
+				\caption{I/O: Raspberry Pi Edit}
+			\end{subfigure}
+			\caption{I/O: Raspberry Pi Screens}
+			\label{output:rp}
+		\end{figure}
+
+		\newpage\subsection{Hardware Screen}
+		\paragraph{} After clicking on one of the raspberry pi's, the hardware list appears. \textit{Figure \ref{output:hardware}} shows the Hardware interfaces. 
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[b]{.35\linewidth}
+				\includegraphics[width=\linewidth]{img/output_hardware_list.jpg}
+				\caption{I/O: Hardware List}
+			\end{subfigure}
+			\begin{subfigure}[b]{.35\linewidth}
+				\includegraphics[width=\linewidth]{img/output_hardware_edit.jpg}
+				\caption{I/O: Hardware Edit}
+			\end{subfigure}
+			\begin{subfigure}[b]{.35\linewidth}
+				\includegraphics[width=\linewidth]{img/output_hardware_new.jpg}
+				\caption{I/O: Hardware Create}
+			\end{subfigure}
+			\caption{I/O: Hardware Screens}
+			\label{output:hardware}
+		\end{figure}
+
+		\newpage\subsection{Command \& Schedule Screen}
+		\paragraph{} For each hardware, a user can create a command and see the command list. \textit{Figure \ref{output:command}} shows the Command and Schedule interfaces. 
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[b]{.35\linewidth}
+				\includegraphics[width=\linewidth]{img/output_command_list.jpg}
+				\caption{I/O: Command List}
+			\end{subfigure}
+			\begin{subfigure}[b]{.35\linewidth}
+				\includegraphics[width=\linewidth]{img/output_command_new.jpg}
+				\caption{I/O: Command Create}
+			\end{subfigure}
+			\begin{subfigure}[b]{.35\linewidth}
+				\includegraphics[width=\linewidth]{img/output_schedule.jpg}
+				\caption{I/O: Schedule Create}
+			\end{subfigure}
+			\caption{I/O: Command Screens}
+			\label{output:command}
+		\end{figure}
+
 		\newpage	
 	\chapter{Testing}
 		\section{Testing}
@@ -1223,7 +1458,7 @@
 	
 	
 	
-	\end{comment}
+
 	\bibliographystyle{ieeetr}
 	\renewcommand{\bibname}{References}
 	\bibliography{References}
