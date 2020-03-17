@@ -1,0 +1,19 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Problem Statement}{}% 2
+\BOOKMARK [1][-]{section.3}{Related Works}{}% 3
+\BOOKMARK [1][-]{section.4}{System Design and Analysis}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Non-Functional Requirements}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{System Architecture}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Entity Relationship Diagram}{section.4}% 7
+\BOOKMARK [1][-]{section.5}{Results and Future Works}{}% 8
+\BOOKMARK [2][-]{subsection.5.1}{Login Screen}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.2}{Raspberry Pi Screen}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.3}{Hardware Screen}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.4}{Command \046 Schedule Screen}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.5}{Future Work}{section.5}% 13
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 14
+\BOOKMARK [1][-]{section.6}{References}{}% 15
+\BOOKMARK [1][-]{appendix.A}{Similar systems hub design}{}% 16
+\BOOKMARK [1][-]{appendix.B}{Diagrams}{}% 17
+\BOOKMARK [2][-]{subsection.B.1}{Use-Case Diagram}{appendix.B}% 18
+\BOOKMARK [2][-]{subsection.B.2}{Flowchart Diagram}{appendix.B}% 19
