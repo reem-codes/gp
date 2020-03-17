@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.8)  17 MAR 2020 13:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.8)  17 MAR 2020 20:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1005,40 +1005,46 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
  <./img/pnu.png> <./img/logo.png>]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
 File: img/raspberry.png Graphic file (type png)
 <use img/raspberry.png>
-Package pdftex.def Info: img/raspberry.png  used on input line 222.
+Package pdftex.def Info: img/raspberry.png  used on input line 227.
 (pdftex.def)             Requested size: 72.95924pt x 48.48398pt.
 File: img/insteon_hw.png Graphic file (type png)
 <use img/insteon_hw.png>
-Package pdftex.def Info: img/insteon_hw.png  used on input line 222.
+Package pdftex.def Info: img/insteon_hw.png  used on input line 227.
 (pdftex.def)             Requested size: 72.95924pt x 42.7586pt.
 File: img/wink_hw.png Graphic file (type png)
 <use img/wink_hw.png>
-Package pdftex.def Info: img/wink_hw.png  used on input line 222.
+Package pdftex.def Info: img/wink_hw.png  used on input line 227.
 (pdftex.def)             Requested size: 72.95924pt x 68.68439pt.
 File: img/samsung_hw.png Graphic file (type png)
 <use img/samsung_hw.png>
-Package pdftex.def Info: img/samsung_hw.png  used on input line 222.
+Package pdftex.def Info: img/samsung_hw.png  used on input line 227.
 (pdftex.def)             Requested size: 72.95924pt x 58.19409pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--222
+Underfull \hbox (badness 10000) in paragraph at lines 227--227
 []|\OT1/cmr/bx/n/12 Hardware
  []
 
 
-Overfull \hbox (4.38184pt too wide) in paragraph at lines 222--222
+Overfull \hbox (4.38184pt too wide) in paragraph at lines 227--227
 []|\OT1/cmr/bx/n/12 Installation
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--222
+Underfull \hbox (badness 10000) in paragraph at lines 227--227
 \OT1/cmr/bx/n/12 u-ra-tion
  []
 
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 228.
+Package pdftex.def Info: img/pnu.png  used on input line 231.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 Package Fancyhdr Warning: \headheight is too small (-8.53581pt): 
@@ -1051,34 +1057,9 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 
 
 [1]
-<img/Inston.png, id=116, 395.4775pt x 344.28625pt>
-File: img/Inston.png Graphic file (type png)
-<use img/Inston.png>
-Package pdftex.def Info: img/Inston.png  used on input line 235.
-(pdftex.def)             Requested size: 166.7306pt x 145.15083pt.
-<img/Wink.png, id=117, 452.69125pt x 344.28625pt>
-File: img/Wink.png Graphic file (type png)
-<use img/Wink.png>
-Package pdftex.def Info: img/Wink.png  used on input line 239.
-(pdftex.def)             Requested size: 166.7306pt x 126.80078pt.
-<img/Samsung.png, id=118, 395.4775pt x 344.28625pt>
-File: img/Samsung.png Graphic file (type png)
-<use img/Samsung.png>
-Package pdftex.def Info: img/Samsung.png  used on input line 243.
-(pdftex.def)             Requested size: 166.7306pt x 145.15083pt.
-<img/proposed.png, id=119, 396.48125pt x 312.16624pt>
-File: img/proposed.png Graphic file (type png)
-<use img/proposed.png>
-Package pdftex.def Info: img/proposed.png  used on input line 247.
-(pdftex.def)             Requested size: 166.7306pt x 131.27563pt.
-<img/future.jpg, id=120, 59.7432pt x 39.0258pt>
-File: img/future.jpg Graphic file (type jpg)
-<use img/future.jpg>
-Package pdftex.def Info: img/future.jpg  used on input line 251.
-(pdftex.def)             Requested size: 166.7306pt x 108.92847pt.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 257.
+Package pdftex.def Info: img/pnu.png  used on input line 235.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1093,9 +1074,34 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 
 [2 <./img/raspberry.png> <./img/insteon_hw.png> <./img/wink_hw.png> <./img/sams
 ung_hw.png>]
+<img/Inston.png, id=126, 395.4775pt x 344.28625pt>
+File: img/Inston.png Graphic file (type png)
+<use img/Inston.png>
+Package pdftex.def Info: img/Inston.png  used on input line 240.
+(pdftex.def)             Requested size: 166.7306pt x 145.15083pt.
+<img/Wink.png, id=127, 452.69125pt x 344.28625pt>
+File: img/Wink.png Graphic file (type png)
+<use img/Wink.png>
+Package pdftex.def Info: img/Wink.png  used on input line 244.
+(pdftex.def)             Requested size: 166.7306pt x 126.80078pt.
+<img/Samsung.png, id=128, 395.4775pt x 344.28625pt>
+File: img/Samsung.png Graphic file (type png)
+<use img/Samsung.png>
+Package pdftex.def Info: img/Samsung.png  used on input line 248.
+(pdftex.def)             Requested size: 166.7306pt x 145.15083pt.
+<img/proposed.png, id=129, 396.48125pt x 312.16624pt>
+File: img/proposed.png Graphic file (type png)
+<use img/proposed.png>
+Package pdftex.def Info: img/proposed.png  used on input line 252.
+(pdftex.def)             Requested size: 166.7306pt x 131.27563pt.
+<img/future.jpg, id=130, 59.7432pt x 39.0258pt>
+File: img/future.jpg Graphic file (type jpg)
+<use img/future.jpg>
+Package pdftex.def Info: img/future.jpg  used on input line 256.
+(pdftex.def)             Requested size: 166.7306pt x 108.92847pt.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 263.
+Package pdftex.def Info: img/pnu.png  used on input line 264.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1110,13 +1116,13 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 
 [3 <./img/Inston.png> <./img/Wink.png> <./img/Samsung.png> <./img/proposed.png>
  <./img/future.jpg>]
-Underfull \hbox (badness 5726) in paragraph at lines 279--279
+Underfull \hbox (badness 5726) in paragraph at lines 284--284
  []|\OT1/cmr/bx/n/12 Description| 
  []
 
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 289.
+Package pdftex.def Info: img/pnu.png  used on input line 290.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 Package Fancyhdr Warning: \headheight is too small (-8.53581pt): 
@@ -1135,21 +1141,11 @@ Missing character: There is no ™ in font cmr12!
 <img/diagram_architecture.png, id=154, 1478.52374pt x 782.925pt>
 File: img/diagram_architecture.png Graphic file (type png)
 <use img/diagram_architecture.png>
-Package pdftex.def Info: img/diagram_architecture.png  used on input line 292.
+Package pdftex.def Info: img/diagram_architecture.png  used on input line 297.
 (pdftex.def)             Requested size: 416.83289pt x 220.72276pt.
-<img/diagram_er1.png, id=156, 4187.645pt x 2047.65pt>
-File: img/diagram_er1.png Graphic file (type png)
-<use img/diagram_er1.png>
-Package pdftex.def Info: img/diagram_er1.png  used on input line 304.
-(pdftex.def)             Requested size: 416.83289pt x 203.80841pt.
-<img/diagram_er2.png, id=157, 3284.27pt x 1521.685pt>
-File: img/diagram_er2.png Graphic file (type png)
-<use img/diagram_er2.png>
-Package pdftex.def Info: img/diagram_er2.png  used on input line 309.
-(pdftex.def)             Requested size: 416.83289pt x 193.11253pt.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 315.
+Package pdftex.def Info: img/pnu.png  used on input line 304.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1163,14 +1159,19 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 
 
 [5 <./img/diagram_architecture.png>]
-<img/output_login.jpg, id=166, 1084.05pt x 1927.2pt>
-File: img/output_login.jpg Graphic file (type jpg)
-<use img/output_login.jpg>
-Package pdftex.def Info: img/output_login.jpg  used on input line 325.
-(pdftex.def)             Requested size: 208.41644pt x 370.49458pt.
+<img/diagram_er1.png, id=162, 4187.645pt x 2047.65pt>
+File: img/diagram_er1.png Graphic file (type png)
+<use img/diagram_er1.png>
+Package pdftex.def Info: img/diagram_er1.png  used on input line 309.
+(pdftex.def)             Requested size: 416.83289pt x 203.80841pt.
+<img/diagram_er2.png, id=163, 3284.27pt x 1521.685pt>
+File: img/diagram_er2.png Graphic file (type png)
+<use img/diagram_er2.png>
+Package pdftex.def Info: img/diagram_er2.png  used on input line 314.
+(pdftex.def)             Requested size: 416.83289pt x 193.11253pt.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 329.
+Package pdftex.def Info: img/pnu.png  used on input line 324.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1184,9 +1185,14 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 
 
 [6 <./img/diagram_er1.png> <./img/diagram_er2.png>]
+<img/output_login.jpg, id=173, 1084.05pt x 1927.2pt>
+File: img/output_login.jpg Graphic file (type jpg)
+<use img/output_login.jpg>
+Package pdftex.def Info: img/output_login.jpg  used on input line 330.
+(pdftex.def)             Requested size: 208.41644pt x 370.49458pt.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 330.
+Package pdftex.def Info: img/pnu.png  used on input line 335.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1203,18 +1209,18 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 <img/output_raspberry_list.jpg, id=180, 1084.05pt x 1927.2pt>
 File: img/output_raspberry_list.jpg Graphic file (type jpg)
 <use img/output_raspberry_list.jpg>
-Package pdftex.def Info: img/output_raspberry_list.jpg  used on input line 335.
+Package pdftex.def Info: img/output_raspberry_list.jpg  used on input line 340.
 
 (pdftex.def)             Requested size: 166.7306pt x 296.38979pt.
 <img/output_raspberry_edit.jpg, id=181, 1084.05pt x 1927.2pt>
 File: img/output_raspberry_edit.jpg Graphic file (type jpg)
 <use img/output_raspberry_edit.jpg>
-Package pdftex.def Info: img/output_raspberry_edit.jpg  used on input line 339.
+Package pdftex.def Info: img/output_raspberry_edit.jpg  used on input line 344.
 
 (pdftex.def)             Requested size: 166.7306pt x 296.38979pt.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 346.
+Package pdftex.def Info: img/pnu.png  used on input line 351.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1231,21 +1237,21 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 <img/output_hardware_list.jpg, id=189, 1084.05pt x 1927.2pt>
 File: img/output_hardware_list.jpg Graphic file (type jpg)
 <use img/output_hardware_list.jpg>
-Package pdftex.def Info: img/output_hardware_list.jpg  used on input line 351.
+Package pdftex.def Info: img/output_hardware_list.jpg  used on input line 356.
 (pdftex.def)             Requested size: 145.89404pt x 259.36679pt.
 <img/output_hardware_edit.jpg, id=190, 1084.05pt x 1927.2pt>
 File: img/output_hardware_edit.jpg Graphic file (type jpg)
 <use img/output_hardware_edit.jpg>
-Package pdftex.def Info: img/output_hardware_edit.jpg  used on input line 355.
+Package pdftex.def Info: img/output_hardware_edit.jpg  used on input line 360.
 (pdftex.def)             Requested size: 145.89404pt x 259.36679pt.
 <img/output_hardware_new.jpg, id=191, 1084.05pt x 1927.2pt>
 File: img/output_hardware_new.jpg Graphic file (type jpg)
 <use img/output_hardware_new.jpg>
-Package pdftex.def Info: img/output_hardware_new.jpg  used on input line 359.
+Package pdftex.def Info: img/output_hardware_new.jpg  used on input line 364.
 (pdftex.def)             Requested size: 145.89404pt x 259.36679pt.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 366.
+Package pdftex.def Info: img/pnu.png  used on input line 371.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1263,21 +1269,21 @@ put_hardware_new.jpg>]
 <img/output_command_list.jpg, id=198, 1084.05pt x 1927.2pt>
 File: img/output_command_list.jpg Graphic file (type jpg)
 <use img/output_command_list.jpg>
-Package pdftex.def Info: img/output_command_list.jpg  used on input line 371.
+Package pdftex.def Info: img/output_command_list.jpg  used on input line 376.
 (pdftex.def)             Requested size: 145.89404pt x 259.36679pt.
 <img/output_command_new.jpg, id=199, 1084.05pt x 1927.2pt>
 File: img/output_command_new.jpg Graphic file (type jpg)
 <use img/output_command_new.jpg>
-Package pdftex.def Info: img/output_command_new.jpg  used on input line 375.
+Package pdftex.def Info: img/output_command_new.jpg  used on input line 380.
 (pdftex.def)             Requested size: 145.89404pt x 259.36679pt.
 <img/output_schedule.jpg, id=200, 1084.05pt x 1927.2pt>
 File: img/output_schedule.jpg Graphic file (type jpg)
 <use img/output_schedule.jpg>
-Package pdftex.def Info: img/output_schedule.jpg  used on input line 379.
+Package pdftex.def Info: img/output_schedule.jpg  used on input line 384.
 (pdftex.def)             Requested size: 145.89404pt x 259.36679pt.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 388.
+Package pdftex.def Info: img/pnu.png  used on input line 393.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1328,7 +1334,7 @@ ecture/$[][]\OT1/cmr/m/n/12 , Febru-
 )
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 398.
+Package pdftex.def Info: img/pnu.png  used on input line 403.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1344,38 +1350,38 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 [11]
 File: img/insteon_hw.png Graphic file (type png)
 <use img/insteon_hw.png>
-Package pdftex.def Info: img/insteon_hw.png  used on input line 406.
+Package pdftex.def Info: img/insteon_hw.png  used on input line 411.
 (pdftex.def)             Requested size: 208.41644pt x 122.15004pt.
 File: img/wink_hw.png Graphic file (type png)
 <use img/wink_hw.png>
-Package pdftex.def Info: img/wink_hw.png  used on input line 410.
+Package pdftex.def Info: img/wink_hw.png  used on input line 415.
 (pdftex.def)             Requested size: 208.41644pt x 196.2123pt.
 File: img/samsung_hw.png Graphic file (type png)
 <use img/samsung_hw.png>
-Package pdftex.def Info: img/samsung_hw.png  used on input line 414.
+Package pdftex.def Info: img/samsung_hw.png  used on input line 419.
 (pdftex.def)             Requested size: 208.41644pt x 166.25601pt.
 File: img/raspberry.png Graphic file (type png)
 <use img/raspberry.png>
-Package pdftex.def Info: img/raspberry.png  used on input line 418.
+Package pdftex.def Info: img/raspberry.png  used on input line 423.
 (pdftex.def)             Requested size: 208.41644pt x 138.50992pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 405--421
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 410--426
 [][] []
  []
 
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 405--421
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 410--426
 [] [] 
  []
 
 <img/diagram_usecase.png, id=220, 287.3937pt x 246.9225pt>
 File: img/diagram_usecase.png Graphic file (type png)
 <use img/diagram_usecase.png>
-Package pdftex.def Info: img/diagram_usecase.png  used on input line 428.
+Package pdftex.def Info: img/diagram_usecase.png  used on input line 433.
 (pdftex.def)             Requested size: 416.83289pt x 358.15276pt.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 432.
+Package pdftex.def Info: img/pnu.png  used on input line 437.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 Package Fancyhdr Warning: \headheight is too small (-8.53581pt): 
@@ -1393,16 +1399,16 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 <img/flowchart_android.png, id=227, 547.8066pt x 657.657pt>
 File: img/flowchart_android.png Graphic file (type png)
 <use img/flowchart_android.png>
-Package pdftex.def Info: img/flowchart_android.png  used on input line 435.
+Package pdftex.def Info: img/flowchart_android.png  used on input line 440.
 (pdftex.def)             Requested size: 416.83289pt x 500.43665pt.
 <img/flowchart_raspberry.png, id=228, 235.6002pt x 585.387pt>
 File: img/flowchart_raspberry.png Graphic file (type png)
 <use img/flowchart_raspberry.png>
-Package pdftex.def Info: img/flowchart_raspberry.png  used on input line 441.
+Package pdftex.def Info: img/flowchart_raspberry.png  used on input line 446.
 (pdftex.def)             Requested size: 270.93883pt x 673.20767pt.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 444.
+Package pdftex.def Info: img/pnu.png  used on input line 449.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1418,7 +1424,7 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 [13 <./img/diagram_usecase.png>]
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 445.
+Package pdftex.def Info: img/pnu.png  used on input line 450.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1432,10 +1438,10 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 
 
 [14 <./img/flowchart_android.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 445.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 450.
 File: img/pnu.png Graphic file (type png)
 <use img/pnu.png>
-Package pdftex.def Info: img/pnu.png  used on input line 445.
+Package pdftex.def Info: img/pnu.png  used on input line 450.
 (pdftex.def)             Requested size: 41.68582pt x 41.68425pt.
 
 
@@ -1449,9 +1455,9 @@ Overfull \vbox (8.53581pt too high) has occurred while \output is active []
 
 
 [15 <./img/flowchart_raspberry.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 445.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 450.
  (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 445.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 450.
 
 
  *File List*
@@ -1592,6 +1598,7 @@ img/insteon_hw.png
 img/wink_hw.png
 img/samsung_hw.png
  img/pnu.png
+ img/pnu.png
 img/Inston.png
 img/Wink.png
 img/Samsung.png
@@ -1599,13 +1606,12 @@ img/proposed.png
 img/future.jpg
  img/pnu.png
  img/pnu.png
- img/pnu.png
 img/diagram_architecture.png
+ img/pnu.png
 img/diagram_er1.png
 img/diagram_er2.png
  img/pnu.png
 img/output_login.jpg
- img/pnu.png
  img/pnu.png
 img/output_raspberry_list.jpg
 img/output_raspberry_edit.jpg
@@ -1633,10 +1639,10 @@ img/flowchart_raspberry.png
  img/pnu.png
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 445.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 450.
 Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 16E2272C17401B10CBEC222AF9E2C176;1156.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 445.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 450.
  ) 
 Here is how much of TeX's memory you used:
  21974 strings out of 494914
@@ -1656,7 +1662,7 @@ ype1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/arab
 tex/xnsh14.pfb>
-Output written on paper.pdf (16 pages, 3666627 bytes).
+Output written on paper.pdf (16 pages, 3668215 bytes).
 PDF statistics:
  294 PDF objects out of 1000 (max. 8388607)
  220 compressed objects within 3 object streams
