@@ -8,7 +8,7 @@
 \usepackage{geometry}
 \usepackage{lipsum}
 \usepackage{listings}
-\usepackage{xcolor}
+\usepackage[usenames, dvipsnames]{color}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{xparse}
@@ -23,6 +23,9 @@
 \usepackage[toc]{appendix}
 \usepackage[final]{pdfpages}
 \usepackage{graphicx}
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
 
 %
  \geometry{a4paper,inner=1.25in,outer=1.25in,top=1in,bottom=1in,footskip=15mm,headsep=30mm, headheight=-3mm}
@@ -134,27 +137,14 @@
 {\color{ssub}\normalfont\fontsize{12}{13}\bfseries}
 {\color{ssub}\thesubsubsection}{1em}{}
 
+\newcounter{magicrownumbers}
+\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
 
 \newcommand{\code}[1]{{\color{red}\colorbox{lightgray}{#1}}}
 \newcommand\boldcolor[1]{\textcolor{bold}{\textbf{#1}}}
 \newcommand\Includegraphics[2][]{\addvbuffer[3pt 0pt]{\includegraphics[#1]{#2}}}
 
-\lstset{frame=tb,
-	language=Java,
-	aboveskip=3mm,
-	belowskip=3mm,
-	showstringspaces=false,
-	columns=flexible,
-	basicstyle={\small\ttfamily},
-	numbers=none,
-	numberstyle=\tiny\color{gray},
-	keywordstyle=\color{blue},
-	commentstyle=\color{dkgreen},
-	stringstyle=\color{mauve},
-	breaklines=true,
-	breakatwhitespace=true,
-	tabsize=3
-}
+
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \hypersetup{
@@ -253,6 +243,7 @@
 				
 				\boldcolor{Symbols \& Abbreviations} & \boldcolor{Meaning} \\\hline
 				API & Application programming Interface\\\hline
+				CRUD & Create, Read, Update and Delete\\\hline
 				GPIO & General Purpose Input Output\\\hline
 				GUI & Graphical User Interface\\\hline
 				IDE & Integrated Development Environment \\\hline
@@ -1437,31 +1428,174 @@
 		\end{figure}
 
 		\newpage	
-	\chapter{Testing}
+	\mychapter{Testing}
 		\section{Testing}
+		\paragraph{}In the last chapter, implementation was finished. This chapter looks into the methods used to test and validate the different parts and scopes of the system mentioned in previous chapters.
 		\section{Test Plan}
+		\paragraph{}In this stage, the concern is in eliminating the majority of bugs that could be easily found with a bit of usage and focused code reading. Basically, addressing those bugs before launching the website and publishing the application. \textit{Unit Testing} and \textit{System and Integration Testing} were used.
 			\subsection{Unit Test}
-			\subsection{Functional Test}
-			\subsection{Acceptance Test}
-		\section{Test Items}
+			\paragraph{}The primary goal of unit testing is to take the smallest piece of testable software in the application, isolate it from the remainder of the code, and determine whether it behaves exactly as expected. As shown in \textit{Figure \ref{fig:test_example}} shows multiple cases of validation offered to users. \textit{Appendix \ref{appendix:validation}} demonstrates more cases. 
+			\begin{figure}[H]
+				\begin{subfigure}[b]{.5\linewidth}
+					\includegraphics[width=\linewidth]{img/output_validation_email_not_valid.jpg}
+					\caption{Email entered is not in the right format}
+				\end{subfigure}
+				\begin{subfigure}[b]{.5\linewidth}
+					\includegraphics[width=\linewidth]{img/output_validation_email_pass_wrong.jpg}
+					\caption{authentication error}
+				\end{subfigure}
+				\caption{Login Validation}
+				\label{fig:test_example}
+			\end{figure}
+			\subsection{System and Integration Testing}
+			\paragraph{}Here, the concern is on the harmony between the 3 subsystems and their communication. After testing each component under each sub-system individually, a complete system test must be performed to check for any communication error.
+			\subsection{The Scope}
+			\paragraph{}The scope of testing includes the \textbf{testable coded parts}; which means testing the hardware and its power is outside of the testing scope. To be specific, no checking will be made to make sure the server is constantly up. Secondly, no testing for the mobile device's memory usage or battery -a network check, however, will be performed-. Finally, no checking to see if the raspberry pi's components are in good shape.
 			\subsection{Features to Be Tested}
-			\subsection{Schedule of Test Actions}
+			\paragraph{}On the other hand, any user input or manageable units shall be tested. The user's explicit CRUD operations shall be tested and managed accordingly. In addition, The network connection shall be checked and a suitable error shall be thrown if needed. 
+			\subsection{Schedule of Test Activities}
+			\paragraph{}Some test activities are done each time before the operation execution, others are done periodically or once per installation time. \textit{Table \ref{table:test_schedule} represents the schedule of test activities.}
+			\def\arraystretch{1.5}
+			\begin{table}[H]
+				\begin{center}
+					\begin{tabularx}{\linewidth}{|c|X|X|X|X|}\hline
+						\boldcolor{No.} & \boldcolor{Task activity} & \boldcolor{Deliverable} & \boldcolor{Start Date} & \boldcolor{End Date}\\\hline
+						\rownumber & Plan testing & Test Plan & 20 February & 24 February \\\hline
+						\rownumber & Develop test cases & Test Cases & 24 February & 28 February \\\hline
+						\rownumber & Execute test & & 28 February & 4 March \\\hline
+						\rownumber & Evaluate test & & 4 March & 8 March \\\hline
+						\rownumber & Documentation & Test Results & 8 March & 10 March \\\hline
+					\end{tabularx}
+				\end{center}
+				\caption{Test Schedule}
+				\label{table:test_schedule}
+			\end{table}
+
 			\subsection{Test Tasks}
+			\paragraph{}The test is conducted as followed:
+			\begin{enumerate}
+				\item Write test plan.
+				\item Build test cases.
+				\item Execute the tests.
+				\item Evaluate the test results.
+			\end{enumerate}
 		\section{Test Case}
+		\paragraph{}a Test case can be defined as a set of test inputs, execution conditions, and expected results developed for a particular goal to verify compliance with a requirement \cite{test_case}. The following test cases were chosen for being challenging. \textit{Table \ref{table:test_case} shows the test cases for the system}.
+		\setcounter{magicrownumbers}{0} 
+		\def\arraystretch{1.5}
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|c|X|X|X|X|}\hline
+					\boldcolor{No.} & \boldcolor{Function} & \boldcolor{Input} & \boldcolor{Expected Output} & \boldcolor{Resulting Output}\\\hline
+					\rownumber & \textbf{Login} & email and password & If exists in the database and credentials correct, go to raspberry pi's activity. & Display raspberry pi's activity. \\\hline
+					\rownumber & \textbf{Adding a resource} & resource attributes  & Add a new resource if data is in the right format and required fields are filled. & Return successfully added message \\\hline
+					\rownumber & \textbf{Editing a resource} & resource id and its attributes  & Edit resource if id is correct and data is in the right format and required fields are filled. & Return successfully edited message \\\hline
+					\rownumber & \textbf{Deleting a resource} & resource id & Delete resource if id is correct. & Return successfully deleted message \\\hline
+				\end{tabularx}
+			\end{center}
+			\caption{Test Case}
+			\label{table:test_case}
+		\end{table}
 		\section{Test Result}
+		\paragraph{}Testing is done for functional and non-functional requirements. If those results are satisfactory, then is is a success. the following tables demonstrate the results.v 
+
+		\def\arraystretch{1.25}
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|X|c|c|X|}\hline
+					\boldcolor{Requirement} & \boldcolor{Success} & \boldcolor{Failure} &
+					\boldcolor{Description}\\\hline
+					\textbf{Manage hardware} & \checkmark & & the expert user can add manage hardware via the application. however, they must physically connect the components respectfully. \\\hline
+					\textbf{Manage configuration} & & \checkmark & the only available configurations are booleans: Either high or low voltage. \\\hline
+				\end{tabularx}
+			\end{center}
+			\caption{Expert User's Functionalities}
+		\end{table}
+
+		\def\arraystretch{1.25}
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|X|c|c|X|}\hline
+					\boldcolor{Requirement} & \boldcolor{Success} & \boldcolor{Failure} &
+					\boldcolor{Description}\\\hline
+					\textbf{Delete executed immediate commands} & \checkmark & & once a response is read by the android client, they are immediately deleted from the server \\\hline
+					\textbf{Delete read responses} & \checkmark & & once a response is read by the android client, it is immediately deleted from the server \\\hline
+				\end{tabularx}
+			\end{center}
+			\caption{Web Application's Functionalities}
+		\end{table}	
+	
+		\def\arraystretch{1.25}
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|X|c|c|X|}\hline
+					\boldcolor{Requirement} & \boldcolor{Success} & \boldcolor{Failure} &
+					\boldcolor{Description}\\\hline
+					\textbf{Get command list} & \checkmark & & raspberry pi read commands  each 30 seconds.  \\\hline
+					\textbf{Update local queue} & \checkmark & & The local queue was replaced by a list for faster implementation  \\\hline
+					\textbf{Execute commands saved in queue} & \checkmark & & Raspberry pi execute commands accordingly\\\hline
+					\textbf{Submit a command response to server} & \checkmark & & Once done, a response is POST to the server\\\hline
+				\end{tabularx}
+			\end{center}
+			\caption{Raspberry Pi's Functionalities}
+		\end{table}	
+		
+		\def\arraystretch{1.25}
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|X|c|c|X|}\hline
+					\boldcolor{Requirement} & \boldcolor{Success} & \boldcolor{Failure} &
+					\boldcolor{Description}\\\hline
+					\textbf{User login or register} & \checkmark & & validation and authentication are implemented too. \\\hline
+					\textbf{Manage resources} & \checkmark & & a user can get, delete, create and edit each of the following: raspberry pi, hardware, command and schedule. \\\hline
+					\textbf{Receive Responses} & \checkmark & & Response service pulls responses from the server each 5 minutes and show them in the notifications. \\\hline
+				\end{tabularx}
+			\end{center}
+			\caption{Android Client's Functionalities}
+		\end{table}		
+
+
+		\def\arraystretch{1.25}
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabularx}{\linewidth}{|X|c|c|X|}\hline
+					\boldcolor{Requirement} & \boldcolor{Success} & \boldcolor{Failure} &
+					\boldcolor{Description}\\\hline
+					\textbf{Availability} & \checkmark & & The server bought guarantee a 99.99\% up-time.\\\hline
+					\textbf{Usability}& \checkmark & & The system is easy to use, especially that the hardware can be added via the mobile application instead of raspberry pi's console. \\\hline
+					\textbf{Verifiability} & \checkmark & & the system require authentication in each step via a token \\\hline
+					\textbf{Performance and Delay} & \checkmark & &  The raspberry pi read user commands within 30 seconds of adding the command\\\hline
+					\textbf{Flexibility} & & \checkmark & although the application accepts any hardware in theory, only LEDs have been tested. \\\hline
+					\textbf{Security} & \checkmark &  & tokens are used as means of communication.  \\\hline
+					\textbf{Efficiency}  & \checkmark & & the web application cleans up executed command periodically.\\\hline
+				\end{tabularx}
+			\end{center}
+			\caption{Non-functional requirements}
+		\end{table}
+		
 		\newpage	
 	\mychapter{Conclusion}
 		\section{Conclusion}
 		\paragraph{}In summary, this project aimed to create a system that controls electronic household items from afar. In short, an android application was used as an interface for the user to issue control commands, which are in turn sent to and stored in the server. They are gotten from the server by a small computer (Raspberry Pi) that controls an electric circuit, to which the desired household items are connected and manipulated as per the commands. The project is a direct application of the concept of Internet of things and automated house systems.
 		
 		\section{Evaluation}
-		\paragraph{} Users all over the world can benefit greatly from an increase in systems and applications offered to enable control of devices over the Internet. As the trend in recent years has been for faster and more inclusive control of aspects of human life, more and more of these systems have popped up to help users control their cars, home appliances, doors etc. non manually using Internet of things, without having to actually be there.
-		\paragraph{} For that, we have created a downloadable android application. It allows the user to add different Raspberry Pi’s, each connected to its own hardware. He can then choose a certain item of hardware that he wishes to control, like the LED and issue a command to turn the light on. He can then choose to schedule the command by choosing the days of the week he wants it to be turned on and the timings, or he can just choose for it to be executed immediately. After execution, he receives a push notification to confirm the command being executed successfully.
-		\paragraph{} The application we have created successfully ticks all the boxes for an acceptable, feasible smart control system. It doesn’t cost much; \$25-\$35 for a Raspberry Pi and very low costs for the wires and relays that connect the house appliances to the laptop. It is secure, as it uses login tokens to ensure that, at every step in the command issuing process, the same correct user is logged in. It is also relatively fast, as the commands are gotten from the server every 30 seconds so this allows for very fast execution of the command for a system this cheap.
-
+		\paragraph{}Users all over the world can benefit greatly from an increase in systems and applications offered to enable control of devices over the Internet. As the trend in recent years has been for faster and more inclusive control of aspects of human life, more and more of these systems have popped up to help users control their cars, home appliances, doors etc. non manually using Internet of things, without having to actually be there.
+		\paragraph{}For that, we have created a downloadable android application. It allows the user to add different Raspberry Pi’s, each connected to its own hardware. He can then choose a certain item of hardware that he wishes to control, like the LED and issue a command to turn the light on. He can then choose to schedule the command by choosing the days of the week he wants it to be turned on and the timings, or he can just choose for it to be executed immediately. After execution, he receives a push notification to confirm the command being executed successfully.
+		\paragraph{}The application we have created successfully ticks all the boxes for an acceptable, feasible smart control system. It doesn’t cost much; \$25-\$35 for a Raspberry Pi and very low costs for the wires and relays that connect the house appliances to the laptop. It is secure, as it uses login tokens to ensure that, at every step in the command issuing process, the same correct user is logged in. It is also relatively fast, as the commands are gotten from the server every 30 seconds so this allows for very fast execution of the command for a system this cheap.
+		\subsection{Problems faced:}
+		\paragraph{}During the course of working on this project, we faced several problems in every phase, especially in the final phases of the project. They can be summarized as follows:
+		\begin{enumerate}
+			\item In the system analysis phase, we faced some problems knowing exactly the types of software and hardware that we would need, since our project is the first of its kind to be done. This included not knowing the types of files and programs that would be needed.
+			\item A second problem we faced was finding a time we were all free in to be able to work simultaneously on the project because of our conflicting schedules. Several times, we couldn’t do that so we had to repeat to some peers what they had missed out and re-explain it to them. This also resulted in us having online meetings during weekends to be able to catch up and not miss any work.
+			\item Another problem we faced was being able to bring the hardware pieces, like the Raspberry Pi laptop and the wires and the LEDs which were necessary for the project into the university building. We had to go to several places to be able to get permission slips and that wasted a lot of time of the two hours a week we got to be able to work together.
+			\item Usually before any task, we would all sit together and agree exactly how that task is to be done and divide the work accordingly. Because of the quarantine during the last weeks, we couldn’t meet together and work face to face on the project. This resulted in some of the work being submitted needing some corrections as it wasn’t done and agreed upon in cooperation with the whole group.
+			\item The final problem we faced was because of the project being implemented in Android. Since only two girls in the group had Android OS devices, the rest had to design their application pages and test them out on these two phones. So, there was no possibility of downloading the finished application and testing it out on everyone’s phone. That made the testing phase a bit difficult to be done by everyone, especially because, as mentioned above, we could not meet up together to be able to test our pages out and screenshot the results.
+		\end{enumerate}
 
 		\section{Future Work}
-		\paragraph{} As with every system, there are definitely improvements and enhancements to be made. In the future, more configuration can be added to the different types of hardware, like different LED colors or different fan speeds. Also, making it wireless will further reduce its cost and remove the hassle of wires connecting, maintenance and wires going bad. 
+		\paragraph{}For our project, we had several more things in mind that we couldn’t implement because of the time crunch towards the end. First, we had wanted to try out the linear solenoid that was supposed to push forward and press the button of whatever device the user wanted to control, like the coffee machine’s or an air conditioner’s remote control. Unfortunately, we only had time to test out the LED bulbs.
+		\paragraph{}Secondly, we had intended to include a Configuration table in the database. We wanted it to contain all the different types of configurations possible for all the different types of connected hardware. So, for example, the table would store the fan’s settings which would be on/off or any of its three speeds, the air conditioner’s different settings which would be the temperatures, swing options and sleep, etc. We also did not have time to try out enough hardware so we only had the LED’s configuration as on/off, which did not require a whole table to be made for it.
+		\paragraph{}As with every system, there are definitely improvements and enhancements to be made. Our first idea is definitely making the application available for iOS users too. That will require knowing how to code in Swift but it will make the application available to a bigger portion of the community as most people here use iPhones instead of Android run devices.
 	\newpage
 	
 	
@@ -1477,8 +1611,8 @@
 	\appendix
 	%\renewcommand{thesection}{\Alph{section}}
 		\chapter{Figures}
-		\label{appendix:similar_system_comparision}
 		\section{Similar systems hub design}
+		\label{appendix:similar_system_comparision}
 		\begin{figure}[H]
 			\begin{subfigure}[b]{.5\linewidth}
 				\includegraphics[width=\linewidth]{img/insteon_hw.png}
@@ -1499,9 +1633,50 @@
 			\caption{Similar systems: hub design}
 		\end{figure}
 
+
+		\section{Some more Validation Cases}
+		\label{appendix:validation}
+		\begin{figure}[H]
+			\begin{subfigure}[b]{.5\linewidth}
+				\includegraphics[width=\linewidth]{img/output_validation_add.jpg}
+				\caption{Telling the user an item was added successfully}
+			\end{subfigure}
+			\begin{subfigure}[b]{.5\linewidth}
+				\includegraphics[width=\linewidth]{img/output_validation_empty.jpg}
+				\caption{a required field cannot be left empty}
+			\end{subfigure}
+			\begin{subfigure}[b]{.5\linewidth}
+				\includegraphics[width=\linewidth]{img/output_validation_delete.jpg}
+				\caption{Telling the user an item was deleted successfully}
+			\end{subfigure}
+			\begin{subfigure}[b]{.5\linewidth}
+				\includegraphics[width=\linewidth]{img/output_validation_update.jpg}
+				\caption{Telling the user an item was updated successfully}
+			\end{subfigure}
+			\caption{Validation}
+		\end{figure}
+
+
 		\newpage\chapter{REST API Documentation}
 		\label{appendix:api_doc}
 		\includepdf[pages=-, width=\linewidth, pagecommand={\pagestyle{fancy}}]{file/api-documentation.pdf}
+		
+		\newpage\chapter{Code}
+		\section{Web Application}
+		\lstinputlisting[language=Python, caption={\_\_init\_\_.py}]{code/__init__.py}
+		\lstinputlisting[language=Python, caption={view.py}]{code/view.py}
+		\lstinputlisting[language=Python, caption={model.py}]{code/model.py}
+		\section{Raspberry Pi}
+		\lstinputlisting[language=Python, caption={main.py}]{code/main.py}
+		\section{Android Application}
+		\lstinputlisting[language=Java, caption={Command.java}]{code/Command.java}
+		\lstinputlisting[language=Java, caption={CommandAdapter.java}]{code/CommandAdapter.java}		
+		\lstinputlisting[language=Java, caption={CommandListActivity.java}]{code/CommandListActivity.java}		
+		\lstinputlisting[language=Java, caption={NewCommandActivity.java}]{code/NewCommandActivity.java}
+		\lstinputlisting[language=Java, caption={ScheduleActivity.java}]{code/ScheduleActivity.java}
+		\lstinputlisting[language=Java, caption={activity\_command\_list.xml}]{code/activity_command_list.xml}
+		\lstinputlisting[language=Java, caption={command\_item\_adapter.xml}]{code/command_item_adapter.xml}	
 
+									
 \end{document}
 
