@@ -1195,11 +1195,12 @@
 		\section{Implementation Requirements}
 		\paragraph{}As mentioned before, the system has three major components: \boldcolor{Web application}, \boldcolor{mobile application} and \boldcolor{raspberry pi script}. The software requirement was detailed in section \ref{sec:software_req} while the hardware requirements was in section \ref{sec:hardware_req}.  However, after writing the code for each component, an installation has to be made. 
 		\subsection{Software Requirements}
-		\paragraph{} Jet brain's IDE were used to write the code, specifically \textbf{PyCharm}. For the android application, the official \textbf{Android Studio} was used.
+		\paragraph{} Jet brain's IDE were used to write the code, specifically \textbf{PyCharm}. For the android application, the official \textbf{Android Studio} was used. \textbf{Postman} was used to test the API.
 		
 		\subsection{Hardware Requirements}
+		\label{hardware_deployment}
 		\paragraph{} For the web application, a server was brought. The OS is \textit{ubunut 16.04}. The official digitalocean \cite{digitalocean_2019} guide was followed. After that, a domain name was assigned to the web application and it is now available over \url{gp.reem-codes.com}.
-		\paragraph{} For the android application, an android mobile is required.
+		\paragraph{} For the android application, an android mobile is required. Our application is available in google play. \url{https://play.google.com/store/apps/details?id=com.reem_codes.gp_android}
 		\paragraph{} Finally for the raspberry script, raspberry pi was bought along with its accessories mentioned before. \textit{Figure \ref{conn}} shows raspberry pi connected to two LEDs.
 		\begin{figure}[H]
 			\centering
@@ -1448,7 +1449,13 @@
 				\label{fig:test_example}
 			\end{figure}
 			\subsection{System and Integration Testing}
-			\paragraph{}Here, the concern is on the harmony between the 3 subsystems and their communication. After testing each component under each sub-system individually, a complete system test must be performed to check for any communication error.
+			\paragraph{}Here, the concern is on the harmony between the 3 subsystems and their communication. After testing each component under each sub-system individually, a complete system test must be performed to check for any communication error. \textbf{Postman} was used to ensure correct REST API behavior as shown in the \textit{figure \ref{fig:postman}}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\linewidth]{img/postman.png}
+				\caption{Postman testing the API}
+				\label{fig:postman}
+			\end{figure}
 			\subsection{The Scope}
 			\paragraph{}The scope of testing includes the \textbf{testable coded parts}; which means testing the hardware and its power is outside of the testing scope. To be specific, no checking will be made to make sure the server is constantly up. Secondly, no testing for the mobile device's memory usage or battery -a network check, however, will be performed-. Finally, no checking to see if the raspberry pi's components are in good shape.
 			\subsection{Features to Be Tested}
@@ -1497,7 +1504,7 @@
 			\label{table:test_case}
 		\end{table}
 		\section{Test Result}
-		\paragraph{}Testing is done for functional and non-functional requirements. If those results are satisfactory, then is is a success. the following tables demonstrate the results.v 
+		\paragraph{}Testing is done for functional and non-functional requirements. If those results are satisfactory, then is is a success. the following tables demonstrate the results.
 
 		\def\arraystretch{1.25}
 		\begin{table}[H]
@@ -1573,7 +1580,42 @@
 			\caption{Non-functional requirements}
 		\end{table}
 		
-		\newpage	
+		\newpage
+		\mychapter{Deployment}
+			\paragraph{}After implementing the system and testing it, the system was deployed. Again, for each sub-system, the deployment method is different. As mentioned briefly in \textit{Section \ref{hardware_deployment}}. 
+			\section{Web Application}
+			\paragraph{}First, a domain name and a web server were bought. The official tutorials and help-guides were followed for each service used. Although the web application is a REST API, we made an interface for people who visit it. \textit{Figure \ref{fig:landpage}} shows the interface. The interface can be accessed here \url{gp.reem-codes.com}. For security purposes, SSL certificate was installed from \textbf{Let's Encrypt}. The domain was brought from \textbf{namescheap} and the server from \textbf{DigitalOcean}. 
+			\subsection{Raspberry Pi Script}
+			\paragraph{} The other use of this page is downloading the raspberry pi script. User can access the website and find the application to be installed in their raspberry pi.
+						
+			\begin{figure}[H]
+				\centering
+				\begin{subfigure}[b]{.5\linewidth}
+					\includegraphics[width=\linewidth]{img/landpage1.png}
+					\caption{Landing Page - Methodology}
+				\end{subfigure}
+				\begin{subfigure}[b]{.5\linewidth}
+					\includegraphics[width=\linewidth]{img/landpage2.png}
+					\caption{Landing Page - Gallery}
+				\end{subfigure}
+				\begin{subfigure}[b]{.5\linewidth}
+					\includegraphics[width=\linewidth]{img/landpage3.png}
+					\caption{Landing Page - Deliverable}
+				\end{subfigure}	
+				\caption{Landing Page}
+				\label{fig:landpage}	
+			\end{figure}		
+			\section{Android Application}
+			\paragraph{}Android studio offers a way to build the application into \textbf{apk} files then sharing them freely. However, the majority of phones disable downloading from them by default. Unless the user has a good knowledge of how to change the option, they won't be able to use the application. Thus, deploying it in \textbf{google play} was essential.
+			\paragraph{} Again, official tutorials were followed. The problems all came from waiting for the approval. Once it was approved, it was published in google play here \url{https://play.google.com/store/apps/details?id=com.reem_codes.gp_android}. \textit{Figure \ref{fig:googleplay} shows the application in google play}.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\linewidth]{img/google_play.png}
+				\caption{The Application in Google Play}
+				\label{fig:googleplay}
+			\end{figure}
+			
+		\newpage		
 	\mychapter{Conclusion}
 		\section{Conclusion}
 		\paragraph{}In summary, this project aimed to create a system that controls electronic household items from afar. In short, an android application was used as an interface for the user to issue control commands, which are in turn sent to and stored in the server. They are gotten from the server by a small computer (Raspberry Pi) that controls an electric circuit, to which the desired household items are connected and manipulated as per the commands. The project is a direct application of the concept of Internet of things and automated house systems.
@@ -1582,11 +1624,13 @@
 		\paragraph{}Users all over the world can benefit greatly from an increase in systems and applications offered to enable control of devices over the Internet. As the trend in recent years has been for faster and more inclusive control of aspects of human life, more and more of these systems have popped up to help users control their cars, home appliances, doors etc. non manually using Internet of things, without having to actually be there.
 		\paragraph{}For that, we have created a downloadable android application. It allows the user to add different Raspberry Pi’s, each connected to its own hardware. He can then choose a certain item of hardware that he wishes to control, like the LED and issue a command to turn the light on. He can then choose to schedule the command by choosing the days of the week he wants it to be turned on and the timings, or he can just choose for it to be executed immediately. After execution, he receives a push notification to confirm the command being executed successfully.
 		\paragraph{}The application we have created successfully ticks all the boxes for an acceptable, feasible smart control system. It doesn’t cost much; \$25-\$35 for a Raspberry Pi and very low costs for the wires and relays that connect the house appliances to the laptop. It is secure, as it uses login tokens to ensure that, at every step in the command issuing process, the same correct user is logged in. It is also relatively fast, as the commands are gotten from the server every 30 seconds so this allows for very fast execution of the command for a system this cheap.
+
 		\subsection{Problems faced:}
 		\paragraph{}During the course of working on this project, we faced several problems in every phase, especially in the final phases of the project. They can be summarized as follows:
 		\begin{enumerate}
 			\item In the system analysis phase, we faced some problems knowing exactly the types of software and hardware that we would need, since our project is the first of its kind to be done. This included not knowing the types of files and programs that would be needed.
 			\item A second problem we faced was finding a time we were all free in to be able to work simultaneously on the project because of our conflicting schedules. Several times, we couldn’t do that so we had to repeat to some peers what they had missed out and re-explain it to them. This also resulted in us having online meetings during weekends to be able to catch up and not miss any work.
+			\item Many problems occurred while deploying the system. Google took 7 days to verify us to allow us to post in google play which took another week. Also, deploying the API took a lot of time to configure and fix the problems. The difficulty comes from the fast that no error messages are displayed. So we had to manage it ourselves.
 			\item Another problem we faced was being able to bring the hardware pieces, like the Raspberry Pi laptop and the wires and the LEDs which were necessary for the project into the university building. We had to go to several places to be able to get permission slips and that wasted a lot of time of the two hours a week we got to be able to work together.
 			\item Usually before any task, we would all sit together and agree exactly how that task is to be done and divide the work accordingly. Because of the quarantine during the last weeks, we couldn’t meet together and work face to face on the project. This resulted in some of the work being submitted needing some corrections as it wasn’t done and agreed upon in cooperation with the whole group.
 			\item The final problem we faced was because of the project being implemented in Android. Since only two girls in the group had Android OS devices, the rest had to design their application pages and test them out on these two phones. So, there was no possibility of downloading the finished application and testing it out on everyone’s phone. That made the testing phase a bit difficult to be done by everyone, especially because, as mentioned above, we could not meet up together to be able to test our pages out and screenshot the results.
@@ -1659,7 +1703,7 @@
 
 		\newpage\chapter{REST API Documentation}
 		\label{appendix:api_doc}
-		\includepdf[pages=-, width=\linewidth, pagecommand={\pagestyle{fancy}}]{file/api-documentation.pdf}
+		\includepdf[pages=1-10, width=\linewidth, pagecommand={\pagestyle{fancy}}]{file/api-documentation.pdf}
 		
 		\newpage\chapter{Code}
 		\section{Web Application}
